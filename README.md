@@ -39,14 +39,20 @@ Admin dashboard for server management and analytics.
 
 # Schema
 ## users
-| column name  | data type | constraints               |
-|--------------|-----------|---------------------------|
-| `id`         | bigint    | not null, primary key     |
-| `username`   | string    | not null, unique, indexed |
-| `email`      | string    | not null, unique, indexed |
-| `password`   | string    | not null                  |
-| `avatar_url` | string    |                           |
-| `created_at` | datetime  | not null, default NOW()   |
+| column name       | data type | constraints               |
+|-------------------|-----------|---------------------------|
+| `id`              | bigint    | not null, primary key     |
+| `username`        | string    | not null, unique, indexed |
+| `email`           | string    | not null, unique, indexed |
+| `password_digest` | string    | not null                  |
+| `session_token`   | string    | not null, unique, indexed |
+| `avatar_url`      | string    |                           |
+| `created_at`      | datetime  | not null, default NOW()   |
+- index on `username, unique: true`
+- index on `email, unique: true`
+- `has_many :servers, through :server, class_name :user_server`
+- `belongs_to :server`
+- `has_many :messages`
 
 ## servers
 | column name  | data type | constraints                |
@@ -56,14 +62,18 @@ Admin dashboard for server management and analytics.
 | `owner_id`   | bigint    | not null, indexed          |
 | `icon_url`   | string    |                            |
 | `created_at` | datetime  | not null, default NOW()    |
-
+- `has_many :users`
+- `has_many :channels`
+- `has_many :moderators, through :moderator`
 ## user_server
 | column name | data type | constraints           |
 |-------------|-----------|-----------------------|
 | `id`        | bigint    | not null, primary key |
 | `user_id`   | bigint    | not null, indexed     |
 | `server_id` | bigint    | not null, indexed     |
-
+- `belongs_to :server`
+- `belongs_to :moderator`
+- index on `[:server_id, :user_id], unique: true`
 ## channels
 | column name | data type | constraints             |
 |-------------|-----------|-------------------------|
@@ -72,7 +82,8 @@ Admin dashboard for server management and analytics.
 | `name`      | string    | not null                |
 | `type`      | string    | not null                |
 | `created_at`| datetime  | not null, default NOW() |
-
+- `belongs_to :server`
+- `has_many :messages`
 ## messages
 | column name  | data type | constraints             |
 |--------------|-----------|-------------------------|
@@ -81,3 +92,50 @@ Admin dashboard for server management and analytics.
 | `channel_id` | bigint    | not null                |
 | `content`    | text      | not null                |
 | `created_at` | datetime  | not null, default NOW() |
+- `belongs_to :user`
+- `belongs_to :channel`
+# Sample State
+```
+{
+  user: {
+    id: 1,
+    username: "dupe",
+    email: "dupe@example.com",
+    avatar_url: "./avatar.png",
+    created_at: "2023-09-28T12:00:00Z",
+  },
+  servers: [
+    {
+      id: 1,
+      name: "Sample Server",
+      owner_id: 1,
+      icon_url: "./server_icon.png",
+      created_at: "2023-09-28T12:00:00Z",
+    },
+  ],
+  userServers: [
+    {
+      user_id: 1,
+      server_id: 1,
+    },
+  ],
+  channels: [
+    {
+      id: 1,
+      server_id: 1,
+      name: "general",
+      type: "text",
+      created_at: "2023-09-28T12:00:00Z",
+    }
+  ],
+  messages: [
+    {
+      id: 1,
+      user_id: 1,
+      channel_id: 1,
+      content: "Hello, world!",
+      created_at: "2023-09-28T12:05:00Z",
+    },
+  ],
+}
+```

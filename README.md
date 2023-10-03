@@ -37,7 +37,7 @@ Admin dashboard for server management and analytics.
 - User reporting and moderation tools.
 - Compliance with legal and regulatory requirements.
 
-# Schema
+# PostgreSQL Schema
 ## users
 | column name       | data type | constraints               |
 |-------------------|-----------|---------------------------|
@@ -47,13 +47,13 @@ Admin dashboard for server management and analytics.
 | `password_digest` | string    | not null                  |
 | `session_token`   | string    | not null, unique, indexed |
 | `avatar_url`      | string    |                           |
-| `created_at`      | datetime  | not null, default NOW()   |
+| `created_at`      | datetime  | not null                  |
 - index on `username, unique: true`
 - index on `email, unique: true`
 - `has_many :servers, through :server, class_name :user_server`
 - `belongs_to :server`
 - `has_many :messages`
-
+- `has_many :direct_messages, through :friends`
 ## servers
 | column name  | data type | constraints                |
 |--------------|-----------|----------------------------|
@@ -61,19 +61,10 @@ Admin dashboard for server management and analytics.
 | `name`       | string    | not null                   |
 | `owner_id`   | bigint    | not null, indexed          |
 | `icon_url`   | string    |                            |
-| `created_at` | datetime  | not null, default NOW()    |
+| `created_at` | datetime  | not null                   |
 - `has_many :users`
 - `has_many :channels`
 - `has_many :moderators, through :moderator`
-## user_server
-| column name | data type | constraints           |
-|-------------|-----------|-----------------------|
-| `id`        | bigint    | not null, primary key |
-| `user_id`   | bigint    | not null, indexed     |
-| `server_id` | bigint    | not null, indexed     |
-- `belongs_to :server`
-- `belongs_to :moderator`
-- index on `[:server_id, :user_id], unique: true`
 ## channels
 | column name | data type | constraints             |
 |-------------|-----------|-------------------------|
@@ -81,7 +72,7 @@ Admin dashboard for server management and analytics.
 | `server_id` | bigint    | not null                |
 | `name`      | string    | not null                |
 | `type`      | string    | not null                |
-| `created_at`| datetime  | not null, default NOW() |
+| `created_at`| datetime  | not null                |
 - `belongs_to :server`
 - `has_many :messages`
 ## messages
@@ -91,9 +82,39 @@ Admin dashboard for server management and analytics.
 | `user_id`    | bigint    | not null                |
 | `channel_id` | bigint    | not null                |
 | `content`    | text      | not null                |
-| `created_at` | datetime  | not null, default NOW() |
+| `created_at` | datetime  | not null                |
 - `belongs_to :user`
 - `belongs_to :channel`
+## direct_messages
+| column name  | data type | constraints             |
+|--------------|-----------|-------------------------|
+| `id`         | bigint    | not null, primary key   |
+| `user_id`    | bigint    | not null                |
+| `channel_id` | bigint    | not null                |
+| `content`    | text      | not null                |
+| `created_at` | datetime  | not null                |
+- `belongs_to :user`
+
+# Join Tables
+## user_server
+| column name | data type | constraints           |
+|-------------|-----------|-----------------------|
+| `id`        | bigint    | not null, primary key |
+| `user_id`   | bigint    | not null, indexed     |
+| `server_id` | bigint    | not null, indexed     |
+- `belongs_to :server`
+- `belongs_to :moderator`
+- index on `[:server_id, :user_id], unique: true`
+## friends
+| column name  | data type | constraints           |
+|--------------|-----------|-----------------------|
+| `id`         | bigint    | not null, primary key |
+| `friend_id`  | bigint    | not null, indexed     |
+| `created_at` | datetime  | not null              |
+- index on `[:id, :friend_id], unique: true`
+- has_many `:direct_messages`
+- belongs_to `:user`
+
 # Sample State
 ```
 { entities: {
@@ -161,85 +182,104 @@ Admin dashboard for server management and analytics.
 
 # Frontend Routes
 ## Authentication Routes:
-/login
-/register
-/forgot-password
-/reset-password
+* /login
+* /register
+* /forgot-password
+* /reset-password
 
 ## Main Application Routes:
-/dashboard
-/friends
-/profile
-/servers
-/servers/create
-/servers/:serverId
-/servers/:serverId/settings
-/servers/:serverId/channels/:channelId
+* /dashboard
+* /friends
+* /profile
+* /servers
+* /servers/create
+* /servers/:serverId
+* /servers/:serverId/settings
+* /servers/:serverId/channels/:channelId
 
 ## Server Management Routes:
-/servers/:serverId/members
-/servers/:serverId/members/:memberId
-/servers/:serverId/channels/create
+* /servers/:serverId/members
+* /servers/:serverId/members/:memberId
+* /servers/:serverId/channels/create
 
 ## Direct Messaging Routes:
-/direct-messages
-/direct-messages/:friendId
+* /direct-messages
+* /direct-messages/:friendId
 
 ## Message Detail Routes:
-/servers/:serverId/channels/:channelId/messages/:messageId
+* /servers/:serverId/channels/:channelId/messages/:messageId
 
 ## Search and Discovery Routes:
-/search
+* /search
 
 ## Settings Routes:
-/settings
-/settings/profile
-/settings/account
-/settings/notifications
-/settings/appearance
+* /settings
+* /settings/profile
+* /settings/account
+* /settings/notifications
+* /settings/appearance
 
 ## Miscellaneous Routes:
-/about
-/help
-/terms
-/privacy
+* /about
+* /help
+* /terms
+* /privacy
 
 # Backend Routes
-## HTML
-```GET /``` - ```StaticPagesController#FrontendIndex```
-## API Endpoints
-### User Routes:
-```GET /api/users/:userId``` - return current user information
-```GET /api/users/:userId``` - return user information by ID
-```PUT /api/users/:userId``` - update user profile information
-### Server Routes:
-```GET /api/servers``` - returns list of servers current user is part of
-```GET /api/servers/:serverId``` - returns details of specific server
-```POST /api/servers``` - create a new server
-```PUT /api/servers/:serverId``` - update server details (if user is owner)
-```DELETE /api/servers/:serverId``` - delete server (if user is the owner)
-### User-Server Relationship Routes:
-```GET /api/users/:userId/servers``` - list of servers user is a member of
-```POST /api/users/:userId/servers/:serverId``` - add user to a server
-```DELETE /api/users/:userId/servers/:serverId``` - remove non-owner user from a server
-### Channel Routes:
-```GET /api/channels/:channelId``` - get details of a specific channel
-```POST /api/servers/:serverId/channels``` - create a new channel (if user has permission)
-```PUT /api/channels/:channelId``` update channel details (if user has permission)
-```DELETE /api/channels/:channelId``` delete a channel (if user has permission)
-### Message Routes:
-```GET /api/channels/:channelId/messages``` - returns messages in a channel
-```POST /api/channels/:channelId/messages``` - create a new message in a channel
-```PUT /api/channels/:channelId/messages/:messageId``` - edit a message in a channel
-```DELETE /api/channels/:channelId/messages/:messageId``` - delete a message in a channel (if user has permission)
-### Friendship and Direct Messaging Routes:
-```GET /api/friends``` - return list of friends
-```POST /api/friends/:friendId``` - send a friend request
-```PUT /api/friends/:friendId``` - accept or decline a friend request
-```DELETE /api/friends/:friendId``` - remove a friend
 
+## HTML
+* ```GET /``` - ```StaticPagesController#FrontendIndex```
+
+# API Endpoints
+## ```users```
+### User Routes:
+* ```GET /api/users/:userId``` - return user information by ID ```#show```
+* ```POST /api/users/:userId``` - user sign-up/creation ```#create```
+* ```PATCH /api/users/:userId``` - update user profile information ```#update```
+* ```DELETE /api/users/:userId``` - delete user account ```#destroy```
+
+## ```session```
+### Authentication Routes
+* ```GET /api/session``` - returns CSRF token and current user to populate front-end store ```#show```
+* ```POST /api/session``` - signs user in ```#create```
+* ```DELETE /api/session``` - logs current user out ```#destroy```
+
+## ```server```
+### Server Routes:
+* ```GET /api/servers``` - returns list of servers current user is part of ```#index```
+* ```GET /api/servers/:serverId``` - returns details of specific server ```#show```
+* ```POST /api/servers``` - create a new server ```#create```
+* ```PATCH /api/servers/:serverId``` - update server details (if user is owner) ```#update```
+* ```DELETE /api/servers/:serverId``` - delete server (if user is the owner) ```#destroy```
 ### Server Membership and Roles Routes:
-```GET /api/servers/:serverId/members``` - returns list of members in a server
-```POST /api/servers/:serverId/members/:memberId/invite``` - invite a user to a server
-```POST /api/servers/:serverId/members/:memberId/join``` - join a server using an invite
-```PUT /api/servers/:serverId/members/:memberId```- manage member roles and permissions (if have permission).
+* ```GET /api/servers/:serverId/members``` - returns list of members in a server ```#index```
+* ```POST /api/servers/:serverId/members/:memberId/invite``` - invite a user to a server ```#create```
+* ```POST /api/servers/:serverId/members/:memberId/join``` - join a server using an invite ```#update```
+* ```PATCH /api/servers/:serverId/members/:memberId```- manage member roles and permissions (if have permission) ```#update```
+
+## ```channels```
+### Channel Routes:
+* ```GET /api/channels/``` - returns index of channels ```#index```
+* ```POST /api/channels``` - create a new channel (if user has permission) ```#create```
+* ```PATCH /api/channels/:channelId``` update channel details (if user has permission) ```#update```
+* ```DELETE /api/channels/:channelId``` delete a channel (if user has permission) ```#destroy```
+
+## ```messages```
+### Channel Message Routes:
+* ```GET /api/channels/:channelId/messages``` - returns messages in a channel ```#index```
+* ```POST /api/channels/:channelId/messages``` - create a new message in a channel ```#create```
+* ```PATCH /api/channels/:channelId/messages/:messageId``` - edit a message in a channel ```#update```
+* ```DELETE /api/channels/:channelId/messages/:messageId``` - delete a message in a channel (if user has permission) ```#destroy```
+## ```direct_messages```
+### Direct Message Routes:
+* ```GET /api/friends/:friendId/messages``` - returns direct messages with a specific user ```#show```
+* ```POST /api/friends/:friendId/messages``` - create new direct message ```#create```
+* ```PATCH /api/friends/:friendId/messages/:messageId``` - edit a direct message ```#update```
+* ```DELETE /api/friends/:friendId/messages/:messageId``` - delete a direct message ```#destroy```
+
+## ```friends```
+### Friendship Routes:
+* ```GET /api/friends``` - return list of friends ```#index```
+* ```POST /api/friends/:friendId``` - send a friend request ```#create```
+* ```PATCH /api/friends/:friendId``` - accept or decline a friend request ```#update```
+* ```DELETE /api/friends/:friendId``` - remove a friend ```#destroy```

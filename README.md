@@ -96,46 +96,65 @@ Admin dashboard for server management and analytics.
 - `belongs_to :channel`
 # Sample State
 ```
-{
-  user: {
-    id: 1,
+{ entities: {
+  users: {
+    1: { id: 1,
     username: "dupe",
     email: "dupe@example.com",
     avatar_url: "./avatar.png",
     created_at: "2023-09-28T12:00:00Z",
+    },
+    2: { id: 2,
+    username: "dupette",
+    email: "dupette@example.com",
+    avatar_url: "./avatar2.png",
+    created_at: "2023-09-28T12:00:00Z",
+    }
   },
-  servers: [
-    {
+  servers: {
+    1: {
       id: 1,
       name: "Sample Server",
       owner_id: 1,
       icon_url: "./server_icon.png",
       created_at: "2023-09-28T12:00:00Z",
     },
-  ],
-  userServers: [
-    {
+  },
+  userServers: {
+    1: {
       user_id: 1,
       server_id: 1,
     },
-  ],
-  channels: [
-    {
+    2: {
+    user_id: 2,
+    server_id: 1,
+    },
+  },
+  channels: {
+    1: {
       id: 1,
       server_id: 1,
       name: "general",
       type: "text",
       created_at: "2023-09-28T12:00:00Z",
+    },
+    2: {
+      id: 2,
+      server_id: 1,
+      name: "voice",
+      type: "voice",
+      created_at: "2023-09-28T12:00:00Z",
     }
-  ],
-  messages: [
-    {
+  },
+  messages: {
+    1: {
       id: 1,
       user_id: 1,
       channel_id: 1,
       content: "Hello, world!",
       created_at: "2023-09-28T12:05:00Z",
     },
-  ],
+  },
+}
 }
 ```

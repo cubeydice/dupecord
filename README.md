@@ -158,3 +158,88 @@ Admin dashboard for server management and analytics.
 }
 }
 ```
+
+# Frontend Routes
+## Authentication Routes:
+/login
+/register
+/forgot-password
+/reset-password
+
+## Main Application Routes:
+/dashboard
+/friends
+/profile
+/servers
+/servers/create
+/servers/:serverId
+/servers/:serverId/settings
+/servers/:serverId/channels/:channelId
+
+## Server Management Routes:
+/servers/:serverId/members
+/servers/:serverId/members/:memberId
+/servers/:serverId/channels/create
+
+## Direct Messaging Routes:
+/direct-messages
+/direct-messages/:friendId
+
+## Message Detail Routes:
+/servers/:serverId/channels/:channelId/messages/:messageId
+
+## Search and Discovery Routes:
+/search
+
+## Settings Routes:
+/settings
+/settings/profile
+/settings/account
+/settings/notifications
+/settings/appearance
+
+## Miscellaneous Routes:
+/about
+/help
+/terms
+/privacy
+
+# Backend Routes
+## HTML
+```GET /``` - ```StaticPagesController#FrontendIndex```
+## API Endpoints
+### User Routes:
+```GET /api/users/:userId``` - return current user information
+```GET /api/users/:userId``` - return user information by ID
+```PUT /api/users/:userId``` - update user profile information
+### Server Routes:
+```GET /api/servers``` - returns list of servers current user is part of
+```GET /api/servers/:serverId``` - returns details of specific server
+```POST /api/servers``` - create a new server
+```PUT /api/servers/:serverId``` - update server details (if user is owner)
+```DELETE /api/servers/:serverId``` - delete server (if user is the owner)
+### User-Server Relationship Routes:
+```GET /api/users/:userId/servers``` - list of servers user is a member of
+```POST /api/users/:userId/servers/:serverId``` - add user to a server
+```DELETE /api/users/:userId/servers/:serverId``` - remove non-owner user from a server
+### Channel Routes:
+```GET /api/channels/:channelId``` - get details of a specific channel
+```POST /api/servers/:serverId/channels``` - create a new channel (if user has permission)
+```PUT /api/channels/:channelId``` update channel details (if user has permission)
+```DELETE /api/channels/:channelId``` delete a channel (if user has permission)
+### Message Routes:
+```GET /api/channels/:channelId/messages``` - returns messages in a channel
+```POST /api/channels/:channelId/messages``` - create a new message in a channel
+```PUT /api/channels/:channelId/messages/:messageId``` - edit a message in a channel
+```DELETE /api/channels/:channelId/messages/:messageId``` - delete a message in a channel (if user has permission)
+### Friendship and Direct Messaging Routes:
+```GET /api/friends``` - return list of friends
+```POST /api/friends/:friendId``` - send a friend request
+```PUT /api/friends/:friendId``` - accept or decline a friend request
+```DELETE /api/friends/:friendId``` - remove a friend
+
+### Server Membership and Roles Routes:
+```GET /api/servers/:serverId/members``` - returns list of members in a server
+```POST /api/servers/:serverId/members/:memberId/invite``` - invite a user to a server
+```POST /api/servers/:serverId/members/:memberId/join``` - join a server using an invite
+```PUT /api/servers/:serverId/members/:memberId```- manage member roles and permissions (if have permission).

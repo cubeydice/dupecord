@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :username,
     length: { in: 2..32 },
     uniqueness: true,
-    format: { with: /\A(?!.*\.\.)[a-z0-9._]+\z/, message: "must be lowercase alphanumeric, with only . or _ allowed as special characters" }
+    format: { with: /\A(?!.*\.\.)[a-z0-9._]+\z/, message: "1" }
   validates :email,
     length: { in: 3..255 },
     uniqueness: true,

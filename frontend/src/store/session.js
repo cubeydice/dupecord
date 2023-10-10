@@ -29,9 +29,10 @@ export const login = (user) => async (dispatch) => {
     })
   });
 
-  const data = await response.json();
-
-  dispatch(setCurrentUser(data.user));
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setCurrentUser(data.user));
+  }
 
   return response;
 };

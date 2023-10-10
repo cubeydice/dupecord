@@ -1,4 +1,4 @@
-const csrfFetch = async (url, options) => {
+const csrfFetch = async (url, options = {}) => {
   options.headers ||= {};
   options.method ||= 'GET';
 

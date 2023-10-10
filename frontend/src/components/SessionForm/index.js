@@ -21,7 +21,7 @@ function LoginFormPage() {
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         let data;
-
+        // debugger
         try {
           data = await res.clone().json();
         } catch {

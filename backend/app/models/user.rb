@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :username,
     length: { in: 2..32 },
     uniqueness: true,
+    #FIX: MESSAGE
     format: { with: /\A(?!.*\.\.)[a-z0-9._]+\z/, message: "1" }
   validates :email,
     length: { in: 3..255 },

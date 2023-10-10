@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from './components/LoginForm';
+import LoginForm from './components/LoginForm';
+import RegisterForm from "./components/RegisterForm";
 
 function App() {
   return (
     <Switch>
-      <Route path="/login">
-        <LoginFormPage />
-      </Route>
+      <Route path="/login"><LoginForm /></Route>
+      <Route path="/register"><RegisterForm /></Route>
     </Switch>
   );
 }

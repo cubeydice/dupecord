@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './LoginForm.css'
 
-function LoginFormPage() {
+function LoginForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
@@ -88,7 +89,7 @@ function LoginFormPage() {
       <br/>
       <button type='submit' className='login-button'>Log In</button>
       <button type='button' className='login-button' onClick={handleDemo}>Demo Account</button>
-      <h3>Need an account? Register</h3>
+      <h3>Need an account? <Link to='/register/'>Register</Link></h3>
     </form>
     <br/>
     </div>
@@ -96,4 +97,4 @@ function LoginFormPage() {
   );
 }
 
-export default LoginFormPage;
+export default LoginForm;

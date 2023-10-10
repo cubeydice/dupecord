@@ -26,7 +26,8 @@ export const removeCurrentUser = () => {
   };
 };
 
-//thunk actions
+//THUNK ACTIONS
+//csrf and session storage
 const storeCSRFToken = response => {
   const csrfToken = response.headers.get("X-CSRF-Token");
   if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
@@ -37,6 +38,21 @@ const storeCurrentUser = user => {
   else sessionStorage.removeItem("currentUser");
 }
 
+export const restoreSession = () => async dispatch => {
+  const response = await csrfFetch("/api/session");
+
+  storeCSRFToken(response);
+
+  if (response.ok) {
+    const data = await response.json();
+    storeCurrentUser(data.user);
+    dispatch(setCurrentUser(data.user));
+  }
+
+  return response;
+};
+
+//login
 export const login = ({ credential, password }) => async (dispatch) => {
   const response = await csrfFetch('/api/session', {
     method: 'POST',
@@ -69,10 +85,16 @@ export const loginDemo = () => async (dispatch) => {
   return response;
 };
 
-export const restoreSession = () => async dispatch => {
-  const response = await csrfFetch("/api/session");
-
-  storeCSRFToken(response);
+//signup
+export const signUp = ({ username, email, password }) => async (dispatch) => {
+  const response = await csrfFetch("/api/users", {
+    method: "POST",
+    body: JSON.stringify({
+      username,
+      email,
+      password
+    })
+  });
 
   if (response.ok) {
     const data = await response.json();
@@ -83,8 +105,7 @@ export const restoreSession = () => async dispatch => {
   return response;
 };
 
-
-//reducer
+//SESSION REDUCER
 const initialState = {
   user: JSON.parse(sessionStorage.getItem("currentUser"))
 };

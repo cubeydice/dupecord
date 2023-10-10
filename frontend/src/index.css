@@ -53,3 +53,15 @@ table {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ------------------------------------------- */
+
+sub {
+  font-size: 9pt;
+  color: #a2a3a7;
+}
+
+a {
+	color: #00b0f4;
+	text-decoration: none;
+}

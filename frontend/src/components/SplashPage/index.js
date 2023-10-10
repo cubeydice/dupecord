@@ -15,17 +15,17 @@ const SplashPage = () => {
     <nav>
       <Link to={'/'}>dupecord</Link>
       <div>
-        <NavLink to='https://github.com/cubeydice/dupecord'>Github</NavLink><br/>
-        <NavLink to='https://www.linkedin.com/in/queen-belle-d-118b7859/'>LinkedIn</NavLink>
+        <a href='https://github.com/cubeydice/dupecord' className='nav-link' target="_blank" rel="noreferrer">Github</a><br/>
+        <a href='https://www.linkedin.com/in/queen-belle-d-118b7859/'className='nav-link'  target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
       <Link to={'/login'}><button className='nav-login-button'>Login</button></Link>
     </nav>
+    <div className='banner'>
+      <CloudsSvg className='banner1'/>
+      <Hero1Svg className='banner2'/>
+      <Hero2Svg className='banner3'/>
+    </div>
     <main>
-      <div className='banner'>
-        <CloudsSvg className='banner1'/>
-        {/* <Hero1Svg className='banner2'/>
-        <Hero2Svg className='banner2'/> */}
-      </div>
       <div>
       <h1 className='title'>IMAGINE A PLACE...</h1>
         <p>...where you can belong to a school club, a gaming group, or a worldwide art community.
@@ -33,11 +33,15 @@ const SplashPage = () => {
         A place that makes it easy to talk every day and hang out more often.
         </p>
       </div>
+      <div>
+        <Link to={'/login'}><button className='nav-login-button'>Login</button></Link>
+        <Link to={'/login'}><button className='nav-login-button' id='splash-button-2'>Login</button></Link>
+      </div>
     </main>
 
 
     <section>
-      <figure><ServerSvg/></figure>
+      <ServerSvg/>
       <div>
         <h1>Create an invite-only place where you belong</h1>
         <p>Dupecord servers are organized into topic-based channels where you can collaborate,
@@ -53,11 +57,11 @@ const SplashPage = () => {
         Friends in your server can see you’re around and instantly pop in to talk without having to call.
         </p>
       </div>
-      <figure><VoiceSvg/></figure>
+      <VoiceSvg/>
     </section>
 
     <section>
-      <figure><ModerationSvg/></figure>
+      <ModerationSvg/>
       <div>
         <h1>From few to a fandom</h1>
         <p>Get any community running with moderation tools and custom member access.
@@ -66,16 +70,20 @@ const SplashPage = () => {
       </div>
     </section>
 
-    <section>
+    <section className='splash-video'>
       <div>
         <h1>RELIABLE TECH FOR STAYING CLOSE</h1>
         <p>Low-latency voice and video feels like you’re in the same room.
           Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.
-        <figure><VideoSvg/></figure>
+        <VideoSvg/>
         </p>
-        <h1>Ready to start your journey?</h1>
       </div>
     </section>
+
+    <section>
+        <h1>Ready to start your journey?</h1>
+    </section>
+
     </>
   )
 }

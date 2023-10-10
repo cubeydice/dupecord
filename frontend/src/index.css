@@ -56,6 +56,11 @@ body {
 
 /* ------------------------------------------- */
 
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
 sub {
   font-size: 9pt;
   color: #a2a3a7;

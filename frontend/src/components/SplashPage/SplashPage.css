@@ -1,8 +1,9 @@
 nav {
-  background-color: #3140ea;
+  background-color: #3c4ae7;
   display: flex;
   justify-content: space-between;
   padding: 20px 100px;
+  align-items: center;
 }
 
 nav a {
@@ -14,9 +15,14 @@ nav div {
   justify-content: space-evenly;
 }
 
+.nav-link {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .nav-login-button {
   background-color: white;
-  color: black;
+  color: #23272a;
   border-radius: 40px;
   height: 40px;
   width: 70px;
@@ -25,45 +31,78 @@ nav div {
 
 .banner {
   position: relative;
-  background-color: #3745dc;
 }
 
 .banner1 {
   position: absolute;
-  left: 0;
-  z-index: 1;
-  transform-origin: 0;
+  transform: translate(-25%, -80px);
+  z-index: -1;
+  background-color: #3c4ae7;
 }
+
 .banner2 {
   position: absolute;
-  z-index: 1;
-  transform-origin: 0;
+  transform: translate(-20vw, 194.3px);
+}
+.banner3 {
+  position: absolute;
+  transform: translate(75vw, 186.5px)
 }
 
 main {
   display: flex;
-  background-color: #3140ea;
+  background-color: none;
   color: white;
-  padding: 0px 400px;
-  height: 626px;
+  padding: 0px 340px;
+  height: 546px;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
+  line-height: 170%;
 }
 
 .title {
-  font-size: 80px;
-  font-weight: 800;
-  margin-bottom: 60px;
+  font-size: 60px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+
+main button {
+  margin-top: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 14pt;
+}
+
+#splash-button-2 {
+  background-color: #23272a;
+  color: white;
 }
 
 section {
   display: flex;
-  color: black;
-  padding: 0px 200px;
+  color: #23272a;
+  padding: 0px 150px;
   justify-content: space-between;
+  flex-direction: row;
+  text-align: left;
+  height: 600px;
+  align-items: center;
+  font-size: 16pt;
+  line-height: 150%;
 }
 
 section h1 {
-  color: black;
+  line-height: 120%;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: left;
+  color: #23272a;
+}
+
+section svg {
+  width: 200%;
+  height: auto;
 }
 
 section:nth-child(even) {
@@ -72,4 +111,28 @@ section:nth-child(even) {
 
 section:nth-child(odd) {
   background-color: #f6f6f6;
+}
+
+section:last-child {
+  background-color: #f6f6f6;
+  height: 400px;
+}
+
+section:last-child h1 {
+  text-align: center;
+}
+
+.splash-video {
+  height: 800px;
+  text-align: center;
+}
+
+.splash-video h1{
+  text-align: center;
+}
+
+
+.splash-video svg {
+  width: 90%;
+  height: auto;
 }

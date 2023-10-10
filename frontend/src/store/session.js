@@ -105,6 +105,20 @@ export const signUp = ({ username, email, password }) => async (dispatch) => {
   return response;
 };
 
+//logout
+export const signOut = () => async (dispatch) => {
+  const response = await csrfFetch("/api/session", {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(removeCurrentUser(data.user));
+  }
+
+  return response;
+};
+
 //SESSION REDUCER
 const initialState = {
   user: JSON.parse(sessionStorage.getItem("currentUser"))

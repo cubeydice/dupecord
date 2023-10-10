@@ -1,5 +1,5 @@
 import './SplashPage.css'
-import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { ReactComponent as ServerSvg } from './assets/splash_server.svg';
 import { ReactComponent as VoiceSvg } from './assets/splash_voice.svg';
 import { ReactComponent as ModerationSvg } from './assets/splash_moderation.svg';
@@ -33,7 +33,7 @@ const SplashPage = () => {
         A place that makes it easy to talk every day and hang out more often.
         </p>
       </div>
-      <div>
+      <div className='main-buttons'>
         <Link to={'/login'}><button className='nav-login-button'>Login</button></Link>
         <Link to={'/login'}><button className='nav-login-button' id='splash-button-2'>Login</button></Link>
       </div>
@@ -75,8 +75,8 @@ const SplashPage = () => {
         <h1>RELIABLE TECH FOR STAYING CLOSE</h1>
         <p>Low-latency voice and video feels like you’re in the same room.
           Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.
-        <VideoSvg/>
         </p>
+        <VideoSvg/>
       </div>
     </section>
 

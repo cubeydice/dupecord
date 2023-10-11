@@ -1,0 +1,14 @@
+.profile-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 60px;
+  height: 35px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #23272a;
+  width: 230px;
+  color: #f6f6f6;
+  text-align: left;
+  padding: 10px;
+}

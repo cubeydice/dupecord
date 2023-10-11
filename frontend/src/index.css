@@ -125,3 +125,7 @@ button:hover {
   box-shadow: 1px 5px 10px 0px #373f9c;
   color: #5865F2;
 }
+
+.profile-icon {
+	height: 23px;
+}

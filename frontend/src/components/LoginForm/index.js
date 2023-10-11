@@ -12,7 +12,7 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/channels" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,7 +59,7 @@ function LoginForm() {
     <div className='login'>
     <h1>Welcome back!</h1>
     <h2>We're so excited to see you again!</h2>
-    <form onSubmit={handleSubmit} className='login-form'>
+    <form onSubmit={handleSubmit} className='login-form' id='login-form'>
       <ul className='login-errors'>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
@@ -71,6 +71,7 @@ function LoginForm() {
           onChange={(e) => setCredential(e.target.value)}
           required
           className='login-input'
+          id='login-credential'
         />
       </label>
       <br/>
@@ -83,6 +84,7 @@ function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
           required
           className='login-input'
+          id='login-password'
         />
       </label>
       <br/>

@@ -39,7 +39,7 @@ function RegisterForm() {
   return (
     <div className="login">
     <h1>Create an Account</h1>
-    <form onSubmit={handleSubmit} className="login-form">
+    <form onSubmit={handleSubmit} className="login-form" id='register-form'>
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>

@@ -21,7 +21,7 @@ body {
   transform: translate(-50%, -50%);
   place-items: center;
   background: #36393e;
-  border-radius: 6px;
+  border-radius: 5px;
   width: 440px;
   padding: 42px;
   padding-bottom: 22px;
@@ -41,11 +41,14 @@ body {
 }
 
 .login h2 {
-  color: #a2a3a7;
-  font-size: 16px;
-  line-height: 20px;
+  color: #B9BBBE;
+  font-family: 'ABC Ginto Normal';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
   margin-bottom: 20px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .login-form {

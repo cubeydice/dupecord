@@ -4,19 +4,19 @@ databases:
       plan: free
       region: oregon
 
-  services:
+services:
     - type: web
-      name: dupecord
-      plan: free
-      region: oregon
-      branch: main
-      env: ruby
-      buildCommand: "./bin/render-build.sh"
-      startCommand: "rails s"
-      envVars:
+        name: dupecord
+        plan: free
+        region: oregon
+        branch: main
+        env: ruby
+        buildCommand: "./bin/render-build.sh"
+        startCommand: "rails s"
+        envVars:
         - key: DATABASE_URL
-          fromDatabase:
+            fromDatabase:
             name: dupecord
             property: connectionString
         - key: RAILS_MASTER_KEY
-          sync: false
+            sync: false

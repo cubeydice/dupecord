@@ -4,6 +4,12 @@
     * Unable to Register
     * You must be at least 13 years old to use Dupecord. [View our help article](https://support.discord.com/hc/en-us/articles/360040724612) to learn more.
     * Return to Login
+* Loading page after creating account, redirect to channels/@me
+* "Create your first Discord Server" Your server is where you and your friends hang out. Make yours and start talking.
+    * Create my Own
+    * Have an invite already? Join a server
+
+
 
 ## Splash
 * change Logout button when logged in to "Open Discord"

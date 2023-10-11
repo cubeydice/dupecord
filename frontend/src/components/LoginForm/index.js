@@ -71,7 +71,6 @@ function LoginForm() {
           onChange={(e) => setCredential(e.target.value)}
           required
           className='login-input'
-          id='login-credential'
         />
       </label>
       <br/>
@@ -84,7 +83,6 @@ function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
           required
           className='login-input'
-          id='login-password'
         />
       </label>
       <br/>

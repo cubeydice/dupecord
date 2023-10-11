@@ -18,8 +18,9 @@ ApplicationRecord.transaction do
       username: 'demo.lition',
       email: 'demo@user.io',
       password: 'password',
-      bio: `I'm a demo!`,
-      pronouns: 'they/them'
+      bio: "I'm a demo!",
+      pronouns: 'they/them',
+      avatar_url: 'https://i.imgur.com/WDdqBK4.png'
     )
 
     10.times do
@@ -27,7 +28,7 @@ ApplicationRecord.transaction do
         username: Faker::Internet.unique.username(specifier: 3),
         email: Faker::Internet.unique.email,
         password: 'password',
-        bio: `Hi, I'm new to dupecord. Please be ncie to me :)`,
+        bio: "Hi, I'm new to dupecord. Please be nice to me :)",
         pronouns: 'they/them'
       })
     end

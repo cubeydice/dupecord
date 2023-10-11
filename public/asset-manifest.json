@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fe66aec5.css",
+    "main.js": "/static/js/main.a82eb230.js",
+    "static/media/login.png": "/static/media/login.46439f503e8486ef065f.png",
+    "static/media/splash_voice.svg": "/static/media/splash_voice.e2236b93f8ca27e6307bfbcf11b4e749.svg",
+    "static/media/splash_server.svg": "/static/media/splash_server.2b633b79ba966ad23a683742dfa60cf7.svg",
+    "static/media/splash_video.svg": "/static/media/splash_video.b8b2baa7deaa4d684823cc70302f9f85.svg",
+    "static/media/splash_bg_1.svg": "/static/media/splash_bg_1.ad0e2a5128d80e5d89e7db2ff89ba852.svg",
+    "static/media/splash_bg_2.svg": "/static/media/splash_bg_2.4412ed0aecaa5e680e2825260ad02488.svg",
+    "static/media/splash_moderation.svg": "/static/media/splash_moderation.0f86574cd97c55f5bfc0494c38ad5a38.svg",
+    "static/media/ABCGintoNord-Black-Trial.woff": "/static/media/ABCGintoNord-Black-Trial.0d9119aaef7f5927ae41.woff",
+    "static/media/ABCGintoNord-Bold-Trial.woff": "/static/media/ABCGintoNord-Bold-Trial.a77d57a3da4086795828.woff",
+    "static/media/ABCGintoNormal-Bold-Trial.woff": "/static/media/ABCGintoNormal-Bold-Trial.d4ad2e68547169453a78.woff",
+    "static/media/ABCGintoNord-Regular-Trial.woff": "/static/media/ABCGintoNord-Regular-Trial.15727ed1eaca6bb83acd.woff",
+    "static/media/ABCGintoNormal-Thin-Trial.woff": "/static/media/ABCGintoNormal-Thin-Trial.cb85e04c27f9307bccc6.woff",
+    "static/media/ABCGintoNormal-Regular-Trial.woff": "/static/media/ABCGintoNormal-Regular-Trial.5a67ccdf119275fc98cc.woff",
+    "static/media/ggsans-normal-webfont.woff": "/static/media/ggsans-normal-webfont.ac2fa2b9ea894b4dd89a.woff",
+    "static/media/splash_bg_clouds.svg": "/static/media/splash_bg_clouds.cee8c404dad14e615fd4d252741afd11.svg",
+    "index.html": "/index.html",
+    "main.fe66aec5.css.map": "/static/css/main.fe66aec5.css.map",
+    "main.a82eb230.js.map": "/static/js/main.a82eb230.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe66aec5.css",
+    "static/js/main.a82eb230.js"
+  ]
+}

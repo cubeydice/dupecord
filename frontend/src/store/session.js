@@ -78,7 +78,6 @@ export const loginDemo = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log("Data",data)
     dispatch(setDemoUser(data.user));
   }
 

@@ -1,0 +1,25 @@
+{
+  "name": "dupecord",
+  "version": "1.0.0",
+  "description": "a discord clone",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cubeydice/dupecord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cubeydice/dupecord/issues"
+  },
+  "homepage": "https://github.com/cubeydice/dupecord#readme",
+  "engines": {
+    "node": "20.x"
+  }
+}

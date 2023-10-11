@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: dupecord_production
-  username: dupecord
-  password: <%= ENV["DUPECORD_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -24,9 +24,11 @@ gem "bcrypt"
 #JSON Objects
 gem "jbuilder"
 
+#Faker
+gem "faker"
+
 group :development, :test do
   gem "byebug", platforms: %i[ mri mingw x64_mingw ]
-  gem "faker"
 end
 
 group :development do

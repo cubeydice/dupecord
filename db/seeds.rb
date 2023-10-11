@@ -17,14 +17,18 @@ ApplicationRecord.transaction do
     User.create!(
       username: 'demo.lition',
       email: 'demo@user.io',
-      password: 'password'
+      password: 'password',
+      bio: `I'm a demo!`,
+      pronouns: 'they/them'
     )
 
     10.times do
       User.create!({
         username: Faker::Internet.unique.username(specifier: 3),
         email: Faker::Internet.unique.email,
-        password: 'password'
+        password: 'password',
+        bio: `Hi, I'm new to dupecord. Please be ncie to me :)`,
+        pronouns: 'they/them'
       })
     end
 

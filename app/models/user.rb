@@ -11,6 +11,8 @@
 #  status          :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  bio             :string
+#  pronouns        :string
 #
 class User < ApplicationRecord
   before_validation :ensure_session_token

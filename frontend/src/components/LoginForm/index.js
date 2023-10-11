@@ -12,7 +12,7 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/channels" />;
+  if (sessionUser) return <Redirect to="/channels/@me" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();

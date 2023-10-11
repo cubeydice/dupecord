@@ -11,7 +11,7 @@ function App() {
       <Route exact path="/"><SplashPage /></Route>
       <Route path="/login"><LoginForm /></Route>
       <Route path="/register"><RegisterForm /></Route>
-      <Route path="/channels"><ProfileBar /></Route>
+      <Route path="/channels/@me"><ProfileBar /></Route>
     </Switch>
   );
 }

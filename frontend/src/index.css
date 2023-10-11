@@ -127,5 +127,13 @@ button:hover {
 }
 
 .profile-icon {
-	height: 23px;
+	height: 16px;
+}
+
+.profile-avatar {
+	height: 32px;
+}
+
+.server_icon {
+	height: 48px;
 }

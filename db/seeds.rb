@@ -20,7 +20,7 @@ ApplicationRecord.transaction do
       password: 'password',
       bio: "I'm a demo!",
       pronouns: 'they/them',
-      avatar_url: 'https://i.imgur.com/WDdqBK4.png'
+      avatar_url: 'https://i.imgur.com/ZrXLyz7.png'
     )
 
     10.times do
@@ -29,7 +29,8 @@ ApplicationRecord.transaction do
         email: Faker::Internet.unique.email,
         password: 'password',
         bio: "Hi, I'm new to dupecord. Please be nice to me :)",
-        pronouns: 'they/them'
+        pronouns: 'they/them',
+        avatar_url: 'https://i.imgur.com/WDdqBK4.png'
       })
     end
 

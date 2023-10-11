@@ -125,6 +125,7 @@ const initialState = {
 
 const sessionReducer = (state = initialState, action) => {
   const nextState = {...state}
+
   switch (action.type) {
     case SET_CURRENT_USER:
       nextState.user = action.user;

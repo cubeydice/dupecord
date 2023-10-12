@@ -1,5 +1,5 @@
 import ProfileBar from "../ProfileBar";
-import ServerSidebar from "../ServerSidebar";
+import UserServersSidebar from "../UserServersSidebar";
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { useSelector } from "react-redux";
 
@@ -9,7 +9,7 @@ const ChannelsPage = () => {
 
   return (
     <>
-     <ServerSidebar/>
+     <UserServersSidebar/>
      <ProfileBar sessionUser={sessionUser}/>
     </>
   )

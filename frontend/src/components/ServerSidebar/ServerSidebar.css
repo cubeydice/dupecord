@@ -1,0 +1,7 @@
+.server-sidebar {
+  background: #202225;
+  display: block;
+  position: fixed;
+  width: 72px;
+  height: 100%;
+}

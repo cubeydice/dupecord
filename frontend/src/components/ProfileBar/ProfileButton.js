@@ -44,13 +44,13 @@ function ProfileButton({ user }) {
           <ul className="profile-dropdown">
             <li><h1>{user.username}</h1></li>
 
-            <div className="line"></div>
+            <hr/>
 
             {userBio()}
             <li><h2>DUPECORD MEMBER SINCE</h2></li>
             <li>{(user.created_at)}</li>
 
-            <div className="line"></div>
+            <hr/>
 
             <li onClick={logout}>
               <img src={require ('./assets/Logout.png')} alt='logout' className="profile-icon"/>Log Out

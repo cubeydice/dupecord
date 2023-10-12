@@ -1,15 +1,10 @@
 
 import React from 'react';
-import { useSelector } from "react-redux";
 import ProfileButton from './ProfileButton';
 import './ProfileButton';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import './ProfileBar.css'
 
-
-const ProfileBar = () => {
-  const sessionUser = useSelector(state => state.session.user);
-  if (!sessionUser) return <Redirect to="/" />;
+const ProfileBar = ({sessionUser}) => {
 
   return (
     <>

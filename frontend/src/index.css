@@ -135,3 +135,9 @@ button:hover {
 .server_icon {
 	height: 48px;
 }
+
+hr {
+	height: 1px;
+	border: none;
+	background: #2c2f33;
+}

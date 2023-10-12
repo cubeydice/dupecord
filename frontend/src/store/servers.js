@@ -30,7 +30,7 @@ export const removeServer = (serverId) => ({
 
 //THUNK ACTIONS
 export const fetchServers = () => async dispatch => {
-  const response = await ('/api/servers')
+  const response = await fetch('/api/servers')
 
   if (response.ok) {
     const servers = await response.json();
@@ -41,7 +41,7 @@ export const fetchServers = () => async dispatch => {
 }
 
 export const fetchServer = (serverId) => async dispatch => {
-  const response = await (`/api/servers/${serverId}`)
+  const response = await fetch(`/api/servers/${serverId}`)
 
   if (response.ok) {
     const server = await response.json();
@@ -52,7 +52,7 @@ export const fetchServer = (serverId) => async dispatch => {
 }
 
 export const createServer = (server) => async dispatch => {
-  const response = await (`/api/servers/`, {
+  const response = await fetch(`/api/servers/`, {
     method: 'POST',
     body: JSON.stringify(server),
     headers: {
@@ -70,7 +70,7 @@ export const createServer = (server) => async dispatch => {
 }
 
 export const updateServer = (server) => async dispatch => {
-  const response = await (`/api/servers/${server.id}`, {
+  const response = await fetch(`/api/servers/${server.id}`, {
     method: 'PATCH',
     body: JSON.stringify(server),
     headers: {
@@ -88,7 +88,7 @@ export const updateServer = (server) => async dispatch => {
 }
 
 export const deleteServer = (serverId) => async dispatch => {
-  const response = await (`/api/servers/${serverId}`, {
+  const response = await fetch(`/api/servers/${serverId}`, {
     method: 'PATCH'
   })
 

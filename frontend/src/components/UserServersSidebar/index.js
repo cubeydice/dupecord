@@ -7,7 +7,9 @@ const UserServersSidebar = ({sessionUser}) => {
   const dispatch = useDispatch();
   const servers = useSelector(getServers);
 
-  useEffect(() => dispatch(fetchServers(servers)), [dispatch])
+  useEffect(() => {
+  dispatch(fetchServers(servers))}
+  , [dispatch])
 
   return (
     <>

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import './UserServersSidebar.css'
-import * as serverActions from "../../store/servers"
+import { fetchServers, getServers } from "../../store/servers.js"
 
 const UserServersSidebar = ({sessionUser}) => {
-  const servers = useSelector(serverActions.getServers)
-  console.log("Servers", servers)
+  const dispatch = useDispatch();
+  const servers = useSelector(getServers);
+
+  useEffect(() => dispatch(fetchServers(servers)), [dispatch])
 
   return (
     <>

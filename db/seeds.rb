@@ -38,7 +38,7 @@ ApplicationRecord.transaction do
       Server.create!(
         name: "Demo Server",
         owner_id: 1,
-        icon_url: 'https://i.imgur.com/7kLrpry.png'
+        server_icon: 'https://i.imgur.com/7kLrpry.png'
       )
 
     puts "Done!"

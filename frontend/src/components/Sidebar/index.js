@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import './ServerSidebar.css'
+import './Sidebar.css'
 
-const ServerSidebar = () => {
+const Sidebar = () => {
   const dispatch = useDispatch();
 
   return (
     <>
-      <div className="server-sidebar">
+      <div className="sidebar">
 
       </div>
     </>
   )
 }
 
-export default ServerSidebar;
+export default Sidebar;

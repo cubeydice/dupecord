@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import './UserServersSidebar.css'
 import * as serverActions from "../../store/servers"
 
-const UserServersSidebar = () => {
-  const dispatch = useDispatch();
+const UserServersSidebar = ({sessionUser}) => {
   const servers = useSelector(serverActions.getServers)
   console.log("Servers", servers)
 
   return (
     <>
       <div className="user-servers-sidebar">
-        hi askdfjnsldkf
-        {servers.map(server => {
-          return <>
-            <li>{server}</li>
-          </>
-        }
+        <ul>
+          <li><img src={sessionUser.avatar_url} alt='profile-pic' className="server_icon"/></li>
+          <hr/>
+          {servers.map(server => {
+            return <>
+              <li>{server}</li>
+            </>
+          }
           )}
+
+        </ul>
+
       </div>
     </>
   )

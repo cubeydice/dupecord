@@ -1,7 +1,16 @@
 .user-servers-sidebar {
-  background: #202225;
+  background: #1E1F22;
   display: block;
   position: fixed;
   width: 72px;
   height: 100%;
+  align-content: center;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.user-servers-sidebar hr {
+  height: 2px;
+  width: 40px;
 }

@@ -11,8 +11,29 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find_by(id: params[:id])
+
+    if @user
+        render :show
+    else
+        render json: { user: nil }
+    end
+  end
+
+  def update
+    @user = current_user
+    render :show
+  end
+
+  def destroy
+    @user = current_user
+    @user.destroy!
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :username, :password)
   end
+
 end

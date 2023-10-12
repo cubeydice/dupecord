@@ -30,8 +30,11 @@ class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { in: 8..255 }, allow_nil: true
 
-  has_many :servers,
+  has_many :owned_servers,
   class_name: :Server
+
+  has_many :servers,
+  through: :user_servers
 
   def self.find_by_credentials(credential, password)
     if credential =~ URI::MailTo::EMAIL_REGEXP

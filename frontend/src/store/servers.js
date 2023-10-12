@@ -8,7 +8,7 @@ export const getServers = (state) => {
   return state.servers ? Object.values(state.servers) : []
 }
 
-export const getPost = (serverId) => (state) => {
+export const getServer = (serverId) => (state) => {
  return state.servers ? state.servers[serverId] : null
 }
 

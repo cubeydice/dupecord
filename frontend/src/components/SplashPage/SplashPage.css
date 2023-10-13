@@ -52,7 +52,7 @@ nav div {
   transform: translate(75vw, 176.5px)
 }
 
-.main-buttons {
+main {
   display: flex;
   background-color: none;
   padding: 0px 340px;
@@ -95,7 +95,7 @@ main button {
   width: 200px;
 }
 
-main button > img {
+main button img {
   height: 35px;
   width: auto;
 }

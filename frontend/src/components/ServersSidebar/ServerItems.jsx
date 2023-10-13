@@ -1,19 +1,12 @@
 import React, { useEffect } from "react";
 import './ServersSidebar.css'
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 const ServerItems = ({server}) => {
 
-    let icon;
-    if (server.serverIcon) {
-        icon = <input type="image" src={server.serverIcon} alt={server.name} className="server-icon"/>
-        // icon = <button className="server-icon"></button>
-    } else {
-        icon = <input type="button" value={server.name[0]} className="server-icon"></input>
-    }
-
     return (
         <>
-           {icon}
+           <NavLink to={`${server.id}`} className="server-icon"><img src={server.serverIcon} alt={server.name}/></NavLink>
         </>
     )
 }

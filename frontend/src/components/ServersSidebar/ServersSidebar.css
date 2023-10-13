@@ -19,5 +19,14 @@
 	height: 48px;
 	width: 48px;
 	border-radius: 50%;
+}
+.server-icon > * {
+	height: 48px;
+	width: 48px;
+	border-radius: 50%;
   margin: 8px
 }
+
+/* .server-icon:hover {
+	border-radius: 15px;
+} */

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './ServersSidebar.css'
 import { fetchServers, getServers } from "../../store/servers";
 import ServerItems from "./ServerItems";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 const ServersSidebar = ({sessionUser}) => {
   const dispatch = useDispatch();
@@ -15,16 +16,13 @@ const ServersSidebar = ({sessionUser}) => {
   console.log("servers",servers)
   return (
     <>
-      <div className="user-servers-sidebar">
-        <ul>
-          <li><img src={sessionUser.avatar_url} alt='profile-pic' className="server-icon"/></li>
+      <nav className="user-servers-sidebar" id='servers-sidebar'>
+        <NavLink to='@me'><img src={sessionUser.avatar_url} alt='profile-pic' className="server-icon"/></NavLink>
           <hr/>
           {servers.map(server => {
-            return <li><ServerItems server={server} key={server.id}/></li>
+            return <ServerItems server={server} key={server.id}/>
           })}
-        </ul>
-
-      </div>
+      </nav>
     </>
   )
 }

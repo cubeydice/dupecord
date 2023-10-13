@@ -5,7 +5,7 @@
   color: white;
 }
 
-nav {
+.splash-nav {
   background-color: #434ee4;
   display: flex;
   justify-content: space-between;
@@ -79,7 +79,7 @@ main p {
   color: white;
 }
 
-main button {
+.splash-main button {
   display: inline-flex;
   justify-content: space-evenly;
   align-items: center;
@@ -95,7 +95,7 @@ main button {
   width: 200px;
 }
 
-main button img {
+.main-buttons img {
   height: 35px;
   width: auto;
 }

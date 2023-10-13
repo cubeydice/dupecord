@@ -42,8 +42,7 @@ ApplicationRecord.transaction do
       )
       Server.create!(
         name: "Demo Server 2",
-        owner_id: 2,
-        server_icon: 'https://i.imgur.com/7kLrpry.png'
+        owner_id: 2
       )
 
       puts "Creating server membership..."

@@ -22,7 +22,7 @@ const SplashPage = () => {
 
   return (
     <>
-    <nav>
+    <nav className='splash-nav'>
       <Link to={'/'} className='dupecord'>dupecord</Link>
     { (!sessionUser) ?
     <Link to={'/login'}><button className='nav-login-button'>Login</button></Link>
@@ -33,7 +33,7 @@ const SplashPage = () => {
       <Hero1Svg className='banner2'/>
       <Hero2Svg className='banner3'/>
     </div>
-    <main>
+    <main className='splash-main'>
       <div>
       <h1 className='title'>IMAGINE A PLACE...</h1>
         <p>...where you can belong to a school club, a gaming group, or a worldwide art community.
@@ -44,10 +44,14 @@ const SplashPage = () => {
       <div>
         <a href='https://github.com/cubeydice/dupecord' className='nav-link' target="_blank" rel="noreferrer">
           <button className='main-buttons'>
-          <img src={require ('./assets/logos/github-mark.png')} alt='github'/>Github</button></a>
-          <a href='https://www.linkedin.com/in/queen-belle-d-118b7859/'className='nav-link'  target="_blank" rel="noreferrer">
-            <button id='splash-button-2' className='main-buttons'>
-          <img src={require ('./assets/logos/LI-mark.png')} alt='linkedIn'/>LinkedIn</button></a>
+            <img src={require ('./assets/logos/github-mark.png')} alt='github'/>Github
+          </button>
+        </a>
+        <a href='https://www.linkedin.com/in/queen-belle-d-118b7859/'className='nav-link'  target="_blank" rel="noreferrer">
+          <button id='splash-button-2' className='main-buttons'>
+            <img src={require ('./assets/logos/LI-mark.png')} alt='linkedIn'/>LinkedIn
+          </button>
+        </a>
       </div>
     </main>
 

@@ -2,4 +2,5 @@
   height: 100vh;
   background: #313338;
   display: fixed;
+  overflow: scroll;
 }

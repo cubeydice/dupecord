@@ -40,6 +40,11 @@ ApplicationRecord.transaction do
         owner_id: 1,
         server_icon: 'https://i.imgur.com/7kLrpry.png'
       )
+      Server.create!(
+        name: "Demo Server 2",
+        owner_id: 2,
+        server_icon: 'https://i.imgur.com/7kLrpry.png'
+      )
 
     puts "Done!"
   end

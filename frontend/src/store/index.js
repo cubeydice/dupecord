@@ -5,7 +5,7 @@ import serversReducer from './servers';
 
 export const rootReducer = combineReducers({
   session: sessionReducer,
-  servers: serversReducer
+  servers: serversReducer,
 })
 
 let enhancer;

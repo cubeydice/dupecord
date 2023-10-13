@@ -1,4 +1,14 @@
 class Api::ServersController < ApplicationController
+  def index
+    @user = current_user
+
+    if @user
+      render :show
+    else
+      render json: { user: nil }
+    end
+  end
+
   def show
     @server = Server.find_by(id: params[:id])
 

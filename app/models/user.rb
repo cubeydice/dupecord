@@ -31,7 +31,10 @@ class User < ApplicationRecord
   validates :password, length: { in: 8..255 }, allow_nil: true
 
   has_many :owned_servers,
+  foreign_key: :owner_id,
   class_name: :Server
+
+  has_many :user_servers
 
   has_many :servers,
   through: :user_servers

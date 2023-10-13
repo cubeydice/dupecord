@@ -14,7 +14,10 @@ class Server < ApplicationRecord
     validates :name, presence: true
 
     belongs_to :owner,
+    foreign_key: :owner_id,
     class_name: :User
+
+    has_many :user_servers
 
     has_many :users,
     through: :user_servers

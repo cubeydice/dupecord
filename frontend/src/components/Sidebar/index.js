@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import './Sidebar.css'
+import ProfileBar from "./ProfileBar";
 
-const Sidebar = () => {
-  const dispatch = useDispatch();
+const Sidebar = ({sessionUser}) => {
 
   return (
     <>
       <div className="sidebar">
-
+      <ProfileBar sessionUser={sessionUser}/>
       </div>
     </>
   )

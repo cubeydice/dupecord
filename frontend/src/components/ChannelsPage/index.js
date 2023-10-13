@@ -1,7 +1,6 @@
-import ProfileBar from "../ProfileBar";
-import UserServersSidebar from "../UserServersSidebar";
+import ServersSidebar from "../ServersSidebar";
 import Sidebar from "../Sidebar";
-import Messages from "../Messages";
+import Messages from "../ChannelBody";
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { useSelector } from "react-redux";
 
@@ -12,9 +11,8 @@ const ChannelsPage = () => {
   return (
     <>
     <div className="channels-page">
-      <UserServersSidebar sessionUser={sessionUser}/>
-      <Sidebar/>
-      <ProfileBar sessionUser={sessionUser}/>
+      <ServersSidebar sessionUser={sessionUser}/>
+      <Sidebar sessionUser={sessionUser}/>
       <Messages/>
     </div>
     </>

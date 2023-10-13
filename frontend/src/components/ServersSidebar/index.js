@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import './UserServersSidebar.css'
+import './ServersSidebar.css'
 import { fetchServers, getServers } from "../../store/servers.js"
 
-const UserServersSidebar = ({sessionUser}) => {
+const ServersSidebar = ({sessionUser}) => {
   const dispatch = useDispatch();
   const servers = useSelector(getServers);
 
@@ -31,4 +31,4 @@ const UserServersSidebar = ({sessionUser}) => {
   )
 }
 
-export default UserServersSidebar;
+export default ServersSidebar;

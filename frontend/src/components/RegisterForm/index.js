@@ -73,7 +73,7 @@ function RegisterForm() {
           className="login-input"
         />
       </label> <br/>
-      <label>
+      {/* <label>
         <p className='login-question'>DATE OF BIRTH </p> <br/>
         <input
           type="date"
@@ -82,7 +82,7 @@ function RegisterForm() {
           required
           className="login-input"
         />
-      </label> <br/>
+      </label> <br/> */}
       <button type="submit" className="login-button">Continue</button>
     </form>
     <sub>By registering, you agree to Dupercord's <Link to='https://discord.com/terms'>Terms of Service</Link> and <Link to='https://discord.com/privacy'>Privacy Policy</Link></sub>

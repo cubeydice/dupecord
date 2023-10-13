@@ -14,3 +14,10 @@
   height: 2px;
   width: 40px;
 }
+
+.server-icon {
+	height: 48px;
+	width: 48px;
+	border-radius: 50%;
+  margin: 8px
+}

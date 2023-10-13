@@ -46,5 +46,17 @@ ApplicationRecord.transaction do
         server_icon: 'https://i.imgur.com/7kLrpry.png'
       )
 
+      puts "Creating server membership..."
+      UserServer.create!(
+        id: 1,
+        user_id: 1,
+        server_id: 2,
+      )
+      UserServer.create!(
+        id: 2,
+        user_id: 2,
+        server_id: 1,
+      )
+
     puts "Done!"
   end

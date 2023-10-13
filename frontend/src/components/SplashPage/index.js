@@ -41,12 +41,12 @@ const SplashPage = () => {
         A place that makes it easy to talk every day and hang out more often.
         </p>
       </div>
-      <div className='main-buttons'>
+      <div>
         <a href='https://github.com/cubeydice/dupecord' className='nav-link' target="_blank" rel="noreferrer">
-          <button>
+          <button className='main-buttons'>
           <img src={require ('./assets/logos/github-mark.png')} alt='github'/>Github</button></a>
           <a href='https://www.linkedin.com/in/queen-belle-d-118b7859/'className='nav-link'  target="_blank" rel="noreferrer">
-            <button id='splash-button-2'>
+            <button id='splash-button-2' className='main-buttons'>
           <img src={require ('./assets/logos/LI-mark.png')} alt='linkedIn'/>LinkedIn</button></a>
       </div>
     </main>

@@ -7,6 +7,8 @@ const Sidebar = ({sessionUser}) => {
   return (
     <>
       <div className="sidebar">
+        ChannelCategories
+        ChannelItems
       <ProfileBar sessionUser={sessionUser}/>
       </div>
     </>

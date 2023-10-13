@@ -1,15 +1,15 @@
 import React from "react";
-import './Messages.css'
+import './ChannelBody.css'
 
-const Messages = () => {
+const ChannelBody = () => {
 
   return (
     <>
       <div className="messages">
-sadasd
+        ChannelBody / Messages / MessageItems
       </div>
     </>
   )
 }
 
-export default Messages;
+export default ChannelBody;

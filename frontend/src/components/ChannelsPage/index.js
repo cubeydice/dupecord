@@ -1,11 +1,17 @@
 import ServersSidebar from "../ServersSidebar";
 import Sidebar from "../Sidebar";
-import Messages from "../ChannelBody";
+import Messages from "../Messages";
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 const ChannelsPage = () => {
   const sessionUser = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
+  const { serverId } = useParams();
+  useEffect(() => dispatch(fetchServer(serverId)), [serverId])
+
   if (!sessionUser) return <Redirect to="/" />;
 
   return (

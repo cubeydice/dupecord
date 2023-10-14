@@ -7,7 +7,7 @@ export const REMOVE_SERVER = 'servers/REMOVE_SERVER';
 
 //USE SELECTORS
 export const getServers = (state) => {
-  return state.entities.servers ? Object.values(state.entities.servers) : [];
+  return state.entities.servers ? state.entities.servers : null;
 };
 
 export const getServer = (serverId) => (state) => {

@@ -7,7 +7,8 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 const ServersSidebar = ({sessionUser}) => {
   const dispatch = useDispatch();
-  const servers = useSelector(getServers);
+  const serversObj = useSelector(getServers);
+  const servers = serversObj ? Object.values(serversObj) : [];
 
   useEffect(() => {
     dispatch(fetchServers())

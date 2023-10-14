@@ -120,8 +120,8 @@ button {
 }
 
 button:hover {
-  box-shadow: 1px 5px 10px 0px #373f9c;
-  color: #5865F2;
+  background: #404248;
+  color: white;
 }
 
 .profile-icon {

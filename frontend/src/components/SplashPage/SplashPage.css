@@ -32,6 +32,11 @@ nav div {
   width: 65px;
 }
 
+.nav-login-button:hover {
+	box-shadow: 1px 5px 10px 0px #373f9c;
+	color: #5865F2;
+}
+
 .banner {
   position: relative;
 }
@@ -94,6 +99,12 @@ main p {
   height: 55px;
   width: 200px;
 }
+
+.splash-main button:hover {
+	box-shadow: 1px 5px 10px 0px #373f9c;
+	color: #5865F2;
+}
+
 
 .main-buttons img {
   height: 35px;

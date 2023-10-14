@@ -1,7 +1,7 @@
 import React from "react";
-import './ChannelBody.css'
+import './Messages.css'
 
-const ChannelBody = () => {
+const Messages = () => {
 
   return (
     <>
@@ -12,4 +12,4 @@ const ChannelBody = () => {
   )
 }
 
-export default ChannelBody;
+export default Messages;

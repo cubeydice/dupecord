@@ -12,6 +12,7 @@ function App() {
       <Route path="/login"><LoginForm /></Route>
       <Route path="/register"><RegisterForm /></Route>
       <Route path="/channels/:serverId/:channelId"><ChannelsPage /></Route>
+      <Route path="/channels/:serverId"><ChannelsPage /></Route>
       <Route path="/channels"><ChannelsPage /></Route>
     </Switch>
   );

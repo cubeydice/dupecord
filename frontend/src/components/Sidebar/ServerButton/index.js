@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
 import './ServerButton.css';
 import { useSelector } from "react-redux";
 import { getServer } from "../../../store/servers";

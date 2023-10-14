@@ -11,7 +11,10 @@ const ChannelsPage = () => {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const { serverId } = useParams();
-  useEffect(() => dispatch(fetchServer(serverId)), [serverId])
+
+  useEffect(() => {
+    if (serverId !== '@me' && serverId !== null) dispatch(fetchServer(serverId))
+  }, [dispatch, serverId])
 
   if (!sessionUser) return <Redirect to="/" />;
 

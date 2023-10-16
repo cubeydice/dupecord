@@ -12,6 +12,7 @@ function Modal() {
   }
 
   let component;
+  
   switch (modal) {
     case 'server-form':
       component = <ServerForm />;

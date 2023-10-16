@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import * as serverActions from  "../../store/servers"
 import { ReactComponent as Plus } from './assets/Plus.svg';
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 const CreateServer = () => {
     const dispatch = useDispatch();
@@ -12,11 +12,11 @@ const CreateServer = () => {
     }
 
     return (
-    <div className="server-icon" id="server-create-button">
+    <Link to='create-server' className="server-icon" id="server-create-button">
         <p>
         <Plus />
         </p>
-    </div>
+    </Link>
     )
 }
 

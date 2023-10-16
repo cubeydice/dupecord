@@ -24,7 +24,7 @@ const ServersSidebar = ({sessionUser}) => {
           {servers.map(server => {
             return <ServerItems server={server} key={server.id}/>
           })}
-          <CreateServer/>
+          <CreateServer sessionUser={sessionUser}/>
       </nav>
     </>
   )

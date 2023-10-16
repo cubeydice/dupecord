@@ -5,7 +5,7 @@
 #  id          :bigint           not null, primary key
 #  name        :string           not null
 #  owner_id    :bigint
-#  icon_url    :string
+#  server_icon :string
 #  invite_code :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -21,4 +21,6 @@ class Server < ApplicationRecord
 
     has_many :users,
     through: :user_servers
+
+    has_many :channels
 end

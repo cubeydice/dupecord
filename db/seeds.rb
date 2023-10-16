@@ -47,15 +47,40 @@ ApplicationRecord.transaction do
 
       puts "Creating server membership..."
       UserServer.create!(
-        id: 1,
         user_id: 1,
         server_id: 2,
       )
       UserServer.create!(
-        id: 2,
         user_id: 2,
         server_id: 1,
       )
+
+      puts "Creating channels..."
+        Channel.create!(
+          server_id: 1,
+          name: "General",
+          category: "General",
+        )
+        Channel.create!(
+          server_id: 1,
+          name: "off-topic",
+          category: "General",
+        )
+        Channel.create!(
+          server_id: 1,
+          name: "Coding Resources",
+          category: "Resources",
+        )
+        Channel.create!(
+          server_id: 2,
+          name: "General",
+          category: "General",
+        )
+        Channel.create!(
+          server_id: 2,
+          name: "boba",
+          category: "General",
+        )
 
     puts "Done!"
   end

@@ -1,3 +1,6 @@
 .server-form {
   background: var(--white);
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
 }

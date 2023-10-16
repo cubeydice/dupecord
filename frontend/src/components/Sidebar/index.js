@@ -3,19 +3,22 @@ import './Sidebar.css'
 import ProfileBar from "./ProfileBar";
 import ServerButton from "./ServerButton";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import ChannelsList from "./ChannelsList";
+import { useSelector } from "react-redux";
+import { getServer } from "../../store/servers";
 
 const Sidebar = ({sessionUser}) => {
   const serverId = useParams();
+  const server = useSelector(getServer(serverId.serverId))
 
   return (
     <>
       <div className="sidebar">
         {(serverId !== "@me" && serverId !== null) ?
-          <ServerButton serverId={serverId}/> : ""}
+          <ServerButton server={server}/> : ""}
 
         <nav className="sidebar-nav">
-          ChannelCategories
-          ChannelItems
+          {server ? <ChannelsList server={server}/> : "" }
         </nav>
 
         <ProfileBar sessionUser={sessionUser}/>

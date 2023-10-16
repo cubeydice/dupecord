@@ -8,7 +8,13 @@
   text-align: center;
   padding-top: 8px;
   padding-bottom: 8px;
-  overflow-x: hidden;
+  overflow-x:hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none; 
+}
+
+.user-servers-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .user-servers-sidebar hr {

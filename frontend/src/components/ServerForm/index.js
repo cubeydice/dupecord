@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createServer } from '../../store/servers';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom';
+import { closeModal } from '../../store/modals';
+import './ServerForm.css'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 const ServerForm = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [name, setName] = useState(`${sessionUser.username}'s server`);
+  const [isSubmitDisabled, setSubmitDisabled] = useState(false);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (name === "") setSubmitDisabled(true);
+    else setSubmitDisabled(false);
+  }, [name])
 
   //event handler
   const handleChange = e => {
@@ -20,26 +29,37 @@ const ServerForm = () => {
       owner_id: sessionUser.id
     }
     dispatch(createServer(server));
-    <Redirect to='channels/@me'/>
+    dispatch(closeModal());
+    history.push('/channels/@me');
   };
 
   return (
     <div className="server-form">
-      <h1>Create a server</h1>
+      <div className='server-form-intro'>
+      <h1>Create a server</h1> <br/>
       <p>Your server is where you and your friends hang out. Make yours and start talking.</p> <br/>
+      </div>
 
-      <form onSubmit={handleSubmit}>
-        <label>SERVER NAME <br />
+      <form onSubmit={handleSubmit} className="server-form-input">
+        <label><h2>SERVER NAME</h2>
           <input
             type='text'
             value={name}
-            onChange={handleChange} />
+            onChange={handleChange}
+            className='form-input'/>
         </label>
 
         <br />
+        <sub>
         By creating a server, you agree to Dupecord's Community Guidelines.
+        </sub>
+        <br/>
         <br />
-        <input type="submit" value="Create" />
+        <input type="submit"
+          value="Create"
+          className='form-submit'
+          disabled={isSubmitDisabled}
+          />
       </form>
     </div>
   )

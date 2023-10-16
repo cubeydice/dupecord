@@ -155,10 +155,23 @@ button:hover {
 
 .profile-avatar {
 	height: 32px;
+	border-radius: 50%;
 }
 
 hr {
 	height: 1px;
 	border: none;
 	background: #2c2f33;
+}
+
+@keyframes fadein {
+  0% {
+      transform: scale(0.5);
+      opacity: 50%;
+  }
+
+  100% {
+      transform: scale(1);
+      opacity: 100%;
+  }
 }

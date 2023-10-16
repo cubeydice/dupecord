@@ -1,13 +1,73 @@
-@keyframes fadein {
-  0% {
-      top: -100px;
-      transform: scale(1.1);
-      opacity: 50%;
-  }
+.server-form {
+  display: flex;
+  position: fixed;
+  color: black;
+  background: var(--white);
+  flex-direction: column;
+  height: 300px;
+  width: 400px;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 4px;
+  top: 35%;
+  left: 35%;
+  animation: fadein 1s;
+}
 
-  100% {
-      top: 0px;
-      transform: scale(1);
-      opacity: 100%;
-  }
+.server-form-intro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.server-form h1 {
+  font-size: 20px;
+  font-family: 'ABC Ginto Nord';
+  font-weight: 700px;
+}
+
+.server-form h2 {
+  font-family: 'ABC Ginto Normal';
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700px;
+  margin-bottom: 8px;
+  margin-left: 2px;;
+}
+
+.form-input {
+  border-radius: 4px;
+  height: 20px;
+  width: 95%;
+  border: none;
+  color: var(--not-quite-black);
+  background: #dbdce0;
+  padding: 10px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.server-form-input sub {
+  margin-left: 2px;
+}
+
+.form-submit {
+  color: var(--white);
+  background: var(--brand);
+  border: none;
+  height: 34px;
+  width: 84px;
+  border-radius: 2px;
+}
+
+.form-submit:hover {
+  -webkit-filter: brightness(70%);
+  transition: 0.3s
+}
+
+.form-submit:disabled {
+  -webkit-filter: brightness(160%);
 }

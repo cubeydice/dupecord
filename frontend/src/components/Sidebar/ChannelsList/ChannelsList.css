@@ -1,20 +1,35 @@
 .channel-categories {
  margin-top: 50px;
  padding: 8px;
+ overflow-x:hidden;
+ -ms-overflow-style: none;
+}
+
+.user-servers-sidebar::-webkit-scrollbar {
+ display: none;
 }
 
 .channels {
-  display: flex;
-  position: relative;
-  width: 252px;
-  height: 10px;
+  width: 204px;
+  height: 32px;
   border-radius: 4px;
-  color: #8E9297;
   font-size: 16px;
-  padding: 10px;
-  line-height: 40px;
+  padding: 6px 6px 6px 6px;
+}
+
+.channel-link {
+  color: #8E9297;
+}
+.channel-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .channels:hover {
+ background-color: #393C43;
+ color: var(--white)
+}
 
+.channel-link:active {
+  color: #8E9297;
 }

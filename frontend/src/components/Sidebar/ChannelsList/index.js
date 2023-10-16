@@ -2,6 +2,8 @@ import React from 'react';
 import './ChannelsList.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom';
+const ChannelText = require('./assets/ChannelText.png');
 
 const ChannelsList = ({server}) => {
   const channels = server.channels
@@ -18,14 +20,14 @@ const ChannelsList = ({server}) => {
         <div>
           {channels.map(channel => {
             if(channel.category === category) {
-              return (<>
+              return (<div className='channels'>
                 <NavLink to={`/channels/${serverId.serverId}/${channel.id}`}
-                className='channels'
-                key={channel.id}>
+                key={channel.id} className='channel-link'>
+                  <img src={ChannelText} alt='text' className='channel-icon'/>
                   {channel.name}
                 </NavLink>
                 <br/>
-              </>)
+              </div>)
             }
           })
           }

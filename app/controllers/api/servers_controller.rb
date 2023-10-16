@@ -10,6 +10,7 @@ class Api::ServersController < ApplicationController
   end
 
   def show
+    @user = current_user
     @server = Server.find_by(id: params[:id])
 
     if @server

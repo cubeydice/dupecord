@@ -10,11 +10,11 @@ const ServersSidebar = ({sessionUser}) => {
   const serversObj = useSelector(getServers);
   const servers = serversObj ? Object.values(serversObj) : [];
 
+  console.log(servers)
   useEffect(() => {
     dispatch(fetchServers())
   }, [dispatch])
 
-  console.log("servers",servers)
   return (
     <>
       <nav className="user-servers-sidebar" id='servers-sidebar'>

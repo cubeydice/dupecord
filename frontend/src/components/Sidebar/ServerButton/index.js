@@ -3,12 +3,12 @@ import './ServerButton.css';
 import { useSelector } from "react-redux";
 import { getServer } from "../../../store/servers";
 
-const ServerButton = ({serverId}) => {
-  const server = useSelector(getServer(serverId))
+const ServerButton = ({ serverId }) => {
+  const server = useSelector(getServer(serverId.serverId))
 
   return (
     <>
-    <button className="server-button">{server.name}</button>
+    {server ? <button className="server-button">{server.name}</button>  : ""}
     </>
   )
 }

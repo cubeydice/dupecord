@@ -94,25 +94,25 @@ export const deleteServer = (serverId) => async dispatch => {
 };
 
 //REDUCER
-// const serversReducer = (state = {}, action) => {
-//   let nextState = { ...state };
+const serversReducer = (state = {}, action) => {
+  let nextState = { ...state };
 
-//   switch (action.type) {
-//     case RECEIVE_SERVERS:
-//       nextState = { ...nextState, ...action.servers };
-//       return nextState;
+  switch (action.type) {
+    case RECEIVE_SERVERS:
+      nextState = { ...nextState, ...action.servers };
+      return nextState;
 
-//     case RECEIVE_SERVER:
-//       nextState[action.server.id] = action.server;
-//       return nextState;
+    case RECEIVE_SERVER:
+      nextState[action.server.id] = action.server;
+      return nextState;
 
-//     case REMOVE_SERVER:
-//       delete nextState[action.serverId];
-//       return nextState;
+    case REMOVE_SERVER:
+      delete nextState[action.serverId];
+      return nextState;
 
-//     default:
-//       return state;
-//   }
-// };
+    default:
+      return state;
+  }
+};
 
-// export default serversReducer;
+export default serversReducer;

@@ -38,6 +38,7 @@ const entitiesReducer = (state = {}, action) => {
     //   return nextState;
 
     case RECEIVE_SERVERS:
+      console.log(nextState.servers)
       nextState = { ...nextState, ...action.servers };
       return nextState;
 

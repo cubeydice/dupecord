@@ -1,4 +1,4 @@
-import ServersSidebar from "../ServersSidebar";
+import ServersListBar from "../ServersListBar";
 import Sidebar from "../Sidebar";
 import Messages from "../Messages";
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
@@ -21,8 +21,8 @@ const ChannelsPage = () => {
   return (
     <>
     <div className="channels-page">
-      <ServersSidebar sessionUser={sessionUser}/>
-      <Sidebar sessionUser={sessionUser}/>
+      <ServersListBar sessionUser={sessionUser}/>
+      <Sidebar sessionUser={sessionUser} serverId={serverId}/>
       <Messages/>
     </div>
     </>

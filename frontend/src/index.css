@@ -97,12 +97,37 @@ table {
 	src: url(../assets/fonts/webfontkit/ggsans-normal-webfont.woff);
 }
 
+:root {
+	/* --custom-guild-shop-channel-row-gradient: linear-gradient(113deg,#2f3570 1.98%,#422c70 94.48%);
+	--custom-guild-shop-channel-row-gradient-hover: linear-gradient(113deg,#383f86 1.98%,#4d3385 94.48%);
+	--custom-guild-shop-channel-row-border-gradient: linear-gradient(113deg,#6591ff,#d150ff);
+	--custom-guild-shop-channel-row-glow: 0 0 4px rgba(189,149,255,0.5); */
+	--custom-guild-shop-preview-pill-shadow-dark: -4px 5px #1d1d1d;
+	--custom-guild-shop-preview-pill-shadow-light: -4px 5px #d7dce8;
+	--brand: #5865f2;
+	--brand-gradient: linear-gradient(90deg,#8ea1e1,#7289da);
+	--greyple: #99aab5;
+	--dark-not-black: #2c2f33;
+	/* --focus-border: #00b0f4; */
+	--status-green: #43b581;
+	--text-link: #00b0f4;
+	--off-white: #f6f6f6;
+	--white: #fff;
+	--not-quite-black: #23272a;
+	--not-quite-black-rgb: 35,39,42;
+	--black: #000;
+	--ekko-red: #de2761;
+	--page-max-width: 1260px;
+	--page-max-width-med: 1024px;
+}
+
 body {
 	max-width: 100%;
 	overflow-x: hidden;
 	font-family: 'gg sans';
-	color: #f6f6f6;
-	background: white
+	color: var(--off-white);
+	background: var(--white);
+	text-rendering: optimizeLegibility;
 }
 
 sub {
@@ -111,7 +136,7 @@ sub {
 }
 
 a {
-	color: #00b0f4;
+	color: var(--text-link);
 	text-decoration: none;
 }
 

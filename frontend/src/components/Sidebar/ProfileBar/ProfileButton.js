@@ -37,9 +37,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <div onClick={openMenu} className="profile-button">
+      <button onClick={openMenu} className="profile-button">
         <img src={user.avatar_url} alt='profile-pic' className="profile-avatar"/>
-        {user.username}</div>
+        {user.username}</button>
       {showMenu && (
           <ul className="profile-dropdown">
             <li><h1>{user.username}</h1></li>

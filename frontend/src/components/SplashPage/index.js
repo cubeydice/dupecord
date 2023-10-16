@@ -21,7 +21,7 @@ const SplashPage = () => {
   }
 
   return (
-    <>
+    <div className='splash-body'>
     <nav className='splash-nav'>
       <Link to={'/'} className='dupecord'>dupecord</Link>
     { (!sessionUser) ?
@@ -95,12 +95,7 @@ const SplashPage = () => {
         <VideoSvg/>
 
     </section>
-
-    <section>
-        <h1>Ready to start your journey?</h1>
-    </section>
-
-    </>
+    </div>
   )
 }
 

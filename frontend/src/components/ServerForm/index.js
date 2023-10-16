@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createServer } from '../../store/servers';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom';
 
 const ServerForm = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,12 @@ const ServerForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createServer({name}));
+    const server = {
+      name,
+      owner_id: sessionUser.id
+    }
+    dispatch(createServer(server));
+    <Redirect to='channels/@me'/>
   };
 
   return (

@@ -14,7 +14,7 @@ class Api::ServersController < ApplicationController
     @server = Server.find_by(id: params[:id])
 
     if @server
-        render :show
+        render json: { server: @server }
     else
         render json: { user: nil }
     end
@@ -24,7 +24,7 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save!
-      render :show
+      render json: { server: @server }
     else
       render json: { errors: @server.errors.full_messages }, status: :unprocessable_entity
     end
@@ -42,6 +42,6 @@ class Api::ServersController < ApplicationController
 
   private
   def server_params
-    params.require(:server).permit(:name)
+    params.require(:server).permit(:name, :owner_id)
   end
 end

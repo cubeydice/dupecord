@@ -11,7 +11,7 @@ const ServersSidebar = ({sessionUser}) => {
   const serversObj = useSelector(getServers);
   const servers = serversObj ? Object.values(serversObj) : [];
 
-  console.log(servers)
+
   useEffect(() => {
     dispatch(fetchServers())
   }, [dispatch])
@@ -19,7 +19,7 @@ const ServersSidebar = ({sessionUser}) => {
   return (
     <>
       <nav className="user-servers-sidebar" id='servers-sidebar'>
-        <NavLink to='@me' className="server-icon"><img src={sessionUser.avatar_url} alt='profile-pic'/></NavLink>
+        <NavLink to='/channels/@me' className="server-icon"><img src={sessionUser.avatar_url} alt='profile-pic'/></NavLink>
           <hr/>
           {servers.map(server => {
             return <ServerItems server={server} key={server.id}/>

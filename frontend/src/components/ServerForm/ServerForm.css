@@ -1,6 +1,13 @@
-.server-form {
-  background: var(--white);
-  position: fixed;
-  left: 50vw;
-  top: 50vh;
+@keyframes fadein {
+  0% {
+      top: -100px;
+      transform: scale(1.1);
+      opacity: 50%;
+  }
+
+  100% {
+      top: 0px;
+      transform: scale(1);
+      opacity: 100%;
+  }
 }

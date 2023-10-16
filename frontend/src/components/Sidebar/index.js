@@ -17,9 +17,9 @@ const Sidebar = ({sessionUser}) => {
         {(serverId !== "@me" && serverId !== null) ?
           <ServerButton server={server}/> : ""}
 
-        <nav className="sidebar-nav">
+        <div className="sidebar-nav">
           {server ? <ChannelsList server={server}/> : "" }
-        </nav>
+        </div>
 
         <ProfileBar sessionUser={sessionUser}/>
       </div>

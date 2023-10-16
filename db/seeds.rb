@@ -20,7 +20,7 @@ ApplicationRecord.transaction do
       password: 'password',
       bio: "I'm a demo!",
       pronouns: 'they/them',
-      avatar_url: 'https://i.imgur.com/ZrXLyz7.png'
+      avatar_url: 'https://i.imgur.com/n0X85nw.png'
     )
 
     10.times do
@@ -30,7 +30,7 @@ ApplicationRecord.transaction do
         password: 'password',
         bio: "Hi, I'm new to dupecord. Please be nice to me :)",
         pronouns: 'they/them',
-        avatar_url: 'https://i.imgur.com/WDdqBK4.png'
+        avatar_url: 'https://i.imgur.com/v6feagM.png'
       })
     end
 
@@ -38,7 +38,7 @@ ApplicationRecord.transaction do
       Server.create!(
         name: "Demo Server",
         owner_id: 1,
-        server_icon: 'https://i.imgur.com/7kLrpry.png'
+        server_icon: 'https://i.imgur.com/AUtot3G.png'
       )
       Server.create!(
         name: "Demo Server 2",

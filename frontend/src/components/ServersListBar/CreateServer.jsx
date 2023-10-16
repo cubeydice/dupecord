@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import * as serverActions from  "../../store/servers"
+import { ReactComponent as Plus } from './assets/Plus.svg';
 
 const CreateServer = () => {
     const dispatch = useDispatch();
@@ -9,11 +10,13 @@ const CreateServer = () => {
         e.preventDefault();
         dispatch()
     }
-    
+
     return (
-    <>
-        <img src={require ('./assets/server_create.png') } alt='server-create'/>
-    </>
+    <div className="server-icon" id="server-create-button">
+        <p>
+        <Plus />
+        </p>
+    </div>
     )
 }
 

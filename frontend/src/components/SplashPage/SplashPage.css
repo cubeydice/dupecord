@@ -23,7 +23,7 @@
   align-items: center;
 }
 
-nav div {
+nav > div {
   display: flex;
   justify-content: space-evenly;
 }
@@ -79,7 +79,7 @@ main {
   line-height: 203%;
 }
 
-main p {
+.splash-body p {
   max-width: 800px;
   font-size: 15pt;
 }
@@ -139,7 +139,7 @@ section {
   line-height: 150%;
 }
 
-section div {
+section > div {
   max-width: 390px;
 }
 

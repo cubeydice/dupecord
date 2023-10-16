@@ -4,6 +4,7 @@ import './ServersSidebar.css'
 import { fetchServers, getServers } from "../../store/servers";
 import ServerItems from "./ServerItems";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import CreateServer from "./CreateServer";
 
 const ServersSidebar = ({sessionUser}) => {
   const dispatch = useDispatch();
@@ -18,11 +19,12 @@ const ServersSidebar = ({sessionUser}) => {
   return (
     <>
       <nav className="user-servers-sidebar" id='servers-sidebar'>
-        <NavLink to='@me'><img src={sessionUser.avatar_url} alt='profile-pic' className="server-icon"/></NavLink>
+        <NavLink to='@me' className="server-icon"><img src={sessionUser.avatar_url} alt='profile-pic'/></NavLink>
           <hr/>
           {servers.map(server => {
             return <ServerItems server={server} key={server.id}/>
           })}
+          <CreateServer/>
       </nav>
     </>
   )

@@ -18,7 +18,7 @@ class Api::ServersController < ApplicationController
     if @server
         render :show
     else
-        render json: { user: nil }
+        render json: { errors: "Server not found" }, status: 404
     end
   end
 
@@ -26,6 +26,7 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save!
+      UserServer.create!({user_id: current_user.id, server_id: @server.id})
       render :show
     else
       render json: { errors: @server.errors.full_messages }, status: :unprocessable_entity
@@ -34,12 +35,35 @@ class Api::ServersController < ApplicationController
 
   def update
     @server = Server.find_by(id: params[:id])
-    @server.destroy!
+
+    if @server
+      if @server.owner_id === current_user.id
+        if @server.update(server_params)
+          render :show
+        else
+          render json: nil
+        end
+      else
+        render json: { errors: "Unauthorized, user does not have permission to update server" }, status: :unauthorized
+      end
+    else
+      render json: { errors: "Server not found" }, status: 404
+    end
   end
 
   def destroy
     @server = Server.find_by(id: params[:id])
-    @server.destroy!
+
+    if @server
+      if @server.owner_id === current_user.id
+        @server.destroy!
+      else
+        render json: {errors: "Unauthorized, user does not have permissioin to delete server" }, status: :unauthorized
+
+      end
+    else
+      render json: nil
+    end
   end
 
   private

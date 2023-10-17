@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createServer } from '../../store/servers';
-import { closeModal } from '../../store/modals';
+import { createServer } from '../../../store/servers';
+import { closeModal } from '../../../store/modals';
 import './ServerForm.css'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
@@ -28,8 +28,10 @@ const ServerForm = () => {
       name,
       owner_id: sessionUser.id
     }
-    dispatch(createServer(server));
+    const res = dispatch(createServer(server));
+    console.log(res)
     dispatch(closeModal());
+    console.log("id",res.PromiseResult)
     history.push('/channels/@me');
   };
 

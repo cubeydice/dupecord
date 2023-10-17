@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../store/modals';
 import { useSelector, useDispatch} from 'react-redux';
-import ServerForm from '../ServerForm';
+import ServerForm from '../ServerForm/ServerCreate';
 import './Modal.css'
 
 const Modal = () => {

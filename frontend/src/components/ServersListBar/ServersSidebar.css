@@ -1,8 +1,8 @@
 .user-servers-sidebar {
   background: #1E1F22;
   position: fixed;
-  left: 0px;
   display: block;
+  left: 0px;
   width: 72px;
   height: 100%;
   text-align: center;
@@ -10,7 +10,7 @@
   padding-bottom: 8px;
   overflow-x:hidden;
   overflow-y: scroll;
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;
 }
 
 .user-servers-sidebar::-webkit-scrollbar {

@@ -4,7 +4,7 @@ import csrfFetch from "./csrf";
 export const RECEIVE_SERVERS = 'servers/RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'servers/RECEIVE_SERVER';
 export const REMOVE_SERVER = 'servers/REMOVE_SERVER';
-export const LEAVE_SERVER = 'servers/LEAVE/SERVER';
+export const REMOVE_USER_SERVER = 'servers/REMOVE_USER_SERVER';
 
 //USE SELECTORS
 export const getServers = (state) => {
@@ -30,6 +30,11 @@ export const removeServer = (serverId) => ({
   type: REMOVE_SERVER,
   serverId
 });
+
+export const removeUserServer = (serverId) => ({
+  type: REMOVE_USER_SERVER,
+  serverId
+})
 
 //THUNK ACTIONS
 export const fetchServers = () => async dispatch => {
@@ -95,6 +100,16 @@ export const deleteServer = (serverId) => async dispatch => {
   return response;
 };
 
+export const leaveServer = (serverId) => async dispatch => {
+  const response = await csrfFetch(`/api/user_servers/${serverId}`, {
+    method: 'DELETE'
+  });
+
+  if (response.ok) {
+    dispatch(removeUserServer(serverId));
+  }
+};
+
 // REDUCER
 const serversReducer = (state = {}, action) => {
   let nextState = { ...state };
@@ -109,6 +124,10 @@ const serversReducer = (state = {}, action) => {
       return nextState;
 
     case REMOVE_SERVER:
+      delete nextState[action.serverId];
+      return nextState;
+
+    case REMOVE_USER_SERVER:
       delete nextState[action.serverId];
       return nextState;
 

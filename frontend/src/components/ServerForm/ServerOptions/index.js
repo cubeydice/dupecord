@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom";
-import { deleteServer, getServer } from "../../../store/servers";
+import { deleteServer, getServer, leaveServer } from "../../../store/servers";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../../store/modals";
@@ -31,6 +31,7 @@ const ServerOptions = () => {
         history.push('/channels/@me');
         break;
         case 'leave':
+          dispatch(leaveServer(serverId))
           dispatch(closeModal());
           history.push('/channels/@me');
         break;
@@ -45,12 +46,16 @@ const ServerOptions = () => {
       <li>Create Channel<CreateChannel className='small-icon'/></li>
       <li>Create Category<CreateCategory className='small-icon'/></li>
       <hr/>
-      <li className="warning" onClick={handleClick('delete')}>Delete Server</li>
+      <li className="warning" onClick={handleClick('delete')}>
+        Delete Server
+      </li>
     </div>
   )} else {
     return (
       <div className="server-options">
-      <li className="warning">Leave Server<LeaveServer className='small-icon'/></li>
+      <li className="warning" onClick={handleClick('leave')}>
+        Leave Server<LeaveServer className='small-icon'/>
+      </li>
     </div>
     )
   }

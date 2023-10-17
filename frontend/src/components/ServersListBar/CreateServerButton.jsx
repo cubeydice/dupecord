@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { ReactComponent as Plus } from './assets/Plus.svg';
 import { openModal } from '../../store/modals'
 
-const CreateServer = () => {
+const CreateServerButton = () => {
     const dispatch = useDispatch();
 
     const handleClick = (e) => {
@@ -20,4 +20,4 @@ const CreateServer = () => {
     )
 }
 
-export default CreateServer;
+export default CreateServerButton;

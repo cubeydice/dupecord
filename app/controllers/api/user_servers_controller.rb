@@ -18,9 +18,8 @@ class Api::UserServersController < ApplicationController
 
 
     def destroy
-        @user_server = UserServer.find_by.find_by(user_id: current_user.id, server_id: params[:id])
+        @user_server = UserServer.find_by(user_id: current_user.id, server_id: params[:id])
         if @user_server
-
             @user_server.destroy!
         end
         render json: nil

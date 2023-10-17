@@ -4,7 +4,7 @@ import './ServersSidebar.css'
 import { fetchServers, getServers } from "../../store/servers";
 import ServerItems from "./ServerItems";
 import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom";
-import CreateServer from "./CreateServer";
+import CreateServerButton from "./CreateServerButton";
 
 const ServersSidebar = ({sessionUser}) => {
   const { serverId } = useParams();
@@ -24,7 +24,7 @@ const ServersSidebar = ({sessionUser}) => {
           {servers.map(server => {
             return <ServerItems server={server} key={server.id}/>
           })}
-          <CreateServer sessionUser={sessionUser}/>
+          <CreateServerButton sessionUser={sessionUser}/>
       </nav>
     </>
   )

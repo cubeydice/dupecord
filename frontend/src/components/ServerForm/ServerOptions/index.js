@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import './ServerOptions.css'
 
-const ServerModal = () => {
+const ServerOptions = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="server-modal">
+    <div className="server-options">
       <li>Server Settings</li>
       <li>Create Channel</li>
       <li>Create Category</li>
@@ -15,4 +16,4 @@ const ServerModal = () => {
   )
 }
 
-export default ServerModal;
+export default ServerOptions;

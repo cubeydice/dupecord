@@ -1,0 +1,9 @@
+.server-options {
+  background: var(--black);
+  position: fixed;
+  left: 80px;
+  top: 55px;
+  border-radius: 4px;
+  color: #a2a3a7;
+  list-style: none;
+}

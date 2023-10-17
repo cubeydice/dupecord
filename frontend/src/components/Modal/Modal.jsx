@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../store/modals';
 import { useSelector, useDispatch} from 'react-redux';
 import ServerForm from '../ServerForm/ServerCreate';
+import ServerOptions from '../ServerForm/ServerOptions';
 import './Modal.css'
 
 const Modal = () => {
@@ -18,6 +19,9 @@ const Modal = () => {
     case 'server-form':
       component = <ServerForm />;
       break;
+    case 'server-options':
+      component = <ServerOptions />;
+      break;
     case 'other':
       break;
     default:
@@ -29,7 +33,7 @@ const Modal = () => {
   }
 
   return (
-    <div className="modal-background" onClick={handleClick}>
+    <div className={ modal === 'server-form' ? "full-modal-background" : "modal-background"} onClick={handleClick}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         { component }
       </div>

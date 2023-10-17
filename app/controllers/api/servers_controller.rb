@@ -1,4 +1,6 @@
 class Api::ServersController < ApplicationController
+  wrap_parameters include: Server.attribute_names
+
   def index
     @user = current_user
 
@@ -24,7 +26,7 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save!
-      render json: { server: @server }
+      render :show
     else
       render json: { errors: @server.errors.full_messages }, status: :unprocessable_entity
     end

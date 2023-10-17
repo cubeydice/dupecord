@@ -7,10 +7,11 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 const ServerForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const sessionUser = useSelector(state => state.session.user);
   const [name, setName] = useState(`${sessionUser.username}'s server`);
   const [isSubmitDisabled, setSubmitDisabled] = useState(false);
-  const history = useHistory();
 
   useEffect(() => {
     if (name === "") setSubmitDisabled(true);

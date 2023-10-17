@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 const ChannelText = require('./assets/ChannelText.png');
 
 const ChannelsList = ({server}) => {
-  debugger
+  // debugger
   console.log(server)
   const channels = server.channels
   const { serverId } = useParams();

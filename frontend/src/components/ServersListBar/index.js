@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import './ServersSidebar.css'
 import { fetchServers, getServers } from "../../store/servers";
 import ServerItems from "./ServerItems";
-import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom";
 import CreateServer from "./CreateServer";
 
 const ServersSidebar = ({sessionUser}) => {
+  const { serverId } = useParams();
   const dispatch = useDispatch();
   const serversObj = useSelector(getServers);
   const servers = serversObj ? Object.values(serversObj) : [];
 
-
   useEffect(() => {
     dispatch(fetchServers())
-  }, [dispatch])
+  }, [dispatch, serverId])
 
   return (
     <>

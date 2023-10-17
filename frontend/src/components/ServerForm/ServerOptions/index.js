@@ -15,7 +15,9 @@ const ServerOptions = () => {
   const dispatch = useDispatch();
   const Settings = require('./assets/userSettings.png')
 
-  // useEffect(() => dispatch(fetchServers), [dispatch, serverId])
+  // useEffect(() => {
+  //   dispatch(fetchServers())
+  // }, [dispatch, serverId])
 
   const handleClick = (field) => (e) => {
     e.preventDefault();

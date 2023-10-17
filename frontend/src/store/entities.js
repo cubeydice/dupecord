@@ -1,5 +1,6 @@
+import { combineReducers } from "redux";
 import csrfFetch from "./csrf";
-import { RECEIVE_SERVERS, RECEIVE_SERVER, REMOVE_SERVER } from "./servers";
+import serversReducer, { RECEIVE_SERVERS, RECEIVE_SERVER, REMOVE_SERVER } from "./servers";
 
 export const RECEIVE_ENTITIES = 'entities/RECEIVE_ENTITIES'
 export const RECEIVE_ENTITY = 'entities/RECEIVE_ENTITY'
@@ -29,29 +30,34 @@ export const fetchEntities = (userId) => async dispatch => {
 
 
 //REDUCER
-const entitiesReducer = (state = {}, action) => {
-  let nextState = { ...state };
+// const entitiesReducer = (state = {}, action) => {
+//   let nextState = { ...state };
 
-  switch (action.type) {
-    // case RECEIVE_ENTITIES:
-    //   nextState = { ...nextState, ...action.entities}
-    //   return nextState;
+//   switch (action.type) {
+//     // case RECEIVE_ENTITIES:
+//     //   nextState = { ...nextState, ...action.entities}
+//     //   return nextState;
 
-    case RECEIVE_SERVERS:
-      nextState = { ...nextState, ...action.servers };
-      return nextState;
+//     case RECEIVE_SERVERS:
+//       nextState = { ...nextState, ...action.servers };
+//       return nextState;
 
-    case RECEIVE_SERVER:
-      nextState[action.server.id] = action.server;
-      return nextState;
+//     case RECEIVE_SERVER:
+//       // debugger
+//       nextState[action.payload.server.id] = action.payload.server;
+//       return nextState;
 
-    case REMOVE_SERVER:
-      delete nextState[action.serverId];
-      return nextState;
+//     case REMOVE_SERVER:
+//       delete nextState[action.serverId];
+//       return nextState;
 
-    default:
-      return state;
-  }
-};
+//     default:
+//       return state;
+//   }
+// };
+
+const entitiesReducer = combineReducers({
+  servers: serversReducer
+})
 
 export default entitiesReducer;

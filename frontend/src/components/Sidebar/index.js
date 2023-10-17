@@ -8,9 +8,9 @@ import { useSelector } from "react-redux";
 import { getServer } from "../../store/servers";
 
 const Sidebar = ({sessionUser}) => {
-  const serverId = useParams();
-  const server = useSelector(getServer(serverId.serverId))
-
+  const { serverId } = useParams();
+  const server = useSelector(getServer(serverId))
+  
   return (
     <>
       <div className="sidebar">

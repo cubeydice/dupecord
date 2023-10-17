@@ -26,12 +26,10 @@ const ServerForm = () => {
     e.preventDefault();
     const server = {
       name,
-      owner_id: sessionUser.id
+      owner_id: sessionUser.id,
     }
-    dispatch(createServer(server))
-    // const res = dispatch(createServer(server)).then(res => console.log(res.id));
+    dispatch(createServer(server)).then(res => history.push(`/channels/${res.server.id}`));
     dispatch(closeModal());
-    history.push('/channels/@me');
   };
 
   return (

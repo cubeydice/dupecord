@@ -3,7 +3,7 @@ class Api::ServersController < ApplicationController
     @user = current_user
 
     if @user
-      render :show
+      render :index
     else
       render json: { user: nil }
     end
@@ -14,7 +14,7 @@ class Api::ServersController < ApplicationController
     @server = Server.find_by(id: params[:id])
 
     if @server
-        render json: { server: @server }
+        render :show
     else
         render json: { user: nil }
     end

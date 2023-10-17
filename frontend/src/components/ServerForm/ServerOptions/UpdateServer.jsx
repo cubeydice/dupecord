@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 const UpdateServer = () => {
     const { serverId } = useParams();
-    const server = useSelector(fetchServer(serverId.serverId))
+    const server = useSelector(fetchServer(serverId))
     const [serverName, setServerName] = useState(server.name);
     const [serverIcon, setServerIcon] = useState(server.server_icon)
     const dispatch = useDispatch();

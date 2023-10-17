@@ -16,7 +16,7 @@ const ChannelsPage = () => {
 
   useEffect(() => {
     if (serverId !== '@me' && serverId !== null) dispatch(fetchServer(serverId));
-  }, [dispatch, serverId, servers])
+  }, [dispatch, serverId])
 
 
   if (!sessionUser) return <Redirect to="/" />;

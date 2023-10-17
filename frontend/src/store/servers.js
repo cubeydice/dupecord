@@ -20,9 +20,9 @@ export const receiveServers = (servers) => ({
   servers
 });
 
-export const receiveServer = (server) => ({
+export const receiveServer = (payload) => ({
   type: RECEIVE_SERVER,
-  server
+  payload
 });
 
 export const removeServer = (serverId) => ({
@@ -84,7 +84,7 @@ export const updateServer = (server) => async dispatch => {
 
 export const deleteServer = (serverId) => async dispatch => {
   const response = await csrfFetch(`/api/servers/${serverId}`, {
-    method: 'PATCH'
+    method: 'DELETE'
   });
 
   if (response.ok) {
@@ -94,17 +94,40 @@ export const deleteServer = (serverId) => async dispatch => {
   return response;
 };
 
-//REDUCER
+// REDUCER
 const serversReducer = (state = {}, action) => {
   let nextState = { ...state };
 
+  // switch (action.type) {
+  //   case RECEIVE_SERVERS:
+  //     nextState = { ...nextState, ...action.servers };
+  //     return nextState;
+
+  //   case RECEIVE_SERVER:
+  //     nextState[action.server.id] = action.server;
+  //     return nextState;
+
+  //   case REMOVE_SERVER:
+  //     delete nextState[action.serverId];
+  //     return nextState;
+
+  //   default:
+  //     return state;
+  // }
+
   switch (action.type) {
+    // case RECEIVE_ENTITIES:
+    //   nextState = { ...nextState, ...action.entities}
+    //   return nextState;
+
     case RECEIVE_SERVERS:
+      // debugger
       nextState = { ...nextState, ...action.servers };
       return nextState;
 
     case RECEIVE_SERVER:
-      nextState[action.server.id] = action.server;
+      // debugger
+      nextState[action.payload.server.id] = action.payload.server;
       return nextState;
 
     case REMOVE_SERVER:

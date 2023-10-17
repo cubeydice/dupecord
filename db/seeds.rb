@@ -41,8 +41,20 @@ ApplicationRecord.transaction do
         server_icon: 'https://i.imgur.com/AUtot3G.png'
       )
       Server.create!(
-        name: "Demo Server 2",
+        name: "random server",
         owner_id: 2
+      )
+      Server.create!(
+        name: "Gaming",
+        owner_id: 3
+      )
+      Server.create!(
+        name: "Music",
+        owner_id: 4
+      )
+      Server.create!(
+        name: "Education",
+        owner_id: 5
       )
 
       puts "Creating server membership..."
@@ -53,6 +65,30 @@ ApplicationRecord.transaction do
       UserServer.create!(
         user_id: 2,
         server_id: 1,
+      )
+      UserServer.create!(
+        user_id: 1,
+        server_id: 3,
+      )
+      UserServer.create!(
+        user_id: 3,
+        server_id: 1,
+      )
+      UserServer.create!(
+        user_id: 3,
+        server_id: 2,
+      )
+      UserServer.create!(
+        user_id: 4,
+        server_id: 1,
+      )
+      UserServer.create!(
+        user_id: 5,
+        server_id: 4,
+      )
+      UserServer.create!(
+        user_id: 5,
+        server_id: 2,
       )
 
       puts "Creating channels..."
@@ -73,13 +109,68 @@ ApplicationRecord.transaction do
         )
         Channel.create!(
           server_id: 2,
-          name: "General",
+          name: "random",
           category: "General",
         )
         Channel.create!(
           server_id: 2,
           name: "boba",
           category: "General",
+        )
+        Channel.create!(
+          server_id: 3,
+          name: "General",
+          category: "General",
+        )
+        Channel.create!(
+          server_id: 3,
+          name: "Visual Novels",
+          category: "Game Suggestions",
+        )
+        Channel.create!(
+          server_id: 3,
+          name: "Online Multiplayer",
+          category: "Game Suggestions",
+        )
+        Channel.create!(
+          server_id: 3,
+          name: "RPGs",
+          category: "Game Suggestions",
+        )
+        Channel.create!(
+          server_id: 4,
+          name: "General",
+          category: "General",
+        )
+        Channel.create!(
+          server_id: 4,
+          name: "Pop",
+          category: "Genres",
+        )
+        Channel.create!(
+          server_id: 4,
+          name: "Kpop",
+          category: "Genres",
+        )
+        Channel.create!(
+          server_id: 4,
+          name: "Other",
+          category: "Genres",
+        )
+        Channel.create!(
+          server_id: 5,
+          name: "General",
+          category: "General",
+        )
+        Channel.create!(
+          server_id: 5,
+          name: "JavaScript",
+          category: "Coding",
+        )
+        Channel.create!(
+          server_id: 5,
+          name: "Ruby",
+          category: "Coding",
         )
 
     puts "Done!"

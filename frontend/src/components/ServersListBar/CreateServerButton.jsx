@@ -8,7 +8,7 @@ const CreateServerButton = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        dispatch(openModal('server-form'))
+        dispatch(openModal('create-server-form'))
     }
 
     return (

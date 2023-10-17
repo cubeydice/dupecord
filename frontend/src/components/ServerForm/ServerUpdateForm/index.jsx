@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchServer, updateServer } from "../../../store/servers";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { fetchServer, updateServer } from "../../../store/servers";
+import { closeModal } from "../../../store/modals";
 import './ServerUpdateForm.css'
 
-const UpdateServer = () => {
+const ServerUpdateForm = () => {
+  const dispatch = useDispatch();
     const { serverId } = useParams();
     const server = useSelector(fetchServer(serverId))
     const [serverName, setServerName] = useState(server.name);
     const [serverIcon, setServerIcon] = useState(server.server_icon)
-    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(updateServer)
+        dispatch(updateServer(serverId))
+        dispatch(closeModal)
     }
 
     const handleChange = (field) => (e) => {
@@ -50,4 +52,4 @@ const UpdateServer = () => {
     )
 }
 
-export default UpdateServer;
+export default ServerUpdateForm;

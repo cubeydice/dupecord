@@ -25,10 +25,12 @@ const ServerCreateForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const server = {
       name,
       owner_id: sessionUser.id,
     }
+
     dispatch(createServer(server)).then(res => history.push(`/channels/${res.server.id}`));
     dispatch(closeModal());
   };

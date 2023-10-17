@@ -73,16 +73,6 @@ function RegisterForm() {
           className="login-input"
         />
       </label> <br/>
-      {/* <label>
-        <p className='login-question'>DATE OF BIRTH </p> <br/>
-        <input
-          type="date"
-          value={dob}
-          onChange={(e) => setDateofBirth(e.target.value)}
-          required
-          className="login-input"
-        />
-      </label> <br/> */}
       <button type="submit" className="login-button">Continue</button>
     </form>
     <sub>By registering, you agree to Dupercord's <Link to='https://discord.com/terms'>Terms of Service</Link> and <Link to='https://discord.com/privacy'>Privacy Policy</Link></sub>

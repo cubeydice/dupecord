@@ -1,9 +1,8 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom";
-import { deleteServer, getServer, leaveServer } from "../../../store/servers";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeModal } from "../../../store/modals";
+import { deleteServer, getServer, leaveServer } from "../../../store/servers";
+import { openModal, closeModal } from "../../../store/modals";
 import { ReactComponent as LeaveServer } from "./assets/guildLeaveServer.svg";
 import { ReactComponent as CreateCategory } from "./assets/guildCreateCategory.svg";
 import { ReactComponent as CreateChannel } from "./assets/guildCreateChannel.svg";
@@ -17,10 +16,6 @@ const ServerOptions = () => {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchServers())
-  // }, [dispatch, serverId])
-
   const handleClick = (field) => (e) => {
     e.preventDefault();
 
@@ -30,10 +25,14 @@ const ServerOptions = () => {
         dispatch(closeModal());
         history.push('/channels/@me');
         break;
-        case 'leave':
-          dispatch(leaveServer(serverId))
-          dispatch(closeModal());
-          history.push('/channels/@me');
+      case 'leave':
+        dispatch(leaveServer(serverId))
+        dispatch(closeModal());
+        history.push('/channels/@me');
+        break;
+      case 'settings':
+        dispatch(closeModal())
+        dispatch(openModal('update-server-form'))
         break;
       default:
         break;

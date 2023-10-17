@@ -13,7 +13,7 @@ const ProfileBar = ({sessionUser}) => {
         <li>
           <ProfileButton user={sessionUser} />
         </li>
-        <li><img src={require ('./assets/userSettings.png') } alt='settings' className='profile-icon'/></li>
+        <li><img src={require ('./assets/userSettings.png') } alt='settings' className='small-icon'/></li>
       </ul>
     </div>
     </>

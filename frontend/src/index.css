@@ -149,8 +149,9 @@ button:hover {
   color: white;
 }
 
-.profile-icon {
+.small-icon {
 	height: 20px;
+	width: 20px;
 }
 
 .profile-avatar {

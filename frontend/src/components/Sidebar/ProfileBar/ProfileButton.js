@@ -53,7 +53,7 @@ function ProfileButton({ user }) {
             <hr/>
 
             <li onClick={logout}>
-              <img src={require ('./assets/Logout.png')} alt='logout' className="profile-icon"/>Log Out
+              <img src={require ('./assets/Logout.png')} alt='logout' className="small-icon"/>Log Out
             </li>
           </ul>
       )}

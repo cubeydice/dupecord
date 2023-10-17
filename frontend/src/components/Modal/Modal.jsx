@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../store/modals';
 import { useSelector, useDispatch} from 'react-redux';
-import ServerForm from '../ServerForm/ServerCreate';
+import ServerCreateForm from '../ServerForm/ServerCreateForm';
 import ServerOptions from '../ServerForm/ServerOptions';
 import './Modal.css'
 
@@ -17,7 +17,7 @@ const Modal = () => {
 
   switch (modal) {
     case 'server-form':
-      component = <ServerForm />;
+      component = <ServerCreateForm />;
       break;
     case 'server-options':
       component = <ServerOptions />;

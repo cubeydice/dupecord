@@ -46,11 +46,14 @@ ApplicationRecord.transaction do
       )
       Server.create!(
         name: "Gaming",
-        owner_id: 3
+        owner_id: 3,
+        server_icon: 'https://i.imgur.com/RP0LYqf.jpg'
+        #image by Leo Alexandre
       )
       Server.create!(
         name: "Music",
-        owner_id: 4
+        owner_id: 4,
+        server_icon: 'https://i.imgur.com/Jq9YXPm.jpg'
       )
       Server.create!(
         name: "Education",

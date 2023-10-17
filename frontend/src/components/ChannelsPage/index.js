@@ -4,14 +4,14 @@ import Messages from "../Messages";
 import Modal from "../Modal/Modal";
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, ImgHTMLAttributes } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { fetchServer } from "../../store/servers";
 
 const ChannelsPage = () => {
-  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const { serverId } = useParams();
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     if (serverId !== '@me' && serverId !== null) dispatch(fetchServer(serverId));

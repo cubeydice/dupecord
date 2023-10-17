@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../../store/session';
+import { handleImgError } from "../../../App";
 import './ProfileButton.css'
 
 function ProfileButton({ user }) {
@@ -38,7 +39,10 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu} className="profile-button">
-        <img src={user.avatar_url} alt='profile-pic' className="profile-avatar"/>
+        <img src={user.avatar_url}
+        onError={handleImgError}
+        alt='profile-pic'
+        className="profile-avatar"/>
         {user.username}</button>
       {showMenu && (
           <ul className="profile-dropdown">

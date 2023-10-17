@@ -5,6 +5,10 @@ import RegisterForm from "./components/RegisterForm";
 import SplashPage from "./components/SplashPage";
 import ChannelsPage from "./components/ChannelsPage";
 
+export const handleImgError = (e) => {
+  e.currentTarget.src='https://i.imgur.com/ZUnA3o9.png'
+}
+
 function App() {
   return (
     <Switch>

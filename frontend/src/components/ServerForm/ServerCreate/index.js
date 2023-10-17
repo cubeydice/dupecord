@@ -28,10 +28,9 @@ const ServerForm = () => {
       name,
       owner_id: sessionUser.id
     }
-    const res = dispatch(createServer(server));
-    console.log(res)
+    dispatch(createServer(server))
+    // const res = dispatch(createServer(server)).then(res => console.log(res.id));
     dispatch(closeModal());
-    console.log("id",res.PromiseResult)
     history.push('/channels/@me');
   };
 

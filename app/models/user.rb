@@ -32,12 +32,15 @@ class User < ApplicationRecord
 
   has_many :owned_servers,
   foreign_key: :owner_id,
-  class_name: :Server
+  class_name: :Server,
+  dependent: :destroy
 
-  has_many :user_servers
+  has_many :user_servers,
+  dependent: :destroy
 
   has_many :servers,
-  through: :user_servers
+  through: :user_servers,
+  dependent: :destroy
 
   def self.find_by_credentials(credential, password)
     if credential =~ URI::MailTo::EMAIL_REGEXP

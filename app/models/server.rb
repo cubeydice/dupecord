@@ -17,10 +17,13 @@ class Server < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
-    has_many :user_servers
+    has_many :user_servers,
+    dependent: :destroy
 
     has_many :users,
-    through: :user_servers
+    through: :user_servers,
+    dependent: :destroy
 
-    has_many :channels
+    has_many :channels,
+    dependent: :destroy
 end

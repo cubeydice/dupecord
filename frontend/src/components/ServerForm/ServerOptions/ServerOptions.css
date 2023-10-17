@@ -6,8 +6,8 @@
   border-radius: 4px;
   color: #a2a3a7;
   list-style: none;
-  width: 188px;
-  padding: 15px;
+  width: 202px;
+  padding: 8px;
   font-size: 14px;
 }
 
@@ -25,4 +25,11 @@
   justify-content: space-between;
   height: 24px;
   margin-bottom: 0px;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.server-options > li:hover {
+  background: #404248;
+  color: white;
 }

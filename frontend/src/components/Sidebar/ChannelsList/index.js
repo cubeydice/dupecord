@@ -2,7 +2,6 @@ import React from 'react';
 import './ChannelsList.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom';
 const ChannelText = require('./assets/ChannelText.png');
 
 const ChannelsList = ({server}) => {
@@ -28,7 +27,7 @@ const ChannelsList = ({server}) => {
                 </NavLink>
                 <br/>
               </div>)
-            }
+            } else return "";
           })
           }
         </div>

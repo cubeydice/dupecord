@@ -4,6 +4,7 @@ import csrfFetch from "./csrf";
 export const RECEIVE_SERVERS = 'servers/RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'servers/RECEIVE_SERVER';
 export const REMOVE_SERVER = 'servers/REMOVE_SERVER';
+export const LEAVE_SERVER = 'servers/LEAVE/SERVER';
 
 //USE SELECTORS
 export const getServers = (state) => {
@@ -98,35 +99,12 @@ export const deleteServer = (serverId) => async dispatch => {
 const serversReducer = (state = {}, action) => {
   let nextState = { ...state };
 
-  // switch (action.type) {
-  //   case RECEIVE_SERVERS:
-  //     nextState = { ...nextState, ...action.servers };
-  //     return nextState;
-
-  //   case RECEIVE_SERVER:
-  //     nextState[action.server.id] = action.server;
-  //     return nextState;
-
-  //   case REMOVE_SERVER:
-  //     delete nextState[action.serverId];
-  //     return nextState;
-
-  //   default:
-  //     return state;
-  // }
-
   switch (action.type) {
-    // case RECEIVE_ENTITIES:
-    //   nextState = { ...nextState, ...action.entities}
-    //   return nextState;
-
     case RECEIVE_SERVERS:
-      // debugger
       nextState = { ...nextState, ...action.servers };
       return nextState;
 
     case RECEIVE_SERVER:
-      // debugger
       nextState[action.payload.server.id] = action.payload.server;
       return nextState;
 

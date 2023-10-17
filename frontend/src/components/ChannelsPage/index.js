@@ -6,11 +6,10 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { fetchServer, getServers } from "../../store/servers";
+import { fetchServer } from "../../store/servers";
 
 const ChannelsPage = () => {
   const sessionUser = useSelector(state => state.session.user);
-  const servers = useSelector(getServers)
   const dispatch = useDispatch();
   const { serverId } = useParams();
 

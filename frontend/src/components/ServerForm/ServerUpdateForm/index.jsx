@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchServer, updateServer } from "../../../store/servers";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import './ServerUpdateForm.css'
 
 const UpdateServer = () => {
     const { serverId } = useParams();

@@ -43,7 +43,7 @@ ApplicationRecord.transaction do
       Server.create! [
         { name: "Demo's Server", owner_id: 1 , server_icon: 'https://i.imgur.com/AUtot3G.png'},
         { name: "random", owner_id: 2 },
-        { name: "Gaming", owner_id: 3 , server_icon: 'https://i.imgur.com/AUtot3G.png'},
+        { name: "Gaming", owner_id: 3 , server_icon: 'https://i.imgur.com/RP0LYqf.jpg'},
         { name: "~music~", owner_id: 4 },
         { name: "Education!", owner_id: 5 },
       ]

@@ -9,6 +9,9 @@
 ApplicationRecord.transaction do
     puts "Destroying tables..."
     User.destroy_all
+    Server.destroy_all
+    Channel.destroy_all
+    UserServer.destroy.all
 
     puts "Resetting primary keys..."
     ApplicationRecord.connection.reset_pk_sequence!('users')

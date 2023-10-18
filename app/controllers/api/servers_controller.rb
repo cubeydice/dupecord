@@ -25,7 +25,7 @@ class Api::ServersController < ApplicationController
   def create
     @server = Server.new(server_params)
     @server.owner_id = current_user.id
-    
+
     if @server.save!
       UserServer.create!({user_id: current_user.id, server_id: @server.id})
       render :show
@@ -42,7 +42,7 @@ class Api::ServersController < ApplicationController
         if @server.update(server_params)
           render :show
         else
-          render json: nil
+          render json: { errors: @server.errors.full_messages }
         end
       else
         render json: { errors: "Unauthorized, user does not have permission to update server" }, status: :unauthorized
@@ -58,9 +58,9 @@ class Api::ServersController < ApplicationController
     if @server
       if @server.owner_id === current_user.id
         @server.destroy!
+        render json: nil
       else
         render json: {errors: "Unauthorized, user does not have permissioin to delete server" }, status: :unauthorized
-
       end
     else
       render json: nil

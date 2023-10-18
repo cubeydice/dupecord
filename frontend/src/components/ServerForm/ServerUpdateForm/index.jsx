@@ -26,11 +26,12 @@ const ServerUpdateForm = () => {
     e.preventDefault();
 
     server = {
+      ...server,
       name,
       server_icon: serverIcon
     }
 
-    dispatch(updateServer(serverId))
+    dispatch(updateServer(server))
     dispatch(closeModal())
   }
 

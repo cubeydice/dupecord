@@ -38,7 +38,7 @@ const Modal = () => {
 
   return (
     <div
-    className={ modal === ('create-server-form' || 'update-server-form') ?
+    className={ modal !== ('server-options') ?
     "full-modal-background" :
     "modal-background"}
     onClick={handleClick}>

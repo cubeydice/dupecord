@@ -9,7 +9,7 @@ import Modal from "../Modal/Modal";
 
 const ChannelsPage = () => {
   const dispatch = useDispatch();
-  const { serverId, channelId } = useParams();
+  const { serverId } = useParams();
   const server = useSelector(getServer(serverId))
   const sessionUser = useSelector(state => state.session.user);
 
@@ -25,7 +25,7 @@ return (
     <div className="channels-page">
       <ServersListBar sessionUser={sessionUser}/>
       <Sidebar sessionUser={sessionUser} serverId={serverId} server={server}/>
-      <Messages serverId={serverId} server={server} channelId={channelId}/>
+      <Messages/>
       <Modal/>
     </div>
     </>

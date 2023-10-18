@@ -1,4 +1,8 @@
 .header-bar{
   height: var(--top-bar-height);
   border-bottom: 1px solid var(--border-black);
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  align-items: center;
 }

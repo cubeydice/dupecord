@@ -6,7 +6,7 @@ export const RECEIVE_SERVER = 'servers/RECEIVE_SERVER';
 export const REMOVE_SERVER = 'servers/REMOVE_SERVER';
 export const REMOVE_USER_SERVER = 'servers/REMOVE_USER_SERVER';
 
-//USE SELECTORS
+//SELECTORS
 export const getServers = (state) => {
   return state.entities.servers ? state.entities.servers : null;
 };
@@ -54,6 +54,7 @@ export const fetchServer = (serverId) => async dispatch => {
   if (response.ok) {
     const server = await response.json();
     dispatch(receiveServer(server));
+    return server
   }
 
   return response;

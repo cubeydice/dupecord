@@ -3,7 +3,8 @@ import './ServersSidebar.css'
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import { handleImgError } from '../../App'
 
-const ServerItems = ({server, imgNotFound}) => {
+const ServerItems = ({server}) => {
+    const firstChannelId = server.channels[0].id
     const icon = server.serverIcon ?
         <img src={server.serverIcon}
         onError={handleImgError}
@@ -14,7 +15,7 @@ const ServerItems = ({server, imgNotFound}) => {
     return (
         <>
            <NavLink
-           to={`/channels/${server.id}`}
+           to={`/channels/${server.id}/${firstChannelId}`}
            className="server-icon">
                 {icon}
            </NavLink>

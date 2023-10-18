@@ -1,0 +1,4 @@
+.header-bar{
+  height: var(--top-bar-height);
+  border-bottom: 1px solid var(--border-black);
+}

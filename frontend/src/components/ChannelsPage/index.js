@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Redirect } from "react-router-dom";
-import { fetchServer } from "../../store/servers";
+import { fetchServer, getServer } from "../../store/servers";
 import ServersListBar from "../ServersListBar";
 import Sidebar from "../Sidebar";
 import Messages from "../Messages";
@@ -9,7 +9,8 @@ import Modal from "../Modal/Modal";
 
 const ChannelsPage = () => {
   const dispatch = useDispatch();
-  const { serverId } = useParams();
+  const { serverId, channelId } = useParams();
+  const server = useSelector(getServer(serverId))
   const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
@@ -23,8 +24,8 @@ return (
   <>
     <div className="channels-page">
       <ServersListBar sessionUser={sessionUser}/>
-      <Sidebar sessionUser={sessionUser} serverId={serverId}/>
-      <Messages/>
+      <Sidebar sessionUser={sessionUser} serverId={serverId} server={server}/>
+      <Messages serverId={serverId} server={server} channelId={channelId}/>
       <Modal/>
     </div>
     </>

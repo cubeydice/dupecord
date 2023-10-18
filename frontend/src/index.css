@@ -107,6 +107,7 @@ table {
 	--brand: #5865f2;
 	--brand-gradient: linear-gradient(90deg,#8ea1e1,#7289da);
 	--greyple: #99aab5;
+	--sub-gray: #a2a3a7;
 	--dark-not-black: #2c2f33;
 	/* --focus-border: #00b0f4; */
 	--status-green: #43b581;
@@ -116,9 +117,11 @@ table {
 	--not-quite-black: #23272a;
 	--not-quite-black-rgb: 35,39,42;
 	--black: #000;
+	--border-black: #202124
 	--ekko-red: #de2761;
 	--page-max-width: 1260px;
 	--page-max-width-med: 1024px;
+	--top-bar-height: 48px;
 }
 
 body {
@@ -132,7 +135,7 @@ body {
 
 sub {
   font-size: 9pt;
-  color: #a2a3a7;
+  color: var(--sub-gray);
 }
 
 a {

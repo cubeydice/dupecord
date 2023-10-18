@@ -2,15 +2,10 @@ import React from "react";
 import './Sidebar.css'
 import ProfileBar from "./ProfileBar";
 import ServerButton from "./ServerButton";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
 import ChannelsList from "./ChannelsList";
-import { useSelector } from "react-redux";
-import { getServer } from "../../store/servers";
 
-const Sidebar = ({sessionUser}) => {
-  const { serverId } = useParams();
-  const server = useSelector(getServer(serverId))
-  
+const Sidebar = ({sessionUser, serverId, server}) => {
+
   return (
     <>
       <div className="sidebar">

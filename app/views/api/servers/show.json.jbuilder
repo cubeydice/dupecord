@@ -3,7 +3,7 @@ json.server do
 end
 
 channels = @server.channels
-categories = {}
+categories = []
 
 channels.each do |channel|
     json.channels do
@@ -11,4 +11,10 @@ channels.each do |channel|
             json.extract!(channel, :id, :name, :category, :topic)
         end
     end
+
+    categories << channel.category
+end
+
+json.categories do
+    json.array! categories.uniq
 end

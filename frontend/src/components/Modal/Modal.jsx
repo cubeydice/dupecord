@@ -38,7 +38,9 @@ const Modal = () => {
 
   return (
     <div
-    className={ modal === 'create-server-form' ? "full-modal-background" : "modal-background"}
+    className={ modal === ('create-server-form' || 'update-server-form') ?
+    "full-modal-background" :
+    "modal-background"}
     onClick={handleClick}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         { component }

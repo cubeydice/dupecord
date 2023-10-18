@@ -41,7 +41,7 @@ const ServerOptions = () => {
 
   if (sessionUser.id === server.ownerId) { return (
     <div className="server-options">
-      <li>Server Settings <Settings className='small-icon'/></li>
+      <li onClick={handleClick('settings')}>Server Settings <Settings className='small-icon'/></li>
       <li>Create Channel<CreateChannel className='small-icon'/></li>
       <li>Create Category<CreateCategory className='small-icon'/></li>
       <hr/>

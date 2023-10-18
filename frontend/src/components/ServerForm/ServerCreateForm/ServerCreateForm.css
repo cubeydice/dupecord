@@ -55,12 +55,15 @@
 }
 
 .form-submit {
+  position: relative;
   color: var(--white);
   background: var(--brand);
   border: none;
   height: 34px;
   width: 84px;
   border-radius: 2px;
+  left: 315px;
+  bottom: 4px;
 }
 
 .form-submit:hover {

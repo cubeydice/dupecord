@@ -1,7 +1,48 @@
 .update-server{
+  display: flex;
   position: fixed;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 100%;
+  color: black;
+  background: var(--white);
+  flex-direction: column;
+  height: 300px;
+  width: 400px;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 4px;
+  top: 35%;
+  left: 35%;
+  animation: fadein 1s;
+  text-align: center;
+  justify-items: center;
+}
+
+.update-server h1 {
+  font-size: 20px;
+  font-family: 'ABC Ginto Nord';
+  font-weight: 700px;
+}
+
+#id {
+  position: fixed;
+  top: 10vh;
+  right: 90vw;
+}
+
+#update-server-submit {
+  background-color: var(--status-green);
+  left: 300px;
+  width: 99px;
+}
+
+.update-server p {
+  background: #313338;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size:40px;
+}
+.update-icon {
+  display: flex;
+  justify-content: space-evenly;
 }

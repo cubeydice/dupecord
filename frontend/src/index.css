@@ -154,6 +154,16 @@ button:hover {
 	width: 20px;
 }
 
+.large-icon {
+	height: 82px;
+	width: 82px;
+	border-radius: 50%;
+	border: solid var(--not-quite-black);
+	border-width: 1px;
+	align-items: center;
+	justify-items: center;
+}
+
 .profile-avatar {
 	height: 32px;
 	border-radius: 50%;

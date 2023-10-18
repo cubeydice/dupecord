@@ -8,15 +8,14 @@
 
 ApplicationRecord.transaction do
     puts "Destroying tables..."
-    User.destroy_all
     Server.destroy_all
-    UserServer.destroy.all
+    User.destroy_all
     Channel.destroy_all
 
     puts "Resetting primary keys..."
     ApplicationRecord.connection.reset_pk_sequence!('users')
-    ApplicationRecord.connection.reset_pk_sequence!('servers')
     ApplicationRecord.connection.reset_pk_sequence!('user_servers')
+    ApplicationRecord.connection.reset_pk_sequence!('servers')
     ApplicationRecord.connection.reset_pk_sequence!('channels')
 
     puts "Creating users..."
@@ -41,146 +40,48 @@ ApplicationRecord.transaction do
     end
 
     puts "Creating servers..."
-      Server.create!(
-        name: "Demo Server",
-        owner_id: 1,
-        server_icon: 'https://i.imgur.com/AUtot3G.png'
-      )
-      Server.create!(
-        name: "random server",
-        owner_id: 2
-      )
-      Server.create!(
-        name: "Gaming",
-        owner_id: 3,
-        server_icon: 'https://i.imgur.com/RP0LYqf.jpg'
-        #image by Leo Alexandre
-      )
-      Server.create!(
-        name: "Music",
-        owner_id: 4,
-        server_icon: 'https://i.imgur.com/Jq9YXPm.jpg'
-      )
-      Server.create!(
-        name: "Education",
-        owner_id: 5
-      )
+      Server.create! [
+        { name: "Demo's Server", owner_id: 1 , server_icon: 'https://i.imgur.com/AUtot3G.png'},
+        { name: "random", owner_id: 2 },
+        { name: "Gaming", owner_id: 3 , server_icon: 'https://i.imgur.com/AUtot3G.png'},
+        { name: "~music~", owner_id: 4 },
+        { name: "Education!", owner_id: 5 },
+      ]
 
-      puts "Creating server membership..."
-      UserServer.create!(
-        user_id: 1,
-        server_id: 2,
-      )
-      UserServer.create!(
-        user_id: 2,
-        server_id: 1,
-      )
-      UserServer.create!(
-        user_id: 1,
-        server_id: 3,
-      )
-      UserServer.create!(
-        user_id: 3,
-        server_id: 1,
-      )
-      UserServer.create!(
-        user_id: 3,
-        server_id: 2,
-      )
-      UserServer.create!(
-        user_id: 4,
-        server_id: 1,
-      )
-      UserServer.create!(
-        user_id: 5,
-        server_id: 4,
-      )
-      UserServer.create!(
-        user_id: 5,
-        server_id: 2,
-      )
+    puts "Creating server membership..."
+      UserServer.create! [
+        { user_id: 1, server_id: 2 },
+        { user_id: 1, server_id: 3 },
+        { user_id: 2, server_id: 1 },
+        { user_id: 3, server_id: 1 },
+        { user_id: 3, server_id: 2 },
+        { user_id: 4, server_id: 1 },
+        { user_id: 4, server_id: 3 },
+        { user_id: 5, server_id: 2 },
+        { user_id: 5, server_id: 4 },
+      ]
 
-      puts "Creating channels..."
-        Channel.create!(
-          server_id: 1,
-          name: "General",
-          category: "General",
-        )
-        Channel.create!(
-          server_id: 1,
-          name: "off-topic",
-          category: "General",
-        )
-        Channel.create!(
-          server_id: 1,
-          name: "Coding Resources",
-          category: "Resources",
-        )
-        Channel.create!(
-          server_id: 2,
-          name: "random",
-          category: "General",
-        )
-        Channel.create!(
-          server_id: 2,
-          name: "boba",
-          category: "General",
-        )
-        Channel.create!(
-          server_id: 3,
-          name: "General",
-          category: "General",
-        )
-        Channel.create!(
-          server_id: 3,
-          name: "Visual Novels",
-          category: "Game Suggestions",
-        )
-        Channel.create!(
-          server_id: 3,
-          name: "Online Multiplayer",
-          category: "Game Suggestions",
-        )
-        Channel.create!(
-          server_id: 3,
-          name: "RPGs",
-          category: "Game Suggestions",
-        )
-        Channel.create!(
-          server_id: 4,
-          name: "General",
-          category: "General",
-        )
-        Channel.create!(
-          server_id: 4,
-          name: "Pop",
-          category: "Genres",
-        )
-        Channel.create!(
-          server_id: 4,
-          name: "Kpop",
-          category: "Genres",
-        )
-        Channel.create!(
-          server_id: 4,
-          name: "Other",
-          category: "Genres",
-        )
-        Channel.create!(
-          server_id: 5,
-          name: "General",
-          category: "General",
-        )
-        Channel.create!(
-          server_id: 5,
-          name: "JavaScript",
-          category: "Coding",
-        )
-        Channel.create!(
-          server_id: 5,
-          name: "Ruby",
-          category: "Coding",
-        )
+    puts "Creating channels..."
+      Channel.create! [
+        { server_id: 1, category: "General", name: "General" },
+        { server_id: 1, category: "General", name: "off-topic" },
+        { server_id: 1, category: "Resources", name: "Coding Resources" },
+        { server_id: 2, category: "General", name: "random" },
+        { server_id: 2, category: "General", name: "boba" },
+        { server_id: 3, category: "General", name: "General" },
+        { server_id: 3, category: "Game Suggestions", name: "Visual Novels" },
+        { server_id: 3, category: "Game Suggestions", name: "Online Multiplayer" },
+        { server_id: 3, category: "Game Suggestions", name: "RPGs" },
+        { server_id: 4, name: "General", category: "General" },
+        { server_id: 4, name: "Genres", category: "Kpop" },
+        { server_id: 4, name: "Genres", category: "Pop" },
+        { server_id: 4, name: "Genres", category: "Other" },
+        { server_id: 5, name: "General", category: "General" },
+        { server_id: 5, name: "Coding", category: "JavaScript" },
+        { server_id: 5, name: "Coding", category: "Ruby" },
+        { server_id: 5, name: "Coding", category: "General" },
+        { server_id: 5, name: "Coding", category: "General" },
+      ]
 
     puts "Done!"
   end

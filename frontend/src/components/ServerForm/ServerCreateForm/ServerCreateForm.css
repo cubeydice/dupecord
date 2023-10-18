@@ -74,3 +74,16 @@
 .form-submit:disabled {
   -webkit-filter: brightness(160%);
 }
+
+.update-icon p {
+  background: #313338;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size:40px;
+}
+.update-icon {
+  display: flex;
+  justify-content: space-evenly;
+}

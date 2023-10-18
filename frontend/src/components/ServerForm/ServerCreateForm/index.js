@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { createServer } from '../../../store/servers';
 import { closeModal } from '../../../store/modals';
+import { handleImgError } from "../../../App";
 import './ServerCreateForm.css'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 const ServerCreateForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const sessionUser = useSelector(state => state.session.user);
-  const [name, setName] = useState(`${sessionUser.username}'s server`);
+  const [name, setServerName] = useState(`${sessionUser.username}'s server`);
+  const [serverIcon, setServerIcon] = useState('');
   const [isSubmitDisabled, setSubmitDisabled] = useState(false);
 
   useEffect(() => {
@@ -18,9 +20,20 @@ const ServerCreateForm = () => {
     else setSubmitDisabled(false);
   }, [name])
 
-  //event handler
-  const handleChange = e => {
-    setName(e.currentTarget.value)
+  //event handlers
+  const handleChange = (field) => (e) => {
+    e.preventDefault();
+
+    switch (field) {
+      case 'serverName':
+        setServerName(e.currentTarget.value)
+        break;
+      case 'serverIcon':
+        setServerIcon(e.currentTarget.value)
+        break;
+      default:
+        break;
+    };
   }
 
   const handleSubmit = (e) => {
@@ -28,12 +41,20 @@ const ServerCreateForm = () => {
 
     const server = {
       name,
-      owner_id: sessionUser.id,
+      server_icon: serverIcon
     }
 
     dispatch(createServer(server)).then(res => history.push(`/channels/${res.server.id}`));
     dispatch(closeModal());
   };
+
+  const iconPreview = serverIcon ?
+    <img src={serverIcon}
+            onError={ handleImgError }
+            alt='server-icon'
+            className="large-icon"
+            /> :
+    <p className="large-icon">{name[0]}</p>
 
   return (
     <div className="server-form">
@@ -43,11 +64,22 @@ const ServerCreateForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="server-form-input">
+        <div className='update-icon'>
+          {iconPreview}
+          <label>SERVER ICON <br/>
+          <input type="text"
+          value={serverIcon}
+          className="form-input"
+          onChange={handleChange('serverIcon')}
+          />
+          </label>
+        </div>
+
         <label><h2>SERVER NAME</h2>
           <input
             type='text'
             value={name}
-            onChange={handleChange}
+            onChange={handleChange('serverName')}
             className='form-input'/>
         </label>
 

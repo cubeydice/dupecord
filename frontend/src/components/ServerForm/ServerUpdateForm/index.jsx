@@ -8,82 +8,85 @@ import './ServerUpdateForm.css'
 
 const ServerUpdateForm = () => {
   const dispatch = useDispatch();
-    const { serverId } = useParams();
-    let server = useSelector(getServer(serverId))
-    const [name, setServerName] = useState(server.name);
-    const [serverIcon, setServerIcon] = useState(server.serverIcon);
-    const [isSubmitDisabled, setSubmitDisabled] = useState(false);
 
-    useEffect(() => {
-      if (name === "") setSubmitDisabled(true);
-      else setSubmitDisabled(false);
-    }, [name])
+  const { serverId } = useParams();
+  let server = useSelector(getServer(serverId))
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
+  const [name, setServerName] = useState(server.name);
+  const [serverIcon, setServerIcon] = useState(server.serverIcon);
+  const [isSubmitDisabled, setSubmitDisabled] = useState(false);
 
-      server = {
-        name,
-        server_icon: serverIcon
-      }
+  useEffect(() => {
+    if (name === "") setSubmitDisabled(true);
+    else setSubmitDisabled(false);
+  }, [name])
 
-      dispatch(updateServer(serverId))
-      dispatch(closeModal())
+  //event handlers
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    server = {
+      name,
+      server_icon: serverIcon
     }
 
-    const handleChange = (field) => (e) => {
-      e.preventDefault();
+    dispatch(updateServer(serverId))
+    dispatch(closeModal())
+  }
 
-      switch (field) {
-        case 'serverName':
-          setServerName(e.currentTarget.value)
-          break;
-        case 'serverIcon':
-          setServerIcon(e.currentTarget.value)
-          break;
-        default:
-          break;
-      };
-    }
+  const handleChange = (field) => (e) => {
+    e.preventDefault();
 
-    const iconPreview = serverIcon ?
-    <img src={serverIcon}
-            onError={ handleImgError }
-            alt='server-icon'
-            className="large-icon"
-            /> :
-    <p className="large-icon">{server.name[0]}</p>
+    switch (field) {
+      case 'serverName':
+        setServerName(e.currentTarget.value)
+        break;
+      case 'serverIcon':
+        setServerIcon(e.currentTarget.value)
+        break;
+      default:
+        break;
+    };
+  }
 
-    return (
-        <>
-        <form onSubmit={handleSubmit} className="update-server">
-            <h1>Server Overview</h1>
-            <div className='update-icon'>
-            {iconPreview}
-            <label>SERVER ICON <br/>
-            <input type="text"
-            value={serverIcon}
-            className="form-input"
-            onChange={handleChange('serverIcon')}
-            />
-            </label>
-            </div>
-            <label>SERVER NAME <br/>
-            <input type="text"
-            value={name}
-            className="form-input"
-            onChange={handleChange('serverName')}/>
-            </label>
-            <input
-            type='submit'
-            value='Save Changes'
-            className="form-submit"
-            id='update-server-submit'
-            disabled={isSubmitDisabled}
-            ></input>
-        </form>
-        </>
-    )
+  const iconPreview = serverIcon ?
+  <img src={serverIcon}
+          onError={ handleImgError }
+          alt='server-icon'
+          className="large-icon"
+          /> :
+  <p className="large-icon">{server.name[0]}</p>
+
+  return (
+      <>
+      <form onSubmit={handleSubmit} className="update-server">
+          <h1>Server Overview</h1>
+          <div className='update-icon'>
+          {iconPreview}
+          <label>SERVER ICON <br/>
+          <input type="text"
+          value={serverIcon}
+          className="form-input"
+          onChange={handleChange('serverIcon')}
+          />
+          </label>
+          </div>
+          <label>SERVER NAME <br/>
+          <input type="text"
+          value={name}
+          className="form-input"
+          onChange={handleChange('serverName')}/>
+          </label>
+          <input
+          type='submit'
+          value='Save Changes'
+          className="form-submit"
+          id='update-server-submit'
+          disabled={isSubmitDisabled}
+          ></input>
+      </form>
+      </>
+  )
 }
 
 export default ServerUpdateForm;

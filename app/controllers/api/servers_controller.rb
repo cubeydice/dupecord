@@ -24,7 +24,8 @@ class Api::ServersController < ApplicationController
 
   def create
     @server = Server.new(server_params)
-
+    @server.owner_id = current_user.id
+    
     if @server.save!
       UserServer.create!({user_id: current_user.id, server_id: @server.id})
       render :show

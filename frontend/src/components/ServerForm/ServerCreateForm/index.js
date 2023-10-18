@@ -66,7 +66,7 @@ const ServerCreateForm = () => {
       <form onSubmit={handleSubmit} className="server-form-input">
         <div className='update-icon'>
           {iconPreview}
-          <label>SERVER ICON <br/>
+          <label><h2>SERVER ICON</h2>
           <input type="text"
           value={serverIcon}
           className="form-input"
@@ -74,6 +74,7 @@ const ServerCreateForm = () => {
           />
           </label>
         </div>
+        <br/>
 
         <label><h2>SERVER NAME</h2>
           <input

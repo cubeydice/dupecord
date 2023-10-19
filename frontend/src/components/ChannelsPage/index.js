@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Redirect } from "react-router-dom";
 import { fetchServer, getServer } from "../../store/servers";
+import { getChannels } from "../../store/channels";
 import ServersListBar from "../ServersListBar";
 import Sidebar from "../Sidebar";
 import Messages from "../Messages";
 import Modal from "../Modal/Modal";
-import { getChannels } from "../../store/channels";
 
 const ChannelsPage = () => {
   const dispatch = useDispatch();

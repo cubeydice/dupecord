@@ -36,6 +36,15 @@ function ProfileButton({ user }) {
       }
   }
 
+  const date = new Date(user.created_at);
+
+  const months = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+  const userMemberDate = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+
+
   return (
     <>
       <button onClick={openMenu} className="profile-button">
@@ -52,7 +61,7 @@ function ProfileButton({ user }) {
 
             {userBio()}
             <li><h2>DUPECORD MEMBER SINCE</h2></li>
-            <li>{(user.created_at)}</li>
+            <li>{(userMemberDate)}</li>
 
             <hr/>
 

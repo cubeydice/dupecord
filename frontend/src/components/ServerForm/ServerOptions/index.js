@@ -32,7 +32,6 @@ const ServerOptions = () => {
         break;
       case 'new-channel':
         dispatch(closeModal())
-        debugger
         dispatch(openModal('channel-form'))
         break;
       case 'settings':

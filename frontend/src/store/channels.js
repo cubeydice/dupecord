@@ -1,5 +1,4 @@
 import csrfFetch from "./csrf"
-
 //ACTION CONSTANTS
 const RECEIVE_CHANNELS = 'channels/RECEIVE_CHANNELS'
 const RECEIVE_CHANNEL = 'channels/RECEIVE_CHANNEL'
@@ -15,9 +14,9 @@ export const getChannel = (channelId) => (state) => {
 }
 
 //POJO ACTION CREATORS
-export const receiveChannels = (channels) => ({
+export const receiveChannels = (payload) => ({
   type: RECEIVE_CHANNELS,
-
+  payload
 })
 
 export const receiveChannel = payload => {
@@ -39,7 +38,7 @@ export const removeChannel = (channelId, serverId) => {
 export const createChannel = (channel) => async dispatch => {
     let res = await csrfFetch(`/api/channels`, {
         method: "POST",
-        body: JSON.stringify({channel: channel})
+        body: JSON.stringify({channel})
     });
 
     if (res.ok) {
@@ -66,7 +65,7 @@ const channelsReducer = (state = {}, action) => {
   let nextState = {...state}
   switch (action.type) {
     case RECEIVE_CHANNELS:
-      return {...action.channels};
+      return {...action.payload.channels};
 
     case RECEIVE_CHANNEL:
         nextState[action.payload.channel.id] = action.payload.channel;

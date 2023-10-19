@@ -2,7 +2,7 @@ class Api::ServersController < ApplicationController
   wrap_parameters include: Server.attribute_names
 
   def index
-    @user = current_user
+    @user = User.first
 
     if @user
       render :index

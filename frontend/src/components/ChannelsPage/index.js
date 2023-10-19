@@ -6,12 +6,14 @@ import ServersListBar from "../ServersListBar";
 import Sidebar from "../Sidebar";
 import Messages from "../Messages";
 import Modal from "../Modal/Modal";
+import { getChannels } from "../../store/channels";
 
 const ChannelsPage = () => {
   const dispatch = useDispatch();
-  const { serverId } = useParams();
+  const { serverId, channelId } = useParams();
   const server = useSelector(getServer(serverId))
   const sessionUser = useSelector(state => state.session.user);
+  const channels = useSelector(getChannels)
 
   useEffect(() => {
     if (serverId !== '@me' && serverId !== null) dispatch(fetchServer(serverId));
@@ -25,7 +27,7 @@ return (
     <div className="channels-page">
       <ServersListBar sessionUser={sessionUser}/>
       <Sidebar sessionUser={sessionUser} serverId={serverId} server={server}/>
-      <Messages/>
+      <Messages channels={channels}/>
       <Modal/>
     </div>
     </>

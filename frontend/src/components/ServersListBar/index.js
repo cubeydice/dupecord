@@ -7,15 +7,14 @@ import CreateServerButton from "./CreateServerButton";
 import { handleImgError } from "../../App";
 import './ServersSidebar.css'
 
-const ServersSidebar = ({sessionUser, imgNotFound}) => {
-  const { serverId } = useParams();
+const ServersSidebar = ({sessionUser}) => {
   const dispatch = useDispatch();
   const serversObj = useSelector(getServers);
   const servers = serversObj ? Object.values(serversObj) : [];
 
   useEffect(() => {
     dispatch(fetchServers())
-  }, [dispatch, serverId])
+  }, [])
 
   return (
     <>

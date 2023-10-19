@@ -1,5 +1,7 @@
-json.server do
-    json.extract!(@server, :id, :name, :owner_id, :server_icon, :channels)
+if @server
+    json.server do
+        json.extract!(@server, :id, :name, :owner_id, :server_icon, :channels)
+    end
 end
 
 channels = @server.channels

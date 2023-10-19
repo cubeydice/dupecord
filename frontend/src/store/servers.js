@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { receiveChannels } from "./channels";
 
 //ACTION CONSTANTS
 export const RECEIVE_SERVERS = 'servers/RECEIVE_SERVERS';
@@ -54,6 +55,7 @@ export const fetchServer = (serverId) => async dispatch => {
   if (response.ok) {
     const server = await response.json();
     dispatch(receiveServer(server));
+    dispatch(receiveChannels(server))
     return server
   }
 
@@ -122,7 +124,6 @@ const serversReducer = (state = {}, action) => {
 
     case RECEIVE_SERVER:
       nextState[action.payload.server.id] = action.payload.server;
-      // nextState['channels'] = action.payload.channels
       return nextState;
 
     case REMOVE_SERVER:

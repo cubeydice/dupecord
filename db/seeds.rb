@@ -87,11 +87,11 @@ ApplicationRecord.transaction do
 
       puts "Creating messages..."
       Messages.create! [
-        { content: "hey all, what's up", user_id: 1, messageable_type: 'Channel', messageable_type: 1 },
-        { content: "is anyone there?", user_id: 1, messageable_type: 'Channel', messageable_type: 1 },
-        { content: "yo, someone please reply T_T", user_id: 1, messageable_type: 'Channel', messageable_type: 1 },
-        { content: "dafjghdfkjg", user_id: 1, messageable_type: 'Channel', messageable_type: 1 },
-        { content: "oh, hi", user_id: 2, messageable_type: 'Channel', messageable_type: 1 },
+        { content: "hey all, what's up", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },
+        { content: "is anyone there?", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },
+        { content: "yo, someone please reply T_T", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },
+        { content: "dafjghdfkjg", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },
+        { content: "oh, hi", user_id: 2, messageable_type: 'Channel', messageable_id: 1 },
       ]
 
     puts "Done!"

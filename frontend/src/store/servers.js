@@ -56,7 +56,7 @@ export const fetchServer = (serverId) => async dispatch => {
     const server = await response.json();
     dispatch(receiveServer(server));
     dispatch(receiveChannels(server))
-    return server
+    return server;
   }
 
   return response;
@@ -111,6 +111,8 @@ export const leaveServer = (serverId) => async dispatch => {
   if (response.ok) {
     dispatch(removeUserServer(serverId));
   }
+
+  return response;
 };
 
 // REDUCER

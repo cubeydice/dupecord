@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteServer, getServer, leaveServer } from "../../../store/servers";
 import { openModal, closeModal } from "../../../store/modals";
 import { ReactComponent as LeaveServer } from "./assets/guildLeaveServer.svg";
-import { ReactComponent as CreateCategory } from "./assets/guildCreateCategory.svg";
+// import { ReactComponent as CreateCategory } from "./assets/guildCreateCategory.svg";
 import { ReactComponent as CreateChannel } from "./assets/guildCreateChannel.svg";
 import { ReactComponent as Settings } from "./assets/settings.svg";
 import './ServerOptions.css';

@@ -13,12 +13,13 @@ const ChannelsList = ({server}) => {
   const { serverId } = useParams();
 
   let categories = [...new Set(channels.map(channel => channel.category))]
-  const noCategoryIndex = categories.indexOf(null)
-  const noCategoryChannels = categories.slice(noCategoryIndex)
-  categories =  noCategoryChannels.concat(categories.slice(0, noCategoryIndex)
-    .concat(categories.slice(noCategoryIndex + 1, -1)))
-
-  useEffect(()=>{}, [categories])
+  if (categories.includes(null)) {
+    const noCategoryIndex = categories.indexOf(null)
+    const noCategoryChannels = categories.slice(noCategoryIndex)
+    categories =  noCategoryChannels.concat(categories.slice(0, noCategoryIndex))
+                  .concat(categories.slice(noCategoryIndex + 1, -1))
+  }
+  useEffect(()=>{}, [channels])
 
   const handleClick = (e) => {
     dispatch(openModal('update-channel-form'))

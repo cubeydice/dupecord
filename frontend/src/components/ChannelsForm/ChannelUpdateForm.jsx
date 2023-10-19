@@ -1,25 +1,32 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom';
-import { getChannel, updateChannel } from '../../store/channels';
+import { deleteChannel, getChannel, updateChannel } from '../../store/channels';
 import { closeModal } from '../../store/modals';
 import './ChannelsForm.css'
+import { fetchServer, getServer } from '../../store/servers';
 
 const ChannelUpdateForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+
   const { serverId, channelId } = useParams();
   let channel = useSelector(getChannel(channelId));
+  const server = useSelector(getServer(serverId))
+  const firstChannelId = server.channels[0].id
 
   const [name, setName] = useState(channel.name);
   const [category, setCategory] = useState(channel.category);
   const [topic, setTopic] = useState(channel.topic);
   const [isSubmitDisabled, setSubmitDisabled] = useState(false);
+  const [state, setState] = useState(false);
 
   useEffect(() => {
     if (name === "") setSubmitDisabled(true);
     else setSubmitDisabled(false);
-  }, [name, channel])
+  }, [name])
+
+  useEffect(()=>{fetchServer(serverId)}, [state, serverId])
 
   //event handlers
   const handleChange = (field) => (e) => {
@@ -40,6 +47,15 @@ const ChannelUpdateForm = () => {
     };
   }
 
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    dispatch(deleteChannel(channelId));
+    history.push(`/channels/${serverId}/${firstChannelId}`)
+    setState(!state)
+    dispatch(closeModal());
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -51,9 +67,9 @@ const ChannelUpdateForm = () => {
       category
     }
 
-    dispatch(updateChannel(channel)).then(res => history.push(`/channels/${serverId}/${res.channel.id}`));
+    dispatch(updateChannel(channel));
+    setState(!state)
     dispatch(closeModal());
-
   };
 
   return (
@@ -89,8 +105,9 @@ const ChannelUpdateForm = () => {
         </label>
         <br/>
         <br />
+        <button onClick={handleClick} id='channel-delete' className='form-submit'>Delete</button>
         <input type="submit"
-          value="Create Channel"
+          value="Save Changes"
           className='form-submit'
           id='channel-submit'
           disabled={isSubmitDisabled}

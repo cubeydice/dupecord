@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchServers, getServers } from "../../store/servers";
-import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import ServerItems from "./ServerItems";
 import CreateServerButton from "./CreateServerButton";
 import { handleImgError } from "../../App";
@@ -14,7 +14,7 @@ const ServersSidebar = ({sessionUser}) => {
 
   useEffect(() => {
     dispatch(fetchServers())
-  }, [])
+  }, [dispatch])
 
   return (
     <>

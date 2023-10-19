@@ -1,4 +1,12 @@
 #channel-submit {
-  left:294px;
+  left:210px;
   width: 106px;
+  background: var(--status-green);
+}
+
+#channel-delete{
+  background: var(--ekko-red);
+  position: relative;
+  color: var(--white);
+  left: 0px;
 }

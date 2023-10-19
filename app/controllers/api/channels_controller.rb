@@ -38,10 +38,6 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find_by(id: params[:id])
     server = Server.find_by(id: @channel.server_id)
 
-    if (server.channels.empty? || server.channels.nil?)
-      render json: {errors: "Servers must have at least one channel"}, status: 400
-    end
-
     if @channel
       if (@channel.server.owner_id === current_user.id)
         @channel.destroy!
@@ -56,6 +52,6 @@ class Api::ChannelsController < ApplicationController
 
   private
   def channel_params
-    params.require(:channel).permit(:name, :category, :server_id)
+    params.require(:channel).permit(:id, :name, :category, :topic, :server_id)
   end
 end

@@ -26,7 +26,6 @@ const ServerUpdateForm = () => {
     e.preventDefault();
 
     server = {
-      ...server,
       name,
       server_icon: serverIcon
     }

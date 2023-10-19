@@ -157,6 +157,14 @@ button:hover {
 	width: 20px;
 }
 
+.server-icon {
+	height: 48px;
+	min-width: 48px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+}
+
 .large-icon {
 	height: 82px;
 	width: 82px;

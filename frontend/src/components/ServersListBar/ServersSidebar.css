@@ -22,17 +22,12 @@
   width: 40px;
 }
 
-.server-icon {
-	height: 48px;
-	min-width: 48px;
-  align-items: center;
-  justify-content: center;
-}
 .server-icon > * {
   height: 48px;
 	width: 48px;
   border-radius: 50%;
 }
+
 .server-icon > p {
   background: #313338;
   margin: 8px;

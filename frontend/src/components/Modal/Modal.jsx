@@ -4,7 +4,7 @@ import { useSelector, useDispatch} from 'react-redux';
 import ServerCreateForm from '../ServerForm/ServerCreateForm';
 import ServerOptions from '../ServerForm/ServerOptions';
 import ServerUpdateForm from '../ServerForm/ServerUpdateForm';
-import ChannelsForm from '../ChannelsForm';
+import ChannelsForm from '../ChannelsForm'
 import ChannelUpdateForm from '../ChannelsForm/ChannelUpdateForm';
 import './Modal.css'
 

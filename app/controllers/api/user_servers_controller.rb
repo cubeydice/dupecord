@@ -1,4 +1,5 @@
 class Api::UserServersController < ApplicationController
+    before_action :require_logged_in
     def create
         @user_server = UserServer.new(user_server_params)
         @user_server.user_id = current_user_id

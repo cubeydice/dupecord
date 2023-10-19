@@ -11,8 +11,8 @@
 #  updated_at       :datetime         not null
 #
 class Message < ApplicationRecord
-  validates :user_id, presence: true
-  validates :content, presence: true
+  validates :user_id, :content, :messageable_id, :messageable_type, presence: true
 
   belongs_to :messageable, polymorphic: true
+  belongs_to :user
 end

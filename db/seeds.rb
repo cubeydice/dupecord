@@ -52,15 +52,20 @@ ApplicationRecord.transaction do
 
     puts "Creating server membership..."
       UserServer.create! [
+        { user_id: 1, server_id: 1 },
         { user_id: 1, server_id: 2 },
         { user_id: 1, server_id: 3 },
         { user_id: 2, server_id: 1 },
+        { user_id: 2, server_id: 2 },
         { user_id: 3, server_id: 1 },
         { user_id: 3, server_id: 2 },
+        { user_id: 3, server_id: 3 },
         { user_id: 4, server_id: 1 },
         { user_id: 4, server_id: 3 },
+        { user_id: 4, server_id: 4 },
         { user_id: 5, server_id: 2 },
         { user_id: 5, server_id: 4 },
+        { user_id: 5, server_id: 5 },
       ]
 
     puts "Creating channels..."

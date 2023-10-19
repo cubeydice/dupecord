@@ -3,15 +3,8 @@ json.user do
     json.extract! @user, :id, :email, :username, :bio, :avatar_url, :pronouns, :created_at, :updated_at
 end
 
+# servers user owns or is a part of
 json.servers do
-    # servers owned by user
-    @user.owned_servers.each do |server|
-        json.set! server.id do
-            json.extract!(server, :id, :name, :owner_id, :server_icon, :channels)
-        end
-    end
-
-    # servers joined (not owned) by user
     @user.servers.each do |server|
         json.set! server.id do
             json.extract!(server, :id, :name, :owner_id, :server_icon, :channels)
@@ -19,6 +12,11 @@ json.servers do
     end
 end
 
+#all messages by user
 json.messages do
-    json.extract!(@user.messages, :id, :content)
+    @user.messages.each do |message|
+        json.set! message.id do
+            json.extract!(message, :id, :content)
+        end
+    end
 end

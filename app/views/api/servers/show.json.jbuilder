@@ -24,7 +24,15 @@ if @server
     end
 
     json.users do
-        json.extract!(@server.users, :id, :username, :avatar_url)
+        @server.users.each do |user|
+            json.set! user.id do
+                json.extract!(user, :id, :username)
+            end
+        end
+    end
+
+    json.owner do
+        json.extract!(@server.owner, :id, :username)
     end
 end
 

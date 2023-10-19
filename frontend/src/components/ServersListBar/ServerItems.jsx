@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import { handleImgError } from '../../App'
 
 const ServerItems = ({server}) => {
+    console.log(server.channels)
     const firstChannelId = server.channels[0].id
     const icon = server.serverIcon ?
         <img src={server.serverIcon}

@@ -28,6 +28,7 @@ class Api::ServersController < ApplicationController
 
     if @server.save!
       UserServer.create!({user_id: current_user.id, server_id: @server.id})
+      Channel.create!({server_id: @server.id, name: "General", category: "General"})
       render :show
     else
       render json: { errors: @server.errors.full_messages }, status: :unprocessable_entity

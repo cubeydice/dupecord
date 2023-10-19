@@ -6,7 +6,7 @@ class Api::ChannelsController < ApplicationController
 
     if (@channel.server.owner_id === current_user.id)
       if @channel.save!
-        render 'api/channels/show'
+        render 'api/servers/show'
       else
         render json: { errors: @channel.errors.full_messages }, status: :unprocessable_entity
       end
@@ -21,7 +21,7 @@ class Api::ChannelsController < ApplicationController
     if @channel
       if (@channel.server.owner_id === current_user.id)
         if @channel.update(channel_params)
-          render 'api/channels/show'
+          render 'api/servers/show'
         else
           render json: { errors: @channel.errors.full_messages }
         end
@@ -35,6 +35,11 @@ class Api::ChannelsController < ApplicationController
 
   def destroy
     @channel = Channel.find_by(id: params[:id])
+    server = Server.find_by(id: @channel.server_id)
+
+    if (server.channels.empty? || server.channels.nil?)
+      render json: {errors: "Servers must have at least one channel"}, status: 400
+    end
 
     if @channel
       if (@channel.server.owner_id === current_user.id)

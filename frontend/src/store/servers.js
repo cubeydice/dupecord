@@ -122,6 +122,7 @@ const serversReducer = (state = {}, action) => {
 
     case RECEIVE_SERVER:
       nextState[action.payload.server.id] = action.payload.server;
+      // nextState['channels'] = action.payload.channels
       return nextState;
 
     case REMOVE_SERVER:

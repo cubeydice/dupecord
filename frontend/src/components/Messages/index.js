@@ -13,7 +13,8 @@ const Messages = ({channels}) => {
     <>
       <div className="messages">
         <HeaderBar serverId = {serverId} channel={channel}/>
-        ChannelBody / Messages / MessageItems
+        <h1>Welcome to #{channel.name}!</h1>
+        <p>This is the start of the #{channel.name} channel.</p>
       </div>
     </>
   )

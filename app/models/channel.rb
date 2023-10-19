@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Channel < ApplicationRecord
+    include Messageable
+
     validates :name, presence: true
     validates :topic, length: { maximum: 1024 }, allow_blank: true
 

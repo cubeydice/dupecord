@@ -42,6 +42,9 @@ class User < ApplicationRecord
   through: :user_servers,
   dependent: :destroy
 
+  has_many :messages,
+  dependent: :destroy
+
   def self.find_by_credentials(credential, password)
     if credential =~ URI::MailTo::EMAIL_REGEXP
       user = User.find_by(email: credential)

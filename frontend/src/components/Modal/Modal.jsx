@@ -5,6 +5,7 @@ import ServerCreateForm from '../ServerForm/ServerCreateForm';
 import ServerOptions from '../ServerForm/ServerOptions';
 import ServerUpdateForm from '../ServerForm/ServerUpdateForm';
 import ChannelsForm from '../ChannelsForm';
+import ChannelUpdateForm from '../ChannelsForm/ChannelUpdateForm';
 import './Modal.css'
 
 const Modal = () => {
@@ -29,6 +30,9 @@ const Modal = () => {
       break;
     case 'channel-form':
       component = <ChannelsForm />;
+      break;
+    case 'update-channel-form':
+      component = <ChannelUpdateForm />;
       break;
     case 'other':
       break;

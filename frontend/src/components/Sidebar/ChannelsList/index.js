@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ChannelsList.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -12,14 +12,16 @@ const ChannelsList = ({server}) => {
   const channels = server.channels
   const { serverId } = useParams();
 
-  const categories = [...new Set(channels.map(channel => channel.category))]
-  if (categories[categories.length - 1] === null) {
-    categories.pop()
-    categories.unshift(null)
-  }
+  let categories = [...new Set(channels.map(channel => channel.category))]
+  const noCategoryIndex = categories.indexOf(null)
+  const noCategoryChannels = categories.slice(noCategoryIndex)
+  categories =  noCategoryChannels.concat(categories.slice(0, noCategoryIndex)
+    .concat(categories.slice(noCategoryIndex + 1, -1)))
+
+  useEffect(()=>{}, [categories])
 
   const handleClick = (e) => {
-    dispatch(openModal('channel-form'))
+    dispatch(openModal('update-channel-form'))
   }
 
   return (

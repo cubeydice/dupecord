@@ -50,7 +50,7 @@ export const createChannel = (channel) => async dispatch => {
 export const updateChannel = (channel) => async dispatch => {
     await csrfFetch(`/api/channels/${channel.id}`, {
         method: "PATCH",
-        body: JSON.stringify({channel: channel})
+        body: JSON.stringify({channel})
     })
 }
 

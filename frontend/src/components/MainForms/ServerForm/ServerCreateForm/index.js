@@ -44,7 +44,10 @@ const ServerCreateForm = () => {
       server_icon: serverIcon
     }
 
-    dispatch(createServer(server)).then(res => history.push(`/channels/${res.server.id}`));
+    dispatch(createServer(server)).then(res => {
+      const channelId = Object.keys(res.channels)[0];
+      history.push(`/channels/${res.server.id}/${channelId}`)
+    });
     dispatch(closeModal());
   };
 

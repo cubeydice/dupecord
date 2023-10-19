@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import './MessageInput.css'
 import { createMessage } from "../../../../store/messages";
+import consumer from "../../../../consumer";
+
 const MessageInput = ({channel}) => {
     const dispatch = useDispatch();
     const [content, setContent] = useState('');

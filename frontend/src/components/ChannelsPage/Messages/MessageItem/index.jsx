@@ -1,4 +1,3 @@
-
 import './MessageItem.css'
 
 const MessageItem = ({message, users}) => {

@@ -30,6 +30,11 @@ const ServerOptions = () => {
         dispatch(closeModal());
         history.push('/channels/@me');
         break;
+      case 'new-channel':
+        dispatch(closeModal())
+        debugger
+        dispatch(openModal('channel-form'))
+        break;
       case 'settings':
         dispatch(closeModal())
         dispatch(openModal('update-server-form'))
@@ -42,7 +47,7 @@ const ServerOptions = () => {
   if (sessionUser.id === server.ownerId) { return (
     <div className="server-options">
       <li onClick={handleClick('settings')}>Server Settings <Settings className='small-icon'/></li>
-      <li>Create Channel<CreateChannel className='small-icon'/></li>
+      <li onClick={handleClick('new-channel')}>Create Channel<CreateChannel className='small-icon'/></li>
       {/* <li>Create Category<CreateCategory className='small-icon'/></li> */}
       <hr/>
       <li className="warning" onClick={handleClick('delete')}>

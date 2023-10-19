@@ -4,6 +4,7 @@ import { useSelector, useDispatch} from 'react-redux';
 import ServerCreateForm from '../ServerForm/ServerCreateForm';
 import ServerOptions from '../ServerForm/ServerOptions';
 import ServerUpdateForm from '../ServerForm/ServerUpdateForm';
+import ChannelsForm from '../ChannelsForm';
 import './Modal.css'
 
 const Modal = () => {
@@ -25,6 +26,9 @@ const Modal = () => {
       break;
     case 'update-server-form':
       component = <ServerUpdateForm />;
+      break;
+    case 'channel-form':
+      component = <ChannelsForm />;
       break;
     case 'other':
       break;

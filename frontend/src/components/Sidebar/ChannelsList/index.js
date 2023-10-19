@@ -2,13 +2,25 @@ import React from 'react';
 import './ChannelsList.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { ReactComponent as Settings } from './assets/settings.svg'
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../../store/modals';
 const ChannelText = require('./assets/ChannelText.png');
 
 const ChannelsList = ({server}) => {
+  const dispatch = useDispatch();
   const channels = server.channels
   const { serverId } = useParams();
 
   const categories = [...new Set(channels.map(channel => channel.category))]
+  if (categories[categories.length - 1] === null) {
+    categories.pop()
+    categories.unshift(null)
+  }
+
+  const handleClick = (e) => {
+    dispatch(openModal('channel-form'))
+  }
 
   return (
     <>
@@ -19,14 +31,17 @@ const ChannelsList = ({server}) => {
         <div>
           {channels.map(channel => {
             if(channel.category === category) {
-              return (<div className='channels'>
+              return (
                 <NavLink to={`/channels/${serverId}/${channel.id}`}
-                key={channel.id} className='channel-link'>
+                key={channel.id}
+                className='channels'>
+                  <div>
                   <img src={ChannelText} alt='text' className='channel-icon'/>
                   {channel.name}
+                  </div>
+                  <Settings onClick={handleClick}/>
                 </NavLink>
-                <br/>
-              </div>)
+              )
             } else return "";
           })
           }

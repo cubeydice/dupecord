@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom';
-import { createServer } from '../../../store/servers';
-import { closeModal } from '../../../store/modals';
-import './ServerCreateForm.css'
+import { createChannel } from '../../store/channels';
+import { closeModal } from '../../store/modals';
+import './ChannelsForm.css'
 
 const ChannelsForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [ serverId, channelId ] = useParams();
+  const { serverId } = useParams();
 
   const [name, setName] = useState(``);
   const [topic, setTopic] = useState(``);
@@ -44,7 +44,7 @@ const ChannelsForm = () => {
       topic
     }
 
-    dispatch(createServer(name)).then(res => history.push(`/channels/${res.server.id}`));
+    dispatch(createChannel(channel)).then(res => history.push(`/channels/${serverId}/${res.channel.id}`));
     dispatch(closeModal());
   };
 
@@ -68,6 +68,7 @@ const ChannelsForm = () => {
         <input type="submit"
           value="Create Channel"
           className='form-submit'
+          id='channel-submit'
           disabled={isSubmitDisabled}
           />
       </form>

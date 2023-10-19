@@ -3,6 +3,7 @@ class Api::ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(channel_params)
+    @server = Server.find_by(id: @channel.server_id)
 
     if (@channel.server.owner_id === current_user.id)
       if @channel.save!

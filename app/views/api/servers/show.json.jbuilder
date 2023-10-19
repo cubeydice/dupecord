@@ -18,3 +18,9 @@ end
 json.categories do
     json.array! categories.uniq
 end
+
+if @channel
+    json.channel do
+        json.extract!(@channel, :id, :name, :category, :topic)
+    end
+end

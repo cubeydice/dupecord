@@ -13,7 +13,7 @@ const Messages = () => {
   useEffect(()=>{
     if (serverId !== '@me') dispatch(fetchServer(serverId))
     .then(res => setChannels(res.channels));
-  }, [serverId])
+  }, [serverId, channelId])
 
   const channel = channels[channelId] || {}
 

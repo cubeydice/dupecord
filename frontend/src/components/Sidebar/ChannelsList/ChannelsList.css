@@ -15,10 +15,12 @@
   border-radius: 4px;
   font-size: 16px;
   padding: 6px 6px 6px 6px;
+  display: flex;
+  justify-content: space-between;
+  color: #8E9297;
 }
 
 .channel-link {
-  color: #8E9297;
 }
 .channel-icon {
   width: 20px;

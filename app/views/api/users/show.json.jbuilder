@@ -18,3 +18,7 @@ json.servers do
         end
     end
 end
+
+json.messages do
+    json.extract!(@user.messages, :id, :content)
+end

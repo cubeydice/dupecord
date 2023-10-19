@@ -11,7 +11,7 @@ if @server
     channels.each do |channel|
         json.channels do
             json.set! channel.id do
-                json.extract!(channel, :id, :name, :category, :topic)
+                json.extract!(channel, :id, :name, :category, :topic, :messages)
             end
         end
 
@@ -21,6 +21,10 @@ if @server
     #server channel categories
     json.categories do
         json.array! categories.uniq
+    end
+
+    json.users do
+        json.extract!(@server.users, :id, :username, :avatar_url)
     end
 end
 

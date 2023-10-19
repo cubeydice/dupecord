@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf";
 import { receiveChannels } from "./channels";
+import { receiveUsers } from "./users"
 
 //ACTION CONSTANTS
 export const RECEIVE_SERVERS = 'servers/RECEIVE_SERVERS';
@@ -53,10 +54,11 @@ export const fetchServer = (serverId) => async dispatch => {
   const response = await csrfFetch(`/api/servers/${serverId}`);
 
   if (response.ok) {
-    const server = await response.json();
-    dispatch(receiveServer(server));
-    dispatch(receiveChannels(server))
-    return server;
+    const data = await response.json();
+    dispatch(receiveServer(data));
+    dispatch(receiveChannels(data))
+    dispatch(receiveUsers(data))
+    return data;
   }
 
   return response;

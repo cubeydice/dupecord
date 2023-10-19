@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Sidebar.css'
 import ProfileBar from "./ProfileBar";
 import ServerButton from "./ServerButton";
 import ChannelsList from "./ChannelsList";
 
 const Sidebar = ({sessionUser, serverId, server}) => {
-
   return (
     <>
       <div className="sidebar">

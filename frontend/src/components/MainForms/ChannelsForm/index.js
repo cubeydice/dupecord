@@ -11,7 +11,6 @@ const ChannelsForm = () => {
   const { serverId } = useParams();
 
   const [name, setName] = useState(``);
-  const [topic, setTopic] = useState(``);
   const [isSubmitDisabled, setSubmitDisabled] = useState(false);
 
   useEffect(() => {
@@ -27,9 +26,6 @@ const ChannelsForm = () => {
       case 'name':
         setName(e.currentTarget.value)
         break;
-      case 'topic':
-        setTopic(e.currentTarget.value)
-        break;
       default:
         break;
     };
@@ -40,11 +36,14 @@ const ChannelsForm = () => {
 
     const channel = {
       server_id: serverId,
-      name,
-      topic
+      name
     }
 
-    dispatch(createChannel(channel)).then(res => history.push(`/channels/${serverId}/${res.channel.id}`));
+    dispatch(createChannel(channel))
+    .then(res => {
+      console.log(channel.id)
+      history.push(`/channels/${serverId}/${res.channel.id
+      }`)});
     dispatch(closeModal());
   };
 

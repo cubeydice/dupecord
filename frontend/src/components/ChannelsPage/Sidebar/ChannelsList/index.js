@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ChannelsList.css'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';

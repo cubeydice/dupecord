@@ -19,7 +19,6 @@ const ChannelUpdateForm = () => {
   const [category, setCategory] = useState(channel.category);
   const [topic, setTopic] = useState(channel.topic);
   const [isSubmitDisabled, setSubmitDisabled] = useState(false);
-  const [state, setState] = useState(false);
 
   useEffect(() => {
     if (name === "") setSubmitDisabled(true);
@@ -45,15 +44,16 @@ const ChannelUpdateForm = () => {
     };
   }
 
+  //DELETE CHANNEL
   const handleClick = (e) => {
     e.preventDefault();
 
     dispatch(deleteChannel(channelId));
     history.push(`/channels/${serverId}/${firstChannelId}`)
-    setState(!state)
     dispatch(closeModal());
   }
 
+  //UPDATE CHANNEL
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -66,7 +66,6 @@ const ChannelUpdateForm = () => {
     }
 
     dispatch(updateChannel(channel));
-    setState(!state)
     dispatch(closeModal());
   };
 

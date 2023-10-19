@@ -86,7 +86,7 @@ ApplicationRecord.transaction do
       ]
 
       puts "Creating messages..."
-      Messages.create! [
+      Message.create! [
         { content: "hey all, what's up", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },
         { content: "is anyone there?", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },
         { content: "yo, someone please reply T_T", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },

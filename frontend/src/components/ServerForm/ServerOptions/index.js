@@ -43,7 +43,7 @@ const ServerOptions = () => {
     <div className="server-options">
       <li onClick={handleClick('settings')}>Server Settings <Settings className='small-icon'/></li>
       <li>Create Channel<CreateChannel className='small-icon'/></li>
-      <li>Create Category<CreateCategory className='small-icon'/></li>
+      {/* <li>Create Category<CreateCategory className='small-icon'/></li> */}
       <hr/>
       <li className="warning" onClick={handleClick('delete')}>
         Delete Server

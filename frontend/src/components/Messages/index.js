@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchServer } from "../../store/servers";
 
-const Messages = ({server}) => {
+const Messages = () => {
   const dispatch = useDispatch();
   const { serverId, channelId } = useParams();
   const [channels, setChannels] = useState({})

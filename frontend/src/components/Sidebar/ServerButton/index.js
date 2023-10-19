@@ -15,7 +15,9 @@ const ServerButton = ({ server }) => {
 
   return (
     <>
-    {server ? <button className="server-button" onClick={handleClick}>{server.name}<Button/></button>  : ""}
+    {server ?
+    <button className="server-button" onClick={handleClick}>{server.name}<Button/></button>
+    : <p className="server-button">Search</p>}
     </>
   )
 }

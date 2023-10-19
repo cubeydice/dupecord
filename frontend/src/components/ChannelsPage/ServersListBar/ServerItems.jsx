@@ -1,7 +1,7 @@
 import React from "react";
 import './ServersSidebar.css'
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
-import { handleImgError } from '../../App'
+import { handleImgError } from '../../../App'
 
 const ServerItems = ({server}) => {
     const firstChannelId = server.channels[0] ? server.channels[0].id : ""

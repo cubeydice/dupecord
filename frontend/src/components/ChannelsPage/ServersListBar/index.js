@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchServers, getServers } from "../../store/servers";
+import { fetchServers, getServers } from "../../../store/servers";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import ServerItems from "./ServerItems";
 import CreateServerButton from "./CreateServerButton";
-import { handleImgError } from "../../App";
+import { handleImgError } from "../../../App";
 import './ServersSidebar.css'
 
 const ServersSidebar = ({sessionUser}) => {

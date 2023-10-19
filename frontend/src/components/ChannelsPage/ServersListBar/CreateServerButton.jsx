@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { ReactComponent as Plus } from './assets/Plus.svg';
-import { openModal } from '../../store/modals'
+import { openModal } from '../../../store/modals'
 
 const CreateServerButton = () => {
     const dispatch = useDispatch();

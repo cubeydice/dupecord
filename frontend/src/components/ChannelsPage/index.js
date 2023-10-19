@@ -10,7 +10,7 @@ import Modal from "../Modal/Modal";
 
 const ChannelsPage = () => {
   const dispatch = useDispatch();
-  const { serverId, channelId } = useParams();
+  const { serverId } = useParams();
   const server = useSelector(getServer(serverId))
   const sessionUser = useSelector(state => state.session.user);
   const channels = useSelector(getChannels)

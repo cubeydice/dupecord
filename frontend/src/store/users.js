@@ -89,7 +89,7 @@ const usersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_USERS:
-      return { ...action.payload.users};
+      return { ...action.payload.users}
     case RECEIVE_USER:
       nextState[action.payload.user.id] = action.payload.user;
       return nextState;
@@ -97,7 +97,7 @@ const usersReducer = (state = {}, action) => {
       delete nextState[action.userId]
       return nextState
     default:
-      break;
+      return state;
   }
 }
 

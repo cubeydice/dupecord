@@ -4,8 +4,10 @@ class Api::MessagesController < ApplicationController
 
     def create
         @message = Message.new(message_params)
+        @message.user_id = current_user.id
+
         if @message.save
-          render json: {test: "hello world"}
+          render json: :show
         else
           render json: {errors: @message.errors.full_messages}, status: 422
         end
@@ -39,6 +41,6 @@ class Api::MessagesController < ApplicationController
 
     private
     def message_params
-      params.require(:message).permit(:body, :user_id, :messageable_id, :messageable_type)
+      params.require(:message).permit(:content, :user_id, :messageable_id, :messageable_type)
     end
 end

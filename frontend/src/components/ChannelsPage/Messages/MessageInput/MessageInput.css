@@ -1,0 +1,15 @@
+
+.message-input-container {
+  position: fixed;
+  bottom: 0px;
+  width: 80vw;
+  padding: 6px;
+}
+
+#message-input {
+  flex-wrap:wrap;
+}
+
+#message-input-submit {
+  display: none;
+}

@@ -1,14 +1,22 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import HeaderBar from "./HeaderBar";
 import './Messages.css'
-import { getMessages } from "../../../store/messages";
+import { fetchMessages, getMessages } from "../../../store/messages";
 import MessageItem from "./MessageItem"
+import MessageInput from "./MessageInput";
+import { useEffect } from "react";
 
 const Messages = ({channels, users}) => {
+  const dispatch = useDispatch();
   const { serverId, channelId } = useParams();
   const channel = channels[channelId] || {}
   let messages = Object.values(useSelector(getMessages))
+
+  useEffect(() => {
+    dispatch(fetchMessages())
+  }, [dispatch])
+
 
   const introMessage = () => {
     if (channel.topic) {
@@ -34,6 +42,7 @@ const Messages = ({channels, users}) => {
           } else return null
         })}
 
+        <MessageInput channel={channel} />
       </div>
     </>
   )

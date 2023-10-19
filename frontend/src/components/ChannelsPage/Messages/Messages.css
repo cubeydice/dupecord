@@ -6,4 +6,5 @@
   display: fixed;
   left: 304px;
   padding: 8x;
+  overflow: auto;
 }

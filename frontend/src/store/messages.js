@@ -56,7 +56,7 @@ export const fetchMessage = (messageId) => async dispatch => {
 }
 
 export const createMessage = (message) => async dispatch => {
-  const response = await csrfFetch(`/api/messages/${message.id}}`, {
+  const response = await csrfFetch(`/api/messages`, {
     method: 'POST',
     body: JSON.stringify(message)
   })
@@ -93,7 +93,11 @@ const messagesReducer = (state = {}, action) => {
     case RECEIVE_MESSAGES:
       return { ...action.payload.messages}
     case RECEIVE_MESSAGE:
-      nextState[action.payload.message.id] = action.payload.message;
+      if (!action.payload.message) {
+        nextState[action.payload.id] = action.payload
+      } else {
+        nextState[action.payload.message.id] = action.payload.message;
+      }
       return nextState;
     case REMOVE_MESSAGE:
       delete nextState[action.messageId]

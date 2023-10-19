@@ -1,4 +1,8 @@
 # general user info
+json.current_user do
+    json.extract! @user, :id, :email, :username, :bio, :avatar_url, :pronouns, :created_at, :updated_at
+end
+
 json.user do
     json.extract! @user, :id, :email, :username, :bio, :avatar_url, :pronouns, :created_at, :updated_at
 end

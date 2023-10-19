@@ -12,6 +12,11 @@ class ApplicationController < ActionController::API
         render json: { user: current_user}
     end
 
+    def test2
+        login!(User.second)
+        render json: { user: current_user}
+    end
+
     def current_user
         return nil unless session[:session_token]
         @current_user ||= User.find_by(session_token: session[:session_token])

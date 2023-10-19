@@ -1,6 +1,7 @@
 import csrfFetch from "./csrf";
 import { receiveChannels } from "./channels";
 import { receiveUsers } from "./users"
+import { receiveMessages } from "./messages";
 
 //ACTION CONSTANTS
 export const RECEIVE_SERVERS = 'servers/RECEIVE_SERVERS';
@@ -56,8 +57,9 @@ export const fetchServer = (serverId) => async dispatch => {
   if (response.ok) {
     const data = await response.json();
     dispatch(receiveServer(data));
-    dispatch(receiveChannels(data))
-    dispatch(receiveUsers(data))
+    dispatch(receiveChannels(data));
+    dispatch(receiveUsers(data));
+    dispatch(receiveMessages(data));
     return data;
   }
 

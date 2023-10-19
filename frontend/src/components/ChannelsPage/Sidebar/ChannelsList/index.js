@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { ReactComponent as Settings } from './assets/settings.svg'
 import { useDispatch } from 'react-redux';
-import { openModal } from '../../../store/modals';
+import { openModal } from '../../../../store/modals';
 const ChannelText = require('./assets/ChannelText.png');
 
 const ChannelsList = ({server}) => {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { getServer, updateServer } from "../../../store/servers";
-import { closeModal } from "../../../store/modals";
-import { handleImgError } from "../../../App";
+import { getServer, updateServer } from "../../../../store/servers";
+import { closeModal } from "../../../../store/modals";
+import { handleImgError } from "../../../../App";
 import './ServerUpdateForm.css'
 
 const ServerUpdateForm = () => {
@@ -26,6 +26,7 @@ const ServerUpdateForm = () => {
     e.preventDefault();
 
     server = {
+      ...server,
       name,
       server_icon: serverIcon
     }

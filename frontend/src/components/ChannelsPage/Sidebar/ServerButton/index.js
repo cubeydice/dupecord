@@ -1,6 +1,6 @@
 import React from "react";
 import './ServerButton.css';
-import { openModal } from '../../../store/modals'
+import { openModal } from '../../../../store/modals'
 import { useDispatch } from "react-redux";
 import { ReactComponent as Button} from './assets/button.svg'
 

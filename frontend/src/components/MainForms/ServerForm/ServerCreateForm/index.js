@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
-import { createServer } from '../../../store/servers';
-import { closeModal } from '../../../store/modals';
-import { handleImgError } from "../../../App";
+import { createServer } from '../../../../store/servers';
+import { closeModal } from '../../../../store/modals';
+import { handleImgError } from "../../../../App";
 import './ServerCreateForm.css'
 
 const ServerCreateForm = () => {

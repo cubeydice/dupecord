@@ -4,7 +4,7 @@ import ProfileBar from "./ProfileBar";
 import ServerButton from "./ServerButton";
 import ChannelsList from "./ChannelsList";
 import { useDispatch } from "react-redux";
-import { fetchServer } from "../../store/servers";
+import { fetchServer } from "../../../store/servers";
 
 const Sidebar = ({sessionUser, serverId, server}) => {
 

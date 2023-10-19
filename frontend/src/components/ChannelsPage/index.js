@@ -4,8 +4,8 @@ import { useParams, Redirect } from "react-router-dom";
 import { fetchServer, getServer } from "../../store/servers";
 import { getChannels } from "../../store/channels";
 import ServersListBar from "../ServersListBar";
-import Sidebar from "../Sidebar";
-import Messages from "../Messages";
+import Sidebar from "./Sidebar";
+import Messages from "./Messages";
 import Modal from "../Modal/Modal";
 import { getUsers } from "../../store/users";
 

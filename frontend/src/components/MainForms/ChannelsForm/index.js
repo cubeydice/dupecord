@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom';
-import { createChannel } from '../../store/channels';
-import { closeModal } from '../../store/modals';
+import { createChannel } from '../../../store/channels';
+import { closeModal } from '../../../store/modals';
 import './ChannelsForm.css'
-import { fetchServer } from '../../store/servers';
+import { fetchServer } from '../../../store/servers';
 
 const ChannelsForm = () => {
   const dispatch = useDispatch();

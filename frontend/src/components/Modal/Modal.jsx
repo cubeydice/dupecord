@@ -1,11 +1,11 @@
 import React from 'react';
 import { closeModal } from '../../store/modals';
 import { useSelector, useDispatch} from 'react-redux';
-import ServerCreateForm from '../ServerForm/ServerCreateForm';
-import ServerOptions from '../ServerForm/ServerOptions';
-import ServerUpdateForm from '../ServerForm/ServerUpdateForm';
-import ChannelsForm from '../ChannelsForm'
-import ChannelUpdateForm from '../ChannelsForm/ChannelUpdateForm';
+import ServerCreateForm from '../MainForms/ServerForm/ServerCreateForm';
+import ServerOptions from '../MainForms/ServerForm/ServerOptions';
+import ServerUpdateForm from '../MainForms/ServerForm/ServerUpdateForm';
+import ChannelsForm from '../MainForms/ChannelsForm'
+import ChannelUpdateForm from '../MainForms/ChannelsForm/ChannelUpdateForm';
 import './Modal.css'
 
 const Modal = () => {

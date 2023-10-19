@@ -84,3 +84,23 @@ export const updateMessage = (message) => async dispatch => {
 
   return response;
 }
+
+//REDUCER
+const messagesReducer = (state = {}, action) => {
+  let nextState = { ...state };
+
+  switch (action.type) {
+    case RECEIVE_MESSAGES:
+      return { ...action.payload.messages}
+    case RECEIVE_MESSAGE:
+      nextState[action.payload.message.id] = action.payload.message;
+      return nextState;
+    case REMOVE_MESSAGE:
+      delete nextState[action.messageId]
+      return nextState
+    default:
+      return state;
+  }
+}
+
+export default messagesReducer;

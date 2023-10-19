@@ -7,11 +7,20 @@ if @server
     #server channels
     channels = @server.channels
     categories = []
-
     channels.each do |channel|
         json.channels do
             json.set! channel.id do
-                json.extract!(channel, :id, :name, :category, :topic, :messages)
+                json.extract!(channel, :id, :name, :category, :topic)
+            end
+        end
+        #server messages
+
+        messages = channel.messages
+        messages.each do |message|
+            json.messages do
+                json.set! message.id do
+                    json.extract!(message, :id, :content, :user_id, :messageable_id)
+                end
             end
         end
 

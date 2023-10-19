@@ -3,6 +3,7 @@ import csrfFetch from "./csrf";
 import serversReducer from "./servers";
 import channelsReducer from "./channels";
 import usersReducer from "./users";
+import messagesReducer from "./messages";
 
 export const RECEIVE_ENTITIES = 'entities/RECEIVE_ENTITIES'
 export const RECEIVE_ENTITY = 'entities/RECEIVE_ENTITY'
@@ -33,7 +34,8 @@ export const fetchEntities = (userId) => async dispatch => {
 const entitiesReducer = combineReducers({
   servers: serversReducer,
   channels: channelsReducer,
-  users: usersReducer
+  users: usersReducer,
+  messages: messagesReducer
 })
 
 export default entitiesReducer;

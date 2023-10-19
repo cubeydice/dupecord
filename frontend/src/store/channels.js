@@ -48,16 +48,26 @@ export const createChannel = (channel) => async dispatch => {
 }
 
 export const updateChannel = (channel) => async dispatch => {
-    await csrfFetch(`/api/channels/${channel.id}`, {
-        method: "PATCH",
-        body: JSON.stringify({channel})
-    })
+  let res = await csrfFetch(`/api/channels/${channel.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({channel})
+  })
+
+  if (res.ok) {
+    let data = await res.json();
+    dispatch(receiveChannel(data))
+    return data
+  }
 }
 
 export const deleteChannel = (channelId) => async dispatch => {
-    await csrfFetch(`/api/channels/${channelId}`, {
+    let res = await csrfFetch(`/api/channels/${channelId}`, {
         method: "DELETE"
     })
+
+    if (res.ok) {
+      dispatch(removeChannel(channelId))
+    }
 }
 
 //REDUCER

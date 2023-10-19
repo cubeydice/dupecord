@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { deleteChannel, getChannel, updateChannel } from '../../store/channels';
 import { closeModal } from '../../store/modals';
 import './ChannelsForm.css'
-import { fetchServer, getServer } from '../../store/servers';
+import { getServer } from '../../store/servers';
 
 const ChannelUpdateForm = () => {
   const dispatch = useDispatch();
@@ -25,8 +25,6 @@ const ChannelUpdateForm = () => {
     if (name === "") setSubmitDisabled(true);
     else setSubmitDisabled(false);
   }, [name])
-
-  useEffect(()=>{fetchServer(serverId)}, [state, serverId])
 
   //event handlers
   const handleChange = (field) => (e) => {

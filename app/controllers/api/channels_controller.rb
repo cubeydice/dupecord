@@ -37,9 +37,9 @@ class Api::ChannelsController < ApplicationController
 
   def destroy
     @channel = Channel.find_by(id: params[:id])
-    server = Server.find_by(id: @channel.server_id)
-
+    
     if @channel
+      server = Server.find_by(id: @channel.server_id)
       if (@channel.server.owner_id === current_user.id)
         @channel.destroy!
         render json: nil

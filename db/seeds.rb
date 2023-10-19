@@ -11,12 +11,14 @@ ApplicationRecord.transaction do
     Server.destroy_all
     User.destroy_all
     Channel.destroy_all
+    Message.destroy_all
 
     puts "Resetting primary keys..."
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('user_servers')
     ApplicationRecord.connection.reset_pk_sequence!('servers')
     ApplicationRecord.connection.reset_pk_sequence!('channels')
+    ApplicationRecord.connection.reset_pk_sequence!('messages')
 
     puts "Creating users..."
     User.create!(
@@ -81,6 +83,15 @@ ApplicationRecord.transaction do
         { server_id: 5, name: "Coding", category: "Ruby" },
         { server_id: 5, name: "Coding", category: "General" },
         { server_id: 5, name: "Coding", category: "General" },
+      ]
+
+      puts "Creating messages..."
+      Messages.create! [
+        { content: "hey all, what's up", user_id: 1, messageable_type: 'Channel', messageable_type: 1 },
+        { content: "is anyone there?", user_id: 1, messageable_type: 'Channel', messageable_type: 1 },
+        { content: "yo, someone please reply T_T", user_id: 1, messageable_type: 'Channel', messageable_type: 1 },
+        { content: "dafjghdfkjg", user_id: 1, messageable_type: 'Channel', messageable_type: 1 },
+        { content: "oh, hi", user_id: 2, messageable_type: 'Channel', messageable_type: 1 },
       ]
 
     puts "Done!"

@@ -48,7 +48,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu} className="profile-button">
-        <img src={user.avatar_url}
+        <img src={user.avatarUrl}
         onError={handleImgError}
         alt='profile-pic'
         className="profile-avatar"/>

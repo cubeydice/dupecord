@@ -19,7 +19,7 @@ if @server
         messages.each do |message|
             json.messages do
                 json.set! message.id do
-                    json.extract!(message, :id, :content, :user_id, :messageable_id, :created_at, :updated_at)
+                    json.extract!(message, :id, :content, :user_id, :messageable_id, :messageable_type, :created_at, :updated_at)
                 end
             end
         end

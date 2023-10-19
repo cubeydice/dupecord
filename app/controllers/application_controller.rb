@@ -9,12 +9,14 @@ class ApplicationController < ActionController::API
 
     def test
         login!(User.first)
-        render json: { user: current_user}
+        @user = current_user
+        render 'api/users/show'
     end
 
     def test2
         login!(User.second)
-        render json: { user: current_user}
+        @user = current_user
+        render 'api/users/show'
     end
 
     def current_user

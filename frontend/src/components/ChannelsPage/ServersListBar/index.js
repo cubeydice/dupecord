@@ -20,7 +20,7 @@ const ServersSidebar = ({sessionUser}) => {
     <>
       <nav className="user-servers-sidebar" id='servers-sidebar'>
         <NavLink to='/channels/@me' className="server-icon">
-          <img src={sessionUser.avatar_url}
+          <img src={sessionUser.avatarUrl}
           onError={handleImgError}
           alt='profile-pic'/>
         </NavLink>

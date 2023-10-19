@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   post 'api/test', to: 'application#test'
+  post 'api/test2', to: 'application#test2'
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show, :create, :update, :destroy]

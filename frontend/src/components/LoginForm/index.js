@@ -54,6 +54,26 @@ function LoginForm() {
       });
   }
 
+  const handleDemo2 = (e) => {
+    e.preventDefault();
+
+    setErrors([]);
+
+    return dispatch(sessionActions.loginDemo2())
+      .catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+
+        if (data?.errors) setErrors(data.errors)
+        else if (data) setErrors([data])
+        else setErrors([res.statusText]);
+      });
+  }
+
   return (
     <>
     <div className='login'>
@@ -89,6 +109,7 @@ function LoginForm() {
       <br/>
       <button type='submit' className='login-button'>Log In</button>
       <button type='button' className='login-button' onClick={handleDemo}>Demo Account</button>
+      <button type='button' className='login-button' onClick={handleDemo2}>Demo Account 2</button>
       <h3>Need an account? <Link to='/register/'>Register</Link></h3>
     </form>
     <br/>

@@ -29,33 +29,6 @@ export const fetchEntities = (userId) => async dispatch => {
   }
 }
 
-
-//REDUCER
-// const entitiesReducer = (state = {}, action) => {
-//   let nextState = { ...state };
-
-//   switch (action.type) {
-//     // case RECEIVE_ENTITIES:
-//     //   nextState = { ...nextState, ...action.entities}
-//     //   return nextState;
-
-//     case RECEIVE_SERVERS:
-//       nextState = { ...nextState, ...action.servers };
-//       return nextState;
-
-//     case RECEIVE_SERVER:
-//       nextState[action.payload.server.id] = action.payload.server;
-//       return nextState;
-
-//     case REMOVE_SERVER:
-//       delete nextState[action.serverId];
-//       return nextState;
-
-//     default:
-//       return state;
-//   }
-// };
-
 const entitiesReducer = combineReducers({
   servers: serversReducer,
   channels: channelsReducer

@@ -27,6 +27,9 @@ gem "jbuilder"
 #Faker
 gem "faker"
 
+#Redis for Action Cable usage
+gem redis
+
 group :development, :test do
   gem "byebug", platforms: %i[ mri mingw x64_mingw ]
 end

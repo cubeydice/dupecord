@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import LoginForm from './components/LoginForm';
-import RegisterForm from "./components/RegisterForm";
+import LoginForm from './components/SplashPage/LoginForm';
+import RegisterForm from "./components/SplashPage/RegisterForm";
 import SplashPage from "./components/SplashPage";
-import ChannelsPage from "./components/ChannelsPage";
+import ChannelsPage from "./components/MainPage";
 
 export const handleImgError = (e) => {
   e.currentTarget.src='https://i.imgur.com/ZUnA3o9.png'

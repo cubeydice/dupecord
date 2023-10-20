@@ -6,6 +6,7 @@ import { getChannels } from "../../store/channels";
 import ServersListBar from "./ServersListBar";
 import Sidebar from "./Sidebar";
 import Messages from "./Messages";
+import MemberList from "./MemberList";
 import Modal from "../Modal/Modal";
 import { getUsers } from "../../store/users";
 
@@ -30,6 +31,7 @@ return (
       <ServersListBar sessionUser={sessionUser}/>
       <Sidebar sessionUser={sessionUser} serverId={serverId} server={server}/>
       <Messages channels={channels} users={users}/>
+      <MemberList users={users}/>
       <Modal/>
     </div>
     </>

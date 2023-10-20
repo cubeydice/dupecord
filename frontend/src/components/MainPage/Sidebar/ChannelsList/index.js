@@ -36,9 +36,9 @@ const ChannelsList = ({server}) => {
                 <NavLink to={`/channels/${serverId}/${channel.id}`}
                 key={channel.id}
                 className='channels'>
-                  <div>
+                  <div className='channel-name'>
                   <ChannelTypeText className='channel-icon'/>
-                  {channel.name}
+                  <p>{channel.name}</p>
                   </div>
                   <Settings onClick={handleClick}/>
                 </NavLink>

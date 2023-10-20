@@ -18,13 +18,19 @@
   display: flex;
   justify-content: space-between;
   color: #8E9297;
+  align-items: center;
 }
 
-.channel-link {
-}
 .channel-icon {
   width: 20px;
   height: 20px;
+}
+.channel-name {
+  display: flex;
+}
+
+.channel-name > p {
+  margin-left: 6px;
 }
 
 .channels:hover {

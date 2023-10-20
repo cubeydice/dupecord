@@ -53,7 +53,7 @@ const Messages = ({channels, users}) => {
   return (
     <><div className="messages-body-container">
         <HeaderBar serverId = {serverId} channel={channel}/>
-        
+
         <div className="messages-body">
           <br/>
           <div className="message-intro">

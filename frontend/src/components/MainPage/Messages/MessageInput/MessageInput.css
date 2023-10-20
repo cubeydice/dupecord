@@ -2,12 +2,13 @@
 .message-input-container {
   position: fixed;
   bottom: 0px;
-  width: 80vw;
+  width: 900px;
   padding: 6px;
 }
 
 #message-input {
   flex-wrap:wrap;
+  background-color: #40444B;
 }
 
 #message-input-submit {

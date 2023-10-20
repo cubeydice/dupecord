@@ -1,0 +1,29 @@
+.member-list-container {
+  position: fixed;
+  top: 50px;
+  right: 0px;
+  width: 224px;
+  overflow-y: hidden;
+  background-color: #2F3136;
+  height: 100%;
+  padding: 8px;
+}
+
+.member-container {
+  display: grid;
+  grid-template-columns: 32px auto;
+  grid-template-rows: 40px;
+  grid-template-areas:
+  "avatar name"
+  ;
+  align-items: center;
+  gap: 10px;
+}
+
+.member-avatar {
+  grid-area: avatar;
+}
+
+.member-name {
+  grid-area: name;
+}

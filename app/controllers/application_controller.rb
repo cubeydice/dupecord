@@ -8,14 +8,14 @@ class ApplicationController < ActionController::API
     before_action :snake_case_params, :attach_authenticity_token
 
     def test
-        login!(User.first)
-        @user = current_user
+        @user = User.first
+        login!(@user)
         render 'api/users/show'
     end
 
     def test2
-        login!(User.second)
-        @user = current_user
+        @user = User.second
+        login!(@user)
         render 'api/users/show'
     end
 

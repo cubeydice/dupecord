@@ -14,7 +14,7 @@ const ServersSidebar = ({sessionUser}) => {
 
   useEffect(() => {
     dispatch(fetchServers())
-  }, [dispatch])
+  }, [dispatch, sessionUser])
 
   return (
     <>

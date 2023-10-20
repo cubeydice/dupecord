@@ -64,6 +64,7 @@ export const login = ({ credential, password }) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
+    storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
   }
 
@@ -78,6 +79,7 @@ export const loginDemo = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
+    storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
   }
 
@@ -92,6 +94,7 @@ export const loginDemo2 = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
+    storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
   }
 
@@ -126,6 +129,7 @@ export const signOut = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
+    storeCurrentUser(data.user);
     dispatch(removeCurrentUser(data.user));
   }
 

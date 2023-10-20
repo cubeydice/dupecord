@@ -31,8 +31,6 @@ function RegisterForm() {
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
     });
-
-    return setErrors;
   };
 
   return (
@@ -40,10 +38,11 @@ function RegisterForm() {
     <h1>Create an Account</h1>
     <form onSubmit={handleSubmit} className="login-form" id='register-form'>
       <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
+        {errors.map(error => <li key={error} className="login-error">{error}</li>)}
       </ul>
       <label>
-        <p className='login-question'>EMAIL </p> <br/>
+        <p className='login-question'>EMAIL
+        </p> <br/>
         <input
           type="text"
           value={email}
@@ -53,7 +52,8 @@ function RegisterForm() {
         />
       </label> <br/>
       <label>
-        <p className='login-question'>DISPLAY NAME </p> <br/>
+        <p className='login-question'>USERNAME
+        </p> <br/>
         <input
           type="text"
           value={username}

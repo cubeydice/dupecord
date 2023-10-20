@@ -11,7 +11,6 @@ function RegisterForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [dob, setDateofBirth] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/channels/@me" />;
@@ -54,7 +53,7 @@ function RegisterForm() {
         />
       </label> <br/>
       <label>
-        <p className='login-question'>USERNAME </p> <br/>
+        <p className='login-question'>DISPLAY NAME </p> <br/>
         <input
           type="text"
           value={username}

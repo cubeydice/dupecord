@@ -12,7 +12,7 @@ import { getUsers } from "../../store/users";
 
 const ChannelsPage = () => {
   const dispatch = useDispatch();
-  const { serverId } = useParams();
+  const { serverId, channelId } = useParams();
   const server = useSelector(getServer(serverId));
   const sessionUser = useSelector(state => state.session.user);
   const channels = useSelector(getChannels);
@@ -20,7 +20,7 @@ const ChannelsPage = () => {
 
   useEffect(() => {
     if (serverId !== '@me' && serverId !== null) dispatch(fetchServer(serverId));
-  }, [dispatch, serverId])
+  }, [dispatch, serverId, channelId])
 
 
   if (!sessionUser) return <Redirect to="/" />;

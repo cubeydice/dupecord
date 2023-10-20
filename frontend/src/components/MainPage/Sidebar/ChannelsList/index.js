@@ -1,14 +1,15 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { openModal } from '../../../../store/modals';
 import { ReactComponent as Settings } from './assets/settings.svg'
 import { ReactComponent as ChannelTypeText } from './assets/Type=Text.svg';
 import './ChannelsList.css'
+import { getChannels } from '../../../../store/channels';
 
 const ChannelsList = ({server}) => {
   const dispatch = useDispatch();
-  const channels = server.channels
+  const channels = Object.values(useSelector(getChannels));
   const { serverId } = useParams();
 
   let categories = [...new Set(channels.map(channel => channel.category))]

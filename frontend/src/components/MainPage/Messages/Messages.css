@@ -21,6 +21,10 @@
   overflow: auto;
 }
 
+.messages-body::-webkit-scrollbar {
+  width: 10px;
+}
+
 .message-intro > h1{
   font-size: 30px;
   font-weight: 700;

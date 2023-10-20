@@ -34,10 +34,15 @@
 }
 
 .channels:hover {
- background-color: #393C43;
- color: var(--white)
+  background-color: #393C43;
+  color: var(--white)
 }
 
 .channel-link:active {
   color: #8E9297;
+}
+
+.channels.active {
+  background-color: #393C43;
+  color: var(--white)
 }

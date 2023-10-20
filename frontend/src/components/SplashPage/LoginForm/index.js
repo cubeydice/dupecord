@@ -80,11 +80,14 @@ function LoginForm() {
     <h1>Welcome back!</h1>
     <h2>We're so excited to see you again!</h2>
     <form onSubmit={handleSubmit} className='login-form' id='login-form'>
-      <ul className='login-errors'>
-        {errors.map(error => <li key={error}>{error}</li>)}
-      </ul>
       <label>
-        <p className='login-question'>EMAIL OR USERNAME </p> <br/>
+        <p className={errors.length > 0 ? 'login-error' : 'login-question'}>
+          EMAIL OR USERNAME
+          <span className='login-error'>
+            {errors.length > 0 ? " - Login or password is invalid" : "*"}
+          </span>
+        </p>
+        <br/>
         <input
           type="text"
           value={credential}
@@ -96,7 +99,13 @@ function LoginForm() {
       <br/>
       <br/>
       <label>
-        <p className='login-question'>PASSWORD </p> <br/>
+        <p className={errors.length > 0 ? 'login-error' : 'login-question'}>
+          PASSWORD
+          <span className='login-error'>
+            {errors.length > 0 ? " - Login or password is invalid" : "*"}
+          </span>
+        </p>
+        <br/>
         <input
           type="password"
           value={password}

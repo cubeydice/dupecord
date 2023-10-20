@@ -19,6 +19,10 @@ class ApplicationController < ActionController::API
         render 'api/users/show'
     end
 
+    def from_template(template, locals = {})
+        JSON.parse(self.class.render(:json, template: template, locals: locals))
+    end
+
     def current_user
         return nil unless session[:session_token]
         @current_user ||= User.find_by(session_token: session[:session_token])

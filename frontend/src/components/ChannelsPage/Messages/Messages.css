@@ -1,10 +1,19 @@
-.messages {
+.messages-body-container {
   position: fixed;
   height: 100vh;
   width: 100vw;
   background: #313338;
   display: fixed;
   left: 304px;
+  padding-left: 15px;
+  overflow: auto;
+}
+
+.messages-body {
+  width: 100vw;
+  height: 94vh;
+  background: #313338;
+  display: fixed;
   padding-left: 15px;
   overflow: auto;
 }

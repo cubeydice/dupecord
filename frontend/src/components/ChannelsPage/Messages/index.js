@@ -1,7 +1,7 @@
 import { createRef, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
-import { getMessages } from "../../../store/messages";
+import { getMessages, receiveMessage } from "../../../store/messages";
 import HeaderBar from "./HeaderBar";
 import MessageItem from "./MessageItem"
 import MessageInput from "./MessageInput";
@@ -9,6 +9,7 @@ import './Messages.css'
 import consumer from '../../../consumer'
 
 const Messages = ({channels, users}) => {
+  const dispatch = useDispatch();
   const { serverId, channelId } = useParams();
   const channel = channels[channelId] || {}
   const isDirectMessage = (Object.keys(channel).length === 0)
@@ -20,18 +21,22 @@ const Messages = ({channels, users}) => {
   }
 
   useEffect(() => {
-    scrollToBottom()
+    scrollToBottom();
+  })
+
+  useEffect(() => {
     const subscription = consumer.subscriptions.create(
-      { channel: 'ChannelsChannel', id: channelId },
-      {
+    { channel: 'ChannelsChannel', id: channelId },
+    {
+
         received: message => {
-          console.log('Received message: ', message)
+        dispatch(receiveMessage(message))
         }
-      }
+    }
     );
 
     return () => subscription?.unsubscribe();
-  }, [messages, channelId])
+  }, [dispatch, channelId])
 
   const introMessage = () => {
       if (!isDirectMessage) {
@@ -46,8 +51,8 @@ const Messages = ({channels, users}) => {
   };
 
   return (
-    <>
-      <div className="messages">
+    <><div className="messages-body-container">
+      <div className="messages-body">
         <HeaderBar serverId = {serverId} channel={channel}/>
         <br/>
         <div className="message-intro">
@@ -66,6 +71,7 @@ const Messages = ({channels, users}) => {
 
         {!isDirectMessage ? <MessageInput channel={channel} /> : null}
       </div>
+    </div>
     </>
   )
 }

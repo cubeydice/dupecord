@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import './MessageInput.css'
-import { createMessage } from "../../../../store/messages";
+import { createMessage, receiveMessage } from "../../../../store/messages";
 
 const MessageInput = ({channel}) => {
     const dispatch = useDispatch();
@@ -20,8 +20,8 @@ const MessageInput = ({channel}) => {
             messageable_type: 'Channel',
             messageable_id: channel.id
         }
-        dispatch(createMessage(message))
-        setContent('')
+        console.log(message)
+        dispatch(createMessage(message)).then(() => {setContent('')})
     }
 
     const handleChange = (e) => {
@@ -29,7 +29,6 @@ const MessageInput = ({channel}) => {
 
         setContent(e.currentTarget.value)
     }
-
 
     return (
         <>

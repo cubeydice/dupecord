@@ -6,25 +6,13 @@ import './ProfileButton.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState(false);
 
+  const [showMenu, setShowMenu] = useState(false);
   const openMenu = () => {
     setShowMenu(true);
   };
-
   const closeMenu = () => {
     setShowMenu(false);
-  };
-
-  useEffect(() => {
-    if (!showMenu) return;
-    document.addEventListener('click', closeMenu);
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
-
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.signOut());
   };
 
   const userBio = () => {
@@ -35,15 +23,25 @@ function ProfileButton({ user }) {
       </>)
       }
   }
-
-  const date = new Date(user.created_at);
-
+  const date = new Date(user.createdAt);
   const months = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
   ];
   const userMemberDate = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 
+  //USEEFFECT
+  useEffect(() => {
+    if (!showMenu) return;
+    document.addEventListener('click', closeMenu);
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+  //EVENT HANDLER
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.signOut());
+  };
 
   return (
     <>

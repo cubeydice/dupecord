@@ -30,6 +30,15 @@ ApplicationRecord.transaction do
       avatar_url: 'https://i.imgur.com/n0X85nw.png'
     )
 
+    avatars = [
+      'https://i.imgur.com/AUtot3G.png',
+      'https://i.imgur.com/wMNiO1v.png',
+      'https://i.imgur.com/v6feagM.png',
+      'https://i.imgur.com/h7JM2Gm.png',
+      'https://i.imgur.com/Bczd46N.png',
+      'https://i.imgur.com/fDMfeJ5.png'
+    ]
+
     10.times do
       User.create!({
         username: Faker::Internet.unique.username(specifier: 3),
@@ -37,7 +46,7 @@ ApplicationRecord.transaction do
         password: 'password',
         bio: "Hi, I'm new to dupecord. Please be nice to me :)",
         pronouns: 'they/them',
-        avatar_url: 'https://i.imgur.com/v6feagM.png'
+        avatar_url: avatars.sample
       })
     end
 
@@ -97,6 +106,36 @@ ApplicationRecord.transaction do
         { content: "yo, someone please reply T_T", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },
         { content: "dafjghdfkjg", user_id: 1, messageable_type: 'Channel', messageable_id: 1 },
         { content: "oh, hi", user_id: 2, messageable_type: 'Channel', messageable_id: 1 },
+        { content: "i'm really craving boba", user_id: 3, messageable_type: 'Channel', messageable_id: 2 },
+        { content: "me too", user_id: 4, messageable_type: 'Channel', messageable_id: 2 },
+        { content: "me too", user_id: 1, messageable_type: 'Channel', messageable_id: 2 },
+        { content: "me too", user_id: 2, messageable_type: 'Channel', messageable_id: 2 },
+        { content: "me too", user_id: 3, messageable_type: 'Channel', messageable_id: 2 },
+        { content: "leet code is pretty good", user_id: 2, messageable_type: 'Channel', messageable_id: 3 },
+        { content: "freecodecamp", user_id: 4, messageable_type: 'Channel', messageable_id: 3 },
+        { content: "yooo app academy tho", user_id: 1, messageable_type: 'Channel', messageable_id: 3 },
+        { content: "i like odin project BE THE THOR OF CODING", user_id: 3, messageable_type: 'Channel', messageable_id: 3 },
+        { content: "wth", user_id: 4, messageable_type: 'Channel', messageable_id: 3 },
+        { content: "WEEEEEE RANDOM", user_id: 2, messageable_type: 'Channel', messageable_id: 4 },
+        { content: "UwU", user_id: 3, messageable_type: 'Channel', messageable_id: 4 },
+        { content: "boba", user_id: 3, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 1, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 5, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 2, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 3, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 1, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 5, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 2, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 3, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 1, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 5, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 2, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 3, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 1, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 5, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "boba", user_id: 2, messageable_type: 'Channel', messageable_id: 5 },
+        { content: "sorry guys, I'm still working on this server", user_id: 3, messageable_type: 'Channel', messageable_id: 6 },
+
       ]
 
     puts "Done!"

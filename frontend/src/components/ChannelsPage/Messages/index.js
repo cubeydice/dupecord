@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { createRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { getMessages } from "../../../store/messages";
@@ -13,8 +13,14 @@ const Messages = ({channels, users}) => {
   const channel = channels[channelId] || {}
   const isDirectMessage = (Object.keys(channel).length === 0)
   let messages = Object.values(useSelector(getMessages))
+  const messagesEndRef = createRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
 
   useEffect(() => {
+    scrollToBottom()
     const subscription = consumer.subscriptions.create(
       { channel: 'ChannelsChannel', id: channelId },
       {
@@ -25,11 +31,18 @@ const Messages = ({channels, users}) => {
     );
 
     return () => subscription?.unsubscribe();
-  }, [channelId])
+  }, [messages, channelId])
 
   const introMessage = () => {
-      return `This is the start of the #${channel.name} channel. `
-      + (channel.topic ? channel.topic : "");
+      if (!isDirectMessage) {
+        return (<>
+          <h1>Welcome to #{channel.name}!</h1>
+          <p>
+            {`This is the start of the #${channel.name} channel. `
+            + (channel.topic ? channel.topic : "")};
+          </p>
+        </>)
+    }
   };
 
   return (
@@ -38,8 +51,7 @@ const Messages = ({channels, users}) => {
         <HeaderBar serverId = {serverId} channel={channel}/>
         <br/>
         <div className="message-intro">
-          <h1>Welcome to #{channel.name}!</h1>
-          <p>{introMessage()}</p>
+          {introMessage()}
         </div> <br/>
         <hr/>
 
@@ -50,6 +62,7 @@ const Messages = ({channels, users}) => {
             </>)
           } else return null
         })}
+        <div ref={messagesEndRef}></div>
 
         {!isDirectMessage ? <MessageInput channel={channel} /> : null}
       </div>

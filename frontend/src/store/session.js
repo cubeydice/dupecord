@@ -1,4 +1,8 @@
 import csrfFetch from './csrf';
+import { clearChannels } from './channels';
+import { clearMessages } from './messages';
+import { clearServers } from './servers';
+import { clearUsers } from './users';
 
 //action constants
 export const SET_CURRENT_USER = 'session/SET_CURRENT_USER';
@@ -131,6 +135,10 @@ export const signOut = () => async (dispatch) => {
     const data = await response.json();
     storeCurrentUser(data.user);
     dispatch(removeCurrentUser(data.user));
+    dispatch(clearUsers());
+    dispatch(clearMessages());
+    dispatch(clearChannels());
+    dispatch(clearServers());
   }
 
   return response;

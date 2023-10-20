@@ -3,6 +3,7 @@ import csrfFetch from "./csrf"
 const RECEIVE_CHANNELS = 'channels/RECEIVE_CHANNELS'
 const RECEIVE_CHANNEL = 'channels/RECEIVE_CHANNEL'
 const REMOVE_CHANNEL = 'channels/REMOVE_CHANNEL'
+const CLEAR_CHANNELS = 'channels/CLEAR_CHANNELS'
 
 //SELECTORS
 export const getChannels = (state) => {
@@ -33,6 +34,10 @@ export const removeChannel = (channelId, serverId) => {
       serverId
   }
 }
+
+export const clearChannels = () => ({
+  type: CLEAR_CHANNELS
+})
 
 //THUNK ACTIONS
 export const createChannel = (channel) => async dispatch => {
@@ -74,17 +79,22 @@ export const deleteChannel = (channelId) => async dispatch => {
 //REDUCER
 const channelsReducer = (state = {}, action) => {
   let nextState = {...state}
+  
   switch (action.type) {
     case RECEIVE_CHANNELS:
       return {...action.payload.channels};
 
     case RECEIVE_CHANNEL:
-        nextState[action.payload.channel.id] = action.payload.channel;
-        return nextState;
+      nextState[action.payload.channel.id] = action.payload.channel;
+      return nextState;
 
     case REMOVE_CHANNEL:
-        delete nextState[action.channelId];
-        return nextState;
+      delete nextState[action.channelId];
+      return nextState;
+
+    case CLEAR_CHANNELS:
+      nextState = {};
+      return nextState;
 
     default:
         return state;

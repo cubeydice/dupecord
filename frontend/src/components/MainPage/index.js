@@ -19,7 +19,9 @@ const ChannelsPage = () => {
   const users = useSelector(getUsers);
 
   useEffect(() => {
-    if (serverId !== '@me' && serverId !== null) dispatch(fetchServer(serverId));
+    if (serverId !== '@me' && serverId !== null && sessionUser) {
+      dispatch(fetchServer(serverId))
+    };
   }, [dispatch, serverId, channelId, sessionUser])
 
 

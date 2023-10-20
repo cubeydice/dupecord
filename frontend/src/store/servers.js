@@ -1,6 +1,6 @@
 import csrfFetch from "./csrf";
 import { receiveChannels } from "./channels";
-import { receiveUsers } from "./users"
+import { CLEAR_USERS, receiveUsers } from "./users"
 import { receiveMessages } from "./messages";
 
 //ACTION CONSTANTS
@@ -8,6 +8,7 @@ export const RECEIVE_SERVERS = 'servers/RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'servers/RECEIVE_SERVER';
 export const REMOVE_SERVER = 'servers/REMOVE_SERVER';
 export const REMOVE_USER_SERVER = 'servers/REMOVE_USER_SERVER';
+export const CLEAR_SERVERS = 'servers/CLEAR_SERVERS'
 
 //SELECTORS
 export const getServers = (state) => {
@@ -37,6 +38,10 @@ export const removeServer = (serverId) => ({
 export const removeUserServer = (serverId) => ({
   type: REMOVE_USER_SERVER,
   serverId
+})
+
+export const clearServers = () => ({
+  type: CLEAR_SERVERS
 })
 
 //THUNK ACTIONS
@@ -140,6 +145,10 @@ const serversReducer = (state = {}, action) => {
       delete nextState[action.serverId];
       return nextState;
 
+    case CLEAR_USERS:
+      nextState = {};
+      return nextState;
+      
     default:
       return state;
   }

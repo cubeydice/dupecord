@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import './Sidebar.css'
 import ProfileBar from "./ProfileBar";
 import ServerButton from "./ServerButton";

@@ -7,7 +7,7 @@
 #  username        :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  avatar_url      :string
+#  avatar_url      :string           default("https://i.imgur.com/mofLYAV.png"), not null
 #  status          :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -15,7 +15,7 @@
 #  pronouns        :string
 #
 class User < ApplicationRecord
-  before_validation :ensure_session_token
+  before_validation :ensure_session_token, :set_defaults
   has_secure_password
 
   validates :username,
@@ -44,6 +44,10 @@ class User < ApplicationRecord
 
   has_many :messages,
   dependent: :destroy
+
+  def set_defaults
+    avatar_url = 'https://i.imgur.com/mofLYAV.png'
+  end
 
   def self.find_by_credentials(credential, password)
     if credential =~ URI::MailTo::EMAIL_REGEXP

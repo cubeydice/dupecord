@@ -9,6 +9,8 @@ export const handleImgError = (e) => {
   e.currentTarget.src='https://i.imgur.com/ZUnA3o9.png'
 }
 
+export const imgError = 'https://i.imgur.com/ZUnA3o9.png'
+
 function App() {
   return (
     <Switch>

@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
-import './ChannelsList.css'
-import { NavLink } from 'react-router-dom/cjs/react-router-dom';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { ReactComponent as Settings } from './assets/settings.svg'
+import React from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { openModal } from '../../../../store/modals';
-const ChannelText = require('./assets/ChannelText.png');
+import { ReactComponent as Settings } from './assets/settings.svg'
+import { ReactComponent as ChannelTypeText } from './assets/Type=Text.svg';
+import './ChannelsList.css'
 
 const ChannelsList = ({server}) => {
   const dispatch = useDispatch();
@@ -38,7 +37,7 @@ const ChannelsList = ({server}) => {
                 key={channel.id}
                 className='channels'>
                   <div>
-                  <img src={ChannelText} alt='text' className='channel-icon'/>
+                  <ChannelTypeText className='channel-icon'/>
                   {channel.name}
                   </div>
                   <Settings onClick={handleClick}/>

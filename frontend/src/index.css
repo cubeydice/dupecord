@@ -175,6 +175,11 @@ button:hover {
 	justify-items: center;
 }
 
+.message-avatar {
+	height: 40px;
+	border-radius: 50%;
+}
+
 .profile-avatar {
 	height: 32px;
 	border-radius: 50%;

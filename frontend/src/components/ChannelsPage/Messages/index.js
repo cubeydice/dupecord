@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { getMessages } from "../../../store/messages";
@@ -6,7 +7,6 @@ import MessageItem from "./MessageItem"
 import MessageInput from "./MessageInput";
 import './Messages.css'
 import consumer from '../../../consumer'
-import { useEffect } from "react";
 
 const Messages = ({channels, users}) => {
   const { serverId, channelId } = useParams();
@@ -28,20 +28,20 @@ const Messages = ({channels, users}) => {
   }, [channelId])
 
   const introMessage = () => {
-    if (channel.topic) {
-      return channel.topic;
-    } else {
-      return `This is the start of the #${channel.name} channel.`;
-    };
+      return `This is the start of the #${channel.name} channel. `
+      + (channel.topic ? channel.topic : "");
   };
 
   return (
     <>
       <div className="messages">
         <HeaderBar serverId = {serverId} channel={channel}/>
-
-        <h1>Welcome to #{channel.name}!</h1>
-        <p>{introMessage()}</p>
+        <br/>
+        <div className="message-intro">
+          <h1>Welcome to #{channel.name}!</h1>
+          <p>{introMessage()}</p>
+        </div> <br/>
+        <hr/>
 
         {messages.map(message => {
           if (message.messageableId === Number(channelId)) {

@@ -5,6 +5,12 @@
   background: #313338;
   display: fixed;
   left: 304px;
-  padding: 8x;
+  padding-left: 15px;
   overflow: auto;
+}
+
+.message-intro > h1{
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }

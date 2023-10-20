@@ -1,0 +1,22 @@
+.message-container {
+  display: grid;
+  grid-template-columns: 48px auto;
+  grid-template-rows: 20px 20px auto;
+  grid-template-areas:
+    "avatar author"
+    "avatar content"
+    ". content"
+  ;
+}
+
+.message-avatar {
+  grid-area: avatar;
+}
+
+.message-author {
+  grid-area: author;
+}
+
+.message-content {
+  grid-area: content;
+}

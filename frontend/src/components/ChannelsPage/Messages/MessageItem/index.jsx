@@ -8,14 +8,14 @@ const MessageItem = ({message, users}) => {
     return (
         <div className='message-container'>
             <div className='message-avatar'>
-                <img src={userAvatar} alt='user-avatar' className='server-icon'/>
+                <img src={userAvatar} alt='user-avatar' className='message-avatar'/>
             </div>
-            <div className='message'>
                 <div className='message-author'>
-                {userName}
-                {timeCreated}
+                {userName}&ensp;
+                <sub>{timeCreated}</sub>
                 </div>
-                {message.content}
+                <div className='message-content'>
+                    {message.content}
             </div>
         <br/>
         </div>

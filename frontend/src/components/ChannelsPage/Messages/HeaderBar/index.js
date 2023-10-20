@@ -1,13 +1,18 @@
 import './HeaderBar.css'
+import { ReactComponent as ChannelTypeText } from '../assets/Type=Text.svg';
 
 const HeaderBar = ({channel, serverId}) => {
   const header = () => {if (serverId === "@me") {
     return (
-      <h1>Friends</h1>
+      'Friends'
     )
     } else {
       return(
-        <h1>{channel.name}</h1>
+        <>
+        <ChannelTypeText className='channel-icon'/>&ensp;
+        {channel.name}&ensp;
+        <sub>{channel.topic}</sub>
+        </>
       )
     }
   }
@@ -15,7 +20,7 @@ const HeaderBar = ({channel, serverId}) => {
   return (
   <>
     <div className='header-bar'>
-      {header()}
+      <h1>{header()}</h1>
     </div>
   </>
   )

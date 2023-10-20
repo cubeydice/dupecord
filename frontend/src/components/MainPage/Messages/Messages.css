@@ -10,8 +10,10 @@
 }
 
 .messages-body {
+  position: fixed;
+  top: var(--top-bar-height);
   width: 100vw;
-  height: 94vh;
+  height: 88vh;
   background: #313338;
   display: fixed;
   padding-left: 15px;

@@ -52,25 +52,26 @@ const Messages = ({channels, users}) => {
 
   return (
     <><div className="messages-body-container">
-      <div className="messages-body">
         <HeaderBar serverId = {serverId} channel={channel}/>
-        <br/>
-        <div className="message-intro">
-          {introMessage()}
-        </div> <br/>
-        <hr/>
+        
+        <div className="messages-body">
+          <br/>
+          <div className="message-intro">
+            {introMessage()}
+          </div> <br/>
+          <hr/>
 
-        {messages.map(message => {
-          if (message.messageableId === Number(channelId)) {
-            return (<>
-            <MessageItem message={message} users={users} key={message.id}/>
-            </>)
-          } else return null
-        })}
-        <div ref={messagesEndRef}></div>
+          {messages.map(message => {
+            if (message.messageableId === Number(channelId)) {
+              return (<>
+              <MessageItem message={message} users={users} key={message.id}/>
+              </>)
+            } else return null
+          })}
+          <div ref={messagesEndRef}></div>
 
-        {!isDirectMessage ? <MessageInput channel={channel} /> : null}
-      </div>
+          {!isDirectMessage ? <MessageInput channel={channel} /> : null}
+        </div>
     </div>
     </>
   )

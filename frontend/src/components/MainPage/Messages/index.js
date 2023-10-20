@@ -44,7 +44,7 @@ const Messages = ({channels, users}) => {
           <h1>Welcome to #{channel.name}!</h1>
           <p>
             {`This is the start of the #${channel.name} channel. `
-            + (channel.topic ? channel.topic : "")};
+            + (channel.topic ? channel.topic : "")}
           </p>
         </>)
     }

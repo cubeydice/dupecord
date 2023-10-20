@@ -11,6 +11,7 @@ import { useEffect } from "react";
 const Messages = ({channels, users}) => {
   const { serverId, channelId } = useParams();
   const channel = channels[channelId] || {}
+  const isDirectMessage = (Object.keys(channel).length === 0)
   let messages = Object.values(useSelector(getMessages))
 
   useEffect(() => {
@@ -34,7 +35,6 @@ const Messages = ({channels, users}) => {
     };
   };
 
-
   return (
     <>
       <div className="messages">
@@ -51,7 +51,7 @@ const Messages = ({channels, users}) => {
           } else return null
         })}
 
-        <MessageInput channel={channel} />
+        {!isDirectMessage ? <MessageInput channel={channel} /> : null}
       </div>
     </>
   )

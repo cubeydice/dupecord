@@ -43,8 +43,6 @@ With dupecord, you can
 
 ## Code Snippets
 
-In this section, share code snippets to highlight your best code. Use Markdown code blocks to make your code easily readable.
-
 ```JavaScript
 # placeholder
 const placeholder = () => {

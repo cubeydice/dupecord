@@ -20,15 +20,13 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   place-items: center;
-  background: #36393e;
+  background: var(--menu-background);
   border-radius: 5px;
   width: 440px;
-  padding: 42px;
+  padding: 32px;
   padding-bottom: 22px;
   -webkit-box-orient: vertical;
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
   box-shadow: 0 2px 10px 0 rgba(0,0,0,.2);
 }
 
@@ -42,13 +40,11 @@ body {
 
 .login h2 {
   color: #B9BBBE;
-  font-family: 'ABC Ginto Normal';
   font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 20px;
   margin-bottom: 20px;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .login-form {
@@ -79,7 +75,7 @@ body {
   background-color: #1e2124;
   font-size: 16px;
   font-weight: 100;
-  color:#c4c3ca;
+  color: #c4c3ca;
 }
 
 .login-button {
@@ -100,8 +96,8 @@ body {
   text-align: center;
   border: none;
   outline: none;
-  background-color: #5865F2;
-  color: white;
+  background-color: var(--brand);
+  color: var(--white);
   cursor: pointer;
 }
 

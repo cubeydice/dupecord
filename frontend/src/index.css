@@ -116,16 +116,28 @@ table {
 @font-face {
 	font-family: 'gg sans';
 	src: url(../assets/fonts/webfontkit/ggsans-normal-webfont.woff);
+	font-weight: 400;
 }
 	@font-face {
 		font-family: 'gg sans';
-		src: url(../assets/fonts/webfontkit/ggsans-medium-webfont.woff);
+		src: url(../assets/fonts/webfontkit/ggsans-normalitalic-webfont.woff);
 		font-weight: 400;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'gg sans';
+		src: url(../assets/fonts/webfontkit/ggsans-medium-webfont.woff);
+		font-weight: 500;
 	}
 	@font-face {
 		font-family: 'gg sans';
 		src: url(../assets/fonts/webfontkit/ggsans-semibold-webfont.woff);
 		font-weight: 600;
+	}
+	@font-face {
+		font-family: 'gg sans';
+		src: url(../assets/fonts/webfontkit/ggsans-bold-webfont.woff);
+		font-weight: 700;
 	}
 
 /* ROOT */
@@ -146,6 +158,7 @@ table {
 	--black: #000;
 	--border-black: #202124;
 	--ekko-red: #de2761;
+	--error: #fa777c;
 	--page-max-width: 1260px;
 	--page-max-width-med: 1024px;
 	--top-bar-height: 48px;
@@ -159,6 +172,18 @@ body {
 	color: var(--off-white);
 	background: var(--white);
 	text-rendering: optimizeLegibility;
+}
+
+.bold {
+	font-weight: 600;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.error {
+	color: red;
 }
 
 sub {
@@ -176,6 +201,7 @@ hr {
 a {
 	color: var(--text-link);
 	text-decoration: none;
+	font-weight: 500;
 }
 
 /* BUTTONS */

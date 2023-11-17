@@ -55,7 +55,7 @@ body {
 }
 
 .login-error {
-  color: red;
+  color: var(--error);
 }
 
 .login-button:hover {
@@ -105,4 +105,13 @@ body {
 .login-input:active {
   border-color: #7289d9;
   outline:#7289d9;
+}
+
+.login-form p {
+  font-size: 12px;
+}
+
+.login-sub {
+  font-size: 14px;
+  color: #949BA4
 }

@@ -1,3 +1,8 @@
 .login-link {
   font-size: 11pt;
 }
+
+.login-question {
+  font-size: 12px;
+  font-weight: 700;
+}

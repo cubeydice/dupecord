@@ -41,10 +41,10 @@ function RegisterForm() {
         {errors.map(error => <li key={error} className="login-error">{error}</li>)}
       </ul>
       <label>
-        <p className='login-question'>EMAIL
+        <p className='login-question'>EMAIL <span className='error'>*</span>
         </p> <br/>
         <input
-          type="text"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -52,7 +52,7 @@ function RegisterForm() {
         />
       </label> <br/>
       <label>
-        <p className='login-question'>USERNAME
+        <p className='login-question'>USERNAME <span className='error'>*</span>
         </p> <br/>
         <input
           type="text"
@@ -63,7 +63,8 @@ function RegisterForm() {
         />
       </label> <br/>
       <label>
-        <p className='login-question'>PASSWORD </p> <br/>
+        <p className='login-question'>PASSWORD <span className='error'>*</span>
+        </p> <br/>
         <input
           type="password"
           value={password}

@@ -9,5 +9,6 @@
   "server-list-bar header header-2 header-2"
   "server-list-bar sidebar messages friend-list"
   "server-list-bar sidebar message-input friend-list"
-  "server-list-bar profile-button message-input friend-list"
+  "server-list-bar profile-button message-input friend-list";
+  background-color: var(--messages-black);
 }

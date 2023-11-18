@@ -144,7 +144,7 @@ table {
 :root {
 	--custom-guild-shop-preview-pill-shadow-dark: -4px 5px #1d1d1d;
 	--custom-guild-shop-preview-pill-shadow-light: -4px 5px #d7dce8;
-	--brand: #5865f2;
+	--brand: #5865F2;
 	--brand-gradient: linear-gradient(90deg,#8ea1e1,#7289da);
 	--greyple: #99aab5;
 	--sub-gray: #a2a3a7;

@@ -110,36 +110,31 @@ main {
   height: 55px;
   width: 200px;
 }
-
-.splash-main button:hover {
-	box-shadow: 1px 5px 10px 0px #373f9c;
-	color: var(--brand);
-}
+  .splash-main button:hover {
+    box-shadow: 1px 5px 10px 0px #373f9c;
+    color: var(--brand);
+  }
 
 .main-buttons {
   font-size: 20px;
   display: flex;
   justify-content: space-between;
 }
-
-.main-buttons:hover svg {
-  fill: var(--brand);
-}
-
-.main-buttons img {
-  height: 35px;
-  fill: var(--not-quite-black)
-}
-
-#github-icon {
-  max-height: 48px;
-  max-width: 48px;
-}
-
-#splash-button-2 {
-  background-color: var(--not-quite-black);
-  color: white;
-}
+  .main-buttons:hover svg {
+    fill: var(--brand);
+  }
+  .main-buttons img {
+    height: 35px;
+    fill: var(--not-quite-black)
+  }
+  #github-icon {
+    max-height: 48px;
+    max-width: 48px;
+  }
+  #splash-button-2 {
+    background-color: var(--not-quite-black);
+    color: white;
+  }
 
 section {
   display: flex;
@@ -154,50 +149,46 @@ section {
   line-height: 150%;
 }
 
-section > div {
-  max-width: 390px;
-}
+  section > div {
+    max-width: 390px;
+  }
 
-section h1 {
-  font-family: 'ABC Ginto Normal';
-  line-height: 120%;
-  font-size: 45px;
-  font-weight: 600;
-  text-align: left;
-  margin-bottom: 20px;
-}
+  section h1 {
+    font-family: 'ABC Ginto Normal';
+    line-height: 120%;
+    font-size: 45px;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 20px;
+  }
 
-section svg {
-  width: 200%;
-  height: auto;
-  max-width: 700px;
-}
+  section svg {
+    width: 200%;
+    height: auto;
+    max-width: 700px;
+  }
 
-section:nth-child(even) {
-  background-color: var(--white);
-}
-
-section:nth-child(odd) {
-  background-color: var(--off-white);
-}
-
+  section:nth-child(even) {
+    background-color: var(--white);
+  }
+  section:nth-child(odd) {
+    background-color: var(--off-white);
+  }
 
 .splash-video {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 1000px;
+  height: 1075px;
 }
-
-.splash-video h1{
-  font-family: 'ABC Ginto Nord';
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.splash-video-svg-container {
-  width: 500px;
-}
+  .splash-video h1{
+    font-family: 'ABC Ginto Nord';
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .splash-video-svg-container {
+    width: 500px;
+  }
 
 .splash-journey {
   display: flex;
@@ -206,13 +197,80 @@ section:nth-child(odd) {
   text-align: center;
   align-items: center;
 }
+  .splash-journey > svg {
+    width: 531px;
+    transform: translateY(20px)
+  }
+  .splash-journey > span {
+    font-size: 32px;
+    font-weight: 700;
+  }
 
-.splash-journey > svg {
-  width: 531px;
-  transform: translateY(20px)
+  .splash-journey button {
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 40px;
+    margin-top: 40px;
+    height: 55px;
+    width: 200px;
+    transition-duration: 0.4s;
+    font-size: 14pt;
+    color: var(--white);
+    background-color: var(--brand);
+  }
+
+  .splash-journey button:hover {
+    box-shadow: 1px 5px 10px 0px #373f9c;
+    filter: brightness(110%)
+  }
+
+footer {
+  height: 200px;
+  background-color: var(--not-quite-black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
 }
 
-.splash-journey > p {
-  font-size: 32px;
-  font-weight: 700;
-}
+  #footer {
+    padding: 0 40px;
+  }
+
+    #footer hr {
+      background: var(--brand);
+    }
+
+  .footer-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .footer-links img{
+    height: 20px;
+  }
+  #footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0;
+  }
+    #footer-bottom h1 {
+      font-size: 32px;
+      font-family: 'ABC Ginto Nord';
+      font-weight: 600
+    }
+
+    .footer-signup-button {
+      background-color: var(--brand);
+      color: var(--white);
+      border-radius: 40px;
+      height: 38px;
+      width: 76px;
+      font-family: 'gg sans';
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .footer-signup-button:hover {
+      box-shadow: 1px 5px 10px 0px #373f9c;
+    }

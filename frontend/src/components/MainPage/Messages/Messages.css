@@ -6,9 +6,6 @@
   overflow-y: auto;
 }
 
-.message-intro img {
-  height: 16px;
-  
 .messages-body::-webkit-scrollbar {
   width: 10px;
 }
@@ -42,7 +39,7 @@
   margin-left: 6px;
   margin-bottom: 12px;
   align-items: center
-  
+
 }
   .message-channel-edit:hover {
     backdrop-filter: brightness(120%)

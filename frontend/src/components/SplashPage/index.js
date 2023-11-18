@@ -102,9 +102,35 @@ const SplashPage = () => {
           </p>
           <p className='splash-journey'>
             <SparklesSvg/>
-            <p>Ready to start your journey?</p>
+            <span>Ready to start your journey?</span>
+            <Link to={'/login'}>
+            <button className='main-buttons'>
+              Login
+            </button>
+            </Link>
           </p>
       </section>
+
+      <footer>
+        <div id="footer">
+          <div className='footer-links'>
+            <h2>Let's Connect!</h2>
+            <a href='https://github.com/cubeydice/dupecord' className='nav-link' target="_blank" rel="noreferrer">
+              <img src={require ('./assets/logos/github-mark-white.png')} alt='GitHub'/>
+              &ensp;Github
+            </a>
+            <a href='https://www.linkedin.com/in/queen-belle-d-118b7859/'className='nav-link'  target="_blank" rel="noreferrer">
+              <img src={require ('./assets/logos/LI-mark.png')} alt='linkedIn'/>
+              &ensp;LinkedIn
+            </a>
+          </div>
+          <hr/>
+          <div id="footer-bottom">
+            <h1>dupecord</h1>
+            <Link to={'/register'}><button className='footer-signup-button'>Sign up</button></Link>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

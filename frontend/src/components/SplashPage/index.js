@@ -1,12 +1,13 @@
 import './SplashPage.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { ReactComponent as GithubSvg } from './assets/logos/github-mark.svg';
 import { ReactComponent as ServerSvg } from './assets/splash_server.svg';
 import { ReactComponent as VoiceSvg } from './assets/splash_voice.svg';
 import { ReactComponent as ModerationSvg } from './assets/splash_moderation.svg';
 import { ReactComponent as CloudsSvg } from './assets/splash_bg_clouds.svg';
 import { ReactComponent as Hero1Svg } from './assets/splash_bg_1.svg';
 import { ReactComponent as Hero2Svg } from './assets/splash_bg_2.svg';
-import { ReactComponent as VideoSvg } from './assets/splash_video.svg';
+import { ReactComponent as SparklesSvg } from './assets/splash_sparkles.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session'
 
@@ -44,12 +45,14 @@ const SplashPage = () => {
         <div>
           <a href='https://github.com/cubeydice/dupecord' className='nav-link' target="_blank" rel="noreferrer">
             <button className='main-buttons'>
-              <img src={require ('./assets/logos/github-mark.png')} alt='github'/>Github
+              <GithubSvg id='github-icon'/>
+              Github
             </button>
           </a>
           <a href='https://www.linkedin.com/in/queen-belle-d-118b7859/'className='nav-link'  target="_blank" rel="noreferrer">
             <button id='splash-button-2' className='main-buttons'>
-              <img src={require ('./assets/logos/LI-mark.png')} alt='linkedIn'/>LinkedIn
+              <img src={require ('./assets/logos/LI-mark.png')} alt='linkedIn'/>
+              LinkedIn
             </button>
           </a>
         </div>
@@ -91,8 +94,16 @@ const SplashPage = () => {
           <p>Low-latency voice and video feels like you’re in the same room.
             Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.
           </p>
-          <VideoSvg/>
-
+          <p className='splash-video-svg-containter'>
+          <img
+                src={require("./assets/splash_video.svg").default}
+                alt="splash-videog"
+            />
+          </p>
+          <p className='splash-journey'>
+            <SparklesSvg/>
+            <p>Ready to start your journey?</p>
+          </p>
       </section>
     </div>
   )

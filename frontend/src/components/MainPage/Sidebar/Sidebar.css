@@ -1,7 +1,4 @@
 .sidebar {
   background: #2B2D31;
-  position: fixed;
-  left: 72px;
-  width: 238px;
-  height: 100%;
+  grid-area: sidebar;
 }

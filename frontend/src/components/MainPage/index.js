@@ -4,11 +4,12 @@ import { useParams, Redirect } from "react-router-dom";
 import { fetchServer, getServer } from "../../store/servers";
 import { getChannels } from "../../store/channels";
 import ServersListBar from "./ServersListBar";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 import Messages from "./Messages";
 import MemberList from "./MemberList";
 import Modal from "../Modal/Modal";
 import { getUsers } from "../../store/users";
+import './ChannelsPage.css'
 
 const ChannelsPage = () => {
   const dispatch = useDispatch();

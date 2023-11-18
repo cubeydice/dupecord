@@ -116,9 +116,24 @@ main {
 	color: var(--brand);
 }
 
+.main-buttons {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-buttons:hover svg {
+  fill: var(--brand);
+}
+
 .main-buttons img {
   height: 35px;
-  width: auto;
+  fill: var(--not-quite-black)
+}
+
+#github-icon {
+  max-height: 48px;
+  max-width: 48px;
 }
 
 #splash-button-2 {
@@ -149,6 +164,7 @@ section h1 {
   font-size: 45px;
   font-weight: 600;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 section svg {
@@ -167,18 +183,36 @@ section:nth-child(odd) {
 
 
 .splash-video {
-  display: block;
-  height: 800px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  height: 1000px;
 }
 
 .splash-video h1{
-  text-align: center;
+  font-family: 'ABC Ginto Nord';
+  font-size: 40px;
+  font-weight: 700;
 }
 
+.splash-video-svg-container {
+  width: 500px;
+}
 
-.splash-video svg {
-  width: 90%;
-  height: auto;
+.splash-journey {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.splash-journey > svg {
+  width: 531px;
+  transform: translateY(20px)
+}
+
+.splash-journey > p {
+  font-size: 32px;
+  font-weight: 700;
 }

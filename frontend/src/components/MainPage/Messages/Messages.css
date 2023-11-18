@@ -1,6 +1,5 @@
 .messages-body {
   grid-area: messages;
-  border-top: 1px solid var(--border-black);
   background: #313338;
   padding-left: 15px;
   overflow-x: hidden;

@@ -30,7 +30,9 @@ const ChannelsList = ({server}) => {
         {<div className='channel-category' key={category}>
           {category}
         </div>}
+
         <br/>
+
         <div key={server.id + category}>
           {channels.map(channel => {
             if(channel.category === category) {
@@ -39,7 +41,7 @@ const ChannelsList = ({server}) => {
                 key={channel.id}
                 className='channels'>
                   <div className='channel-name' key={channel.name}>
-                    <ChannelTypeText 
+                    <ChannelTypeText
                     id='channel-icon'
                     key={channel.id + "icon"}/>
                     <p>{channel.name}</p>

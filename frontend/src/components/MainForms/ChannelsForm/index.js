@@ -41,7 +41,6 @@ const ChannelsForm = () => {
 
     dispatch(createChannel(channel))
     .then(res => {
-      console.log(channel.id)
       history.push(`/channels/${serverId}/${res.channel.id
       }`)});
     dispatch(closeModal());

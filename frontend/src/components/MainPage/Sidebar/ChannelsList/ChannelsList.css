@@ -3,52 +3,68 @@
  -ms-overflow-style: none;
 }
 
-.user-servers-sidebar::-webkit-scrollbar {
+.channel-categories::-webkit-scrollbar {
  display: none;
 }
 
+.channel-category {
+  display: flex;
+  align-items: center;
+  padding: 16px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  height: 1px;
+  letter-spacing: .5px;
+}
+  .channel-category:hover * {
+    color: var(--header-white);
+    fill: var(--header-white);
+  }
+  .channel-category-button {
+    fill: var(--member-color);
+    height: 10px;
+    transform: translateY(2px)
+  }
+  
 .channels {
   width: 224px;
   height: 34px;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 16px;
   display: flex;
   justify-content: space-between;
   color: var(--member-color);
   align-items: center;
-  margin-left: 6px;
+  margin: 0 8px 1px;
 }
+  .channels:hover {
+    background-color: #393C43;
+    color: var(--white);
+    }
+  .channels.active {
+    background-color: var(--member-bg-hover);
+    color: var(--white);
+  }
 
-#channel-icon {
-  width: 20px;
-  height: 20px;
-  transform: translateY(-1px);
-  padding-left: 4px;
-}
+  #channel-icon {
+    width: 20px;
+    height: 20px;
+    transform: translateY(-1px);
+    padding-left: 4px;
+  }
+  #channel-setting-icon {
+    padding-right: 4px;
+    margin-right: 4px;
+    fill: #8E9297;
+  }
+    #channel-setting-icon:hover {
+      fill: var(--messages-gray);
+    }
 
-#channel-setting-icon {
-  padding-right: 4px;
-  fill: #8E9297;
-}
+  .channel-name {
+    display: flex;
+  }
+    .channel-name > p {
+      margin-left: 6px;
+    }
 
-#channel-setting-icon:hover {
-  fill: var(--messages-gray);
-}
-
-.channel-name {
-  display: flex;
-}
-
-.channel-name > p {
-  margin-left: 6px;
-}
-
-.channels:hover {
- background-color: #393C43;
- color: var(--white);
-}
-
-.channels.active {
-  background-color: var(--member-bg-hover);
-  color: var(--white);
-}

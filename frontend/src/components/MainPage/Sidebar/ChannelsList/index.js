@@ -4,6 +4,8 @@ import { NavLink, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { openModal } from '../../../../store/modals';
 import { ReactComponent as Settings } from './assets/settings.svg'
 import { ReactComponent as ChannelTypeText } from './assets/Type=Text.svg';
+import { ReactComponent as Button } from './assets/button.svg';
+
 import './ChannelsList.css'
 
 const ChannelsList = ({server}) => {
@@ -28,7 +30,7 @@ const ChannelsList = ({server}) => {
     <div className='channel-categories'>
       {categories.map(category => {return <>
         {<div className='channel-category' key={category}>
-          {category}
+          <Button className="channel-category-button"/> <span>{category.toUpperCase()}</span>
         </div>}
 
         <br/>

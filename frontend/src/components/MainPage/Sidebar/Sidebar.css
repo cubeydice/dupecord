@@ -1,4 +1,5 @@
 .sidebar {
   background: #2B2D31;
   grid-area: sidebar;
+  color: var(--member-color);
 }

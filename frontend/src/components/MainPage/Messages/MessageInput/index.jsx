@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import './MessageInput.css'
 import { createMessage } from "../../../../store/messages";
@@ -7,40 +7,32 @@ const MessageInput = ({channel}) => {
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
     const [isSubmitDisabled, setSubmitDisabled] = useState(true);
-    const [blank, isBlank] = useState(true)
-
-    useEffect(() => {
-        if (!blank) setSubmitDisabled(false);
-    }, [blank])
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         //only send message if not blank
-        if (!blank) {
+        if (!isSubmitDisabled) {
             const message = {
                 content,
                 messageable_type: 'Channel',
                 messageable_id: channel.id
             }
-
             dispatch(createMessage(message)).then(() => {setContent('')})
+            setSubmitDisabled(true)
         }
     }
 
     const handleChange = (e) => {
         e.preventDefault();
-        console.log(content)
-        if (!blank) {
-            if (content === " ") {
-                isBlank(true)
-                setSubmitDisabled(true)
+
+        if (content === " ") setSubmitDisabled(true)
+        else {
+            if (content.length > 1 && content.slice(-1) !== " ") {
+                setSubmitDisabled(false)
             }
-        } else {
-            if (content.slice(-1) !== " ") {
-                isBlank(false)
-            }
-        }
+        };
+
         setContent(e.currentTarget.value)
     }
 

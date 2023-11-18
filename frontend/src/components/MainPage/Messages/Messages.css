@@ -11,4 +11,9 @@
   font-size: 30px;
   font-weight: 700;
   margin-bottom: 10px;
+  color: var(--header-white);
+}
+
+.message-intro > p {
+  color: var(--messages-gray);
 }

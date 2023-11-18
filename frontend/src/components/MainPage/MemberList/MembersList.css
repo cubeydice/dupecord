@@ -9,9 +9,7 @@
   display: grid;
   grid-template-columns: 32px auto;
   grid-template-rows: 44px;
-  grid-template-areas:
-  "avatar name"
-  ;
+  grid-template-areas: "avatar name";
   align-items: center;
   gap: 10px;
   padding: 1px 8px;

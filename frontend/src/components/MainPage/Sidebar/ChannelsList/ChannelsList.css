@@ -38,6 +38,6 @@
  color: var(--white)
 }
 
-.channel-link:active {
+.channel-link .active {
   color: #8E9297;
 }

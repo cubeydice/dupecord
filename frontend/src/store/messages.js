@@ -4,6 +4,7 @@ import csrfFetch from "./csrf";
 export const RECEIVE_MESSAGES = 'messages/RECEIVE_MESSAGES'
 export const RECEIVE_MESSAGE = 'messages/RECEIVE_MESSAGE'
 export const REMOVE_MESSAGE = 'messages/REMOVE_MESSAGE'
+export const CLEAR_MESSAGES = 'messages/CLEAR_MESSAGES'
 
 //SELECTORS
 export const getMessages = state => {
@@ -28,6 +29,10 @@ export const receiveMessage = (payload) => ({
 export const removeMessage = (messageId) => ({
   type: REMOVE_MESSAGE,
   messageId
+})
+
+export const clearMessages = () => ({
+  type: CLEAR_MESSAGES
 })
 
 //THUNK ACTIONS
@@ -92,6 +97,7 @@ const messagesReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_MESSAGES:
       return { ...action.payload.messages}
+
     case RECEIVE_MESSAGE:
       if (!action.payload.message) {
         nextState[action.payload.id] = action.payload
@@ -99,9 +105,15 @@ const messagesReducer = (state = {}, action) => {
         nextState[action.payload.message.id] = action.payload.message;
       }
       return nextState;
+
     case REMOVE_MESSAGE:
       delete nextState[action.messageId]
-      return nextState
+      return nextState;
+
+    case CLEAR_MESSAGES:
+      nextState = {};
+      return nextState;
+
     default:
       return state;
   }

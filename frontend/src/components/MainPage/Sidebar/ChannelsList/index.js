@@ -7,6 +7,7 @@ import { ReactComponent as ChannelTypeText } from './assets/Type=Text.svg';
 import { ReactComponent as Button } from './assets/button.svg';
 
 import './ChannelsList.css'
+import { getChannels } from '../../../../store/channels';
 
 const ChannelsList = ({server}) => {
   const dispatch = useDispatch();

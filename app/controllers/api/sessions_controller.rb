@@ -23,7 +23,7 @@ class Api::SessionsController < ApplicationController
 	end
 
 	def destroy
-		userID = current_user.id
+		# userID = current_user.id
 		logout!
 		render json: { message: 'success' }
 	end

@@ -4,6 +4,7 @@ import csrfFetch from "./csrf";
 export const RECEIVE_USERS = 'user/RECEIVE_USER'
 export const RECEIVE_USER = 'user/RECEIVE_USER'
 export const REMOVE_USER = 'user/REMOVE_USER'
+export const CLEAR_USERS = 'user/CLEAR_USERS'
 
 //SELECTORS
 export const getUsers = (state) => {
@@ -29,6 +30,10 @@ export const removeUser = (userId) => ({
   type: REMOVE_USER,
   userId
 });
+
+export const clearUsers = () => ({
+  type: CLEAR_USERS
+})
 
 //THUNK ACTIONS
 export const fetchUsers = () => async dispatch => {
@@ -89,13 +94,16 @@ const usersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_USERS:
-      return { ...action.payload.users}
+      return { ...action.payload.users};
     case RECEIVE_USER:
       nextState[action.payload.user.id] = action.payload.user;
       return nextState;
     case REMOVE_USER:
-      delete nextState[action.userId]
-      return nextState
+      delete nextState[action.userId];
+      return nextState;
+    case CLEAR_USERS:
+      nextState = {};
+      return nextState;
     default:
       return state;
   }

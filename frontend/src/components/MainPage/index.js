@@ -13,15 +13,17 @@ import './ChannelsPage.css'
 
 const ChannelsPage = () => {
   const dispatch = useDispatch();
-  const { serverId } = useParams();
+  const { serverId, channelId } = useParams();
   const server = useSelector(getServer(serverId));
   const sessionUser = useSelector(state => state.session.user);
   const channels = useSelector(getChannels);
   const users = useSelector(getUsers);
 
   useEffect(() => {
-    if (serverId !== '@me' && serverId !== null) dispatch(fetchServer(serverId));
-  }, [dispatch, serverId])
+    if (serverId !== '@me' && serverId !== null && sessionUser) {
+      dispatch(fetchServer(serverId))
+    };
+  }, [dispatch, serverId, channelId, sessionUser])
 
 
   if (!sessionUser) return <Redirect to="/" />;

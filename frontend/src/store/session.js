@@ -1,4 +1,8 @@
 import csrfFetch from './csrf';
+import { clearChannels } from './channels';
+import { clearMessages } from './messages';
+import { clearServers } from './servers';
+import { clearUsers } from './users';
 
 //action constants
 export const SET_CURRENT_USER = 'session/SET_CURRENT_USER';
@@ -64,6 +68,7 @@ export const login = ({ credential, password }) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
+    storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
   }
 
@@ -78,6 +83,7 @@ export const loginDemo = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
+    storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
   }
 
@@ -92,6 +98,7 @@ export const loginDemo2 = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
+    storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
   }
 
@@ -126,7 +133,12 @@ export const signOut = () => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
+    storeCurrentUser(data.user);
     dispatch(removeCurrentUser(data.user));
+    dispatch(clearUsers());
+    dispatch(clearMessages());
+    dispatch(clearChannels());
+    dispatch(clearServers());
   }
 
   return response;

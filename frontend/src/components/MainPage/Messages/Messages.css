@@ -8,6 +8,9 @@
 
 .message-intro img {
   height: 16px;
+  
+.messages-body::-webkit-scrollbar {
+  width: 10px;
 }
 
 .message-intro > h1{

@@ -6,15 +6,15 @@ const MessageItem = ({message, users}) => {
     const timeCreated = new Date(message.createdAt).toLocaleString();
 
     return (
-        <div className='message-container'>
-            <div className='message-avatar'>
+        <div className='message-container' key={message.id}>
+            <div className='message-avatar' key={message.id + "avatar"}>
                 <img src={userAvatar} alt='user-avatar' className='message-avatar'/>
             </div>
-                <div className='message-author'>
+                <div className='message-author' key={message.id + "author"}>
                 {userName}&ensp;
                 <sub>{timeCreated}</sub>
                 </div>
-                <div className='message-content'>
+                <div className='message-content' key={message.id + "content"}>
                     {message.content}
             </div>
         <br/>

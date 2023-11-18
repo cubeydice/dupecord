@@ -27,20 +27,27 @@ const ChannelsList = ({server}) => {
     <>
     <div className='channel-categories'>
       {categories.map(category => {return <>
-        {category}
+        {<div className='channel-category' key={category}>
+          {category}
+        </div>}
         <br/>
-        <div>
+        <div key={server.id + category}>
           {channels.map(channel => {
             if(channel.category === category) {
               return (
                 <NavLink to={`/channels/${serverId}/${channel.id}`}
                 key={channel.id}
                 className='channels'>
-                  <div className='channel-name'>
-                  <ChannelTypeText className='channel-icon'/>
-                  <p>{channel.name}</p>
+                  <div className='channel-name' key={channel.name}>
+                    <ChannelTypeText 
+                    id='channel-icon'
+                    key={channel.id + "icon"}/>
+                    <p>{channel.name}</p>
                   </div>
-                  <Settings onClick={handleClick}/>
+
+                  <Settings onClick={handleClick}
+                  id="channel-setting-icon"
+                  key={channel.id + "setting-icon"}/>
                 </NavLink>
               )
             } else return "";

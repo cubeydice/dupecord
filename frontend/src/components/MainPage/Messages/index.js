@@ -45,7 +45,7 @@ const Messages = ({channels, users}) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(openModal('channel-form'))
+    dispatch(openModal('update-channel-form'))
   }
 
   const introMessage = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { openModal } from '../../../../store/modals';
 import { ReactComponent as Settings } from './assets/settings.svg'
@@ -10,6 +10,7 @@ import './ChannelsList.css'
 
 const ChannelsList = ({server}) => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const channels = server.channels
   const { serverId } = useParams();
 
@@ -48,10 +49,10 @@ const ChannelsList = ({server}) => {
                     key={channel.id + "icon"}/>
                     <p>{channel.name}</p>
                   </div>
-
-                  <Settings onClick={handleClick}
+                  {server.ownerId === sessionUser.id ? <Settings onClick={handleClick}
                   id="channel-setting-icon"
-                  key={channel.id + "setting-icon"}/>
+                  key={channel.id + "setting-icon"}/>:""}
+
                 </NavLink>
               )
             } else return "";

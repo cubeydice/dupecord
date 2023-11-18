@@ -1,14 +1,16 @@
 
 .message-input-container {
-  position: fixed;
-  bottom: 0px;
-  width: 900px;
+  grid-area: message-input;
   padding: 6px;
+  background-color: var(--messages-black);
+  display: flex;
+  width: 100dvw;
 }
 
 #message-input {
   flex-wrap:wrap;
   background-color: #40444B;
+  width: 100%;
 }
 
 #message-input-submit {

@@ -82,10 +82,10 @@ function LoginForm() {
     <form onSubmit={handleSubmit} className='login-form' id='login-form'>
       <label>
         <p className={errors.length > 0 ? 'login-error' : 'login-question'}>
-          EMAIL OR USERNAME
-          <span className='login-error'>
-            {errors.length > 0 ? " - Login or password is invalid" : "*"}
-          </span>
+          <span className='bold'>EMAIL OR USERNAME</span>
+          {errors.length > 0 ?
+          <span className='italic'> - Login or password is invalid.</span>
+          : <span className='error'> *</span>}
         </p>
         <br/>
         <input
@@ -100,10 +100,10 @@ function LoginForm() {
       <br/>
       <label>
         <p className={errors.length > 0 ? 'login-error' : 'login-question'}>
-          PASSWORD
-          <span className='login-error'>
-            {errors.length > 0 ? " - Login or password is invalid" : "*"}
-          </span>
+          <span className='bold'>PASSWORD</span>
+          {errors.length > 0 ?
+          <span className='italic'> - Login or password is invalid.</span>
+          : <span className='error'> *</span>}
         </p>
         <br/>
         <input
@@ -119,7 +119,7 @@ function LoginForm() {
       <button type='submit' className='login-button'>Log In</button>
       <button type='button' className='login-button' onClick={handleDemo}>Demo Account</button>
       <button type='button' className='login-button' onClick={handleDemo2}>Demo Account 2</button>
-      <h3>Need an account? <Link to='/register/'>Register</Link></h3>
+      <h3 className='login-sub'>Need an account? <Link to='/register/'>Register</Link></h3>
     </form>
     <br/>
     </div>

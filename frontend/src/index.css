@@ -49,27 +49,50 @@ table {
 }
 
 /* ------------------------------------------- */
-
+/* FONTS */
 @font-face {
 	font-family: 'ABC Ginto Nord';
 	src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-Regular-Trial.woff);
 	font-weight: normal;
 	font-style: normal;
 }
+	@font-face {
+		font-family: 'ABC Ginto Nord';
+		src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-Thin-Trial.woff);
+		font-weight: 100;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'ABC Ginto Nord';
+		src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-ThinIta-Trial.woff);
+		font-weight: 100;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'ABC Ginto Nord';
+		src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-Light-Trial.woff);
+		font-weight: 200;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'ABC Ginto Nord';
+		src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-Medium-Trial.woff);
+		font-weight: 500;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'ABC Ginto Nord';
+		src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-Bold-Trial.woff);
+		font-weight: 600;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'ABC Ginto Nord';
+		src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-Black-Trial.woff);
+		font-weight: 700;
+		font-style: normal;
+	}
 
-@font-face {
-	font-family: 'ABC Ginto Nord';
-	src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-Black-Trial.woff);
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'ABC Ginto Nord';
-	src: url(../assets/fonts/ABC\ Ginto\ Nord/ABCGintoNord-Bold-Trial.woff);
-	font-weight: 600;
-	font-style: normal;
-}
 
 @font-face {
 	font-family: 'ABC Ginto Normal';
@@ -77,31 +100,48 @@ table {
 	font-weight: normal;
 	font-style: normal;
 }
-
-@font-face {
-	font-family: 'ABC Ginto Normal';
-	src: url(../assets/fonts/ABC\ Ginto\ Normal/ABCGintoNormal-Bold-Trial.woff);
-	font-weight: 600;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'ABC Ginto Normal';
-	src: url(../assets/fonts/ABC\ Ginto\ Normal/ABCGintoNormal-Thin-Trial.woff);
-	font-weight: 100;
-	font-style: normal;
-}
+	@font-face {
+		font-family: 'ABC Ginto Normal';
+		src: url(../assets/fonts/ABC\ Ginto\ Normal/ABCGintoNormal-Thin-Trial.woff);
+		font-weight: 100;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'ABC Ginto Normal';
+		src: url(../assets/fonts/ABC\ Ginto\ Normal/ABCGintoNormal-Bold-Trial.woff);
+		font-weight: 600;
+		font-style: normal;
+	}
 
 @font-face {
 	font-family: 'gg sans';
 	src: url(../assets/fonts/webfontkit/ggsans-normal-webfont.woff);
+	font-weight: 400;
 }
+	@font-face {
+		font-family: 'gg sans';
+		src: url(../assets/fonts/webfontkit/ggsans-normalitalic-webfont.woff);
+		font-weight: 400;
+		font-style: italic;
+	}
+	@font-face {
+		font-family: 'gg sans';
+		src: url(../assets/fonts/webfontkit/ggsans-medium-webfont.woff);
+		font-weight: 500;
+	}
+	@font-face {
+		font-family: 'gg sans';
+		src: url(../assets/fonts/webfontkit/ggsans-semibold-webfont.woff);
+		font-weight: 600;
+	}
+	@font-face {
+		font-family: 'gg sans';
+		src: url(../assets/fonts/webfontkit/ggsans-bold-webfont.woff);
+		font-weight: 700;
+	}
 
+/* ROOT */
 :root {
-	/* --custom-guild-shop-channel-row-gradient: linear-gradient(113deg,#2f3570 1.98%,#422c70 94.48%);
-	--custom-guild-shop-channel-row-gradient-hover: linear-gradient(113deg,#383f86 1.98%,#4d3385 94.48%);
-	--custom-guild-shop-channel-row-border-gradient: linear-gradient(113deg,#6591ff,#d150ff);
-	--custom-guild-shop-channel-row-glow: 0 0 4px rgba(189,149,255,0.5); */
 	--custom-guild-shop-preview-pill-shadow-dark: -4px 5px #1d1d1d;
 	--custom-guild-shop-preview-pill-shadow-light: -4px 5px #d7dce8;
 	--brand: #5865f2;
@@ -109,7 +149,6 @@ table {
 	--greyple: #99aab5;
 	--sub-gray: #a2a3a7;
 	--dark-not-black: #2c2f33;
-	/* --focus-border: #00b0f4; */
 	--status-green: #43b581;
 	--text-link: #00b0f4;
 	--off-white: #f6f6f6;
@@ -119,9 +158,12 @@ table {
 	--black: #000;
 	--border-black: #202124;
 	--ekko-red: #de2761;
+	--error: #fa777c;
 	--page-max-width: 1260px;
 	--page-max-width-med: 1024px;
 	--top-bar-height: 48px;
+	--menu-background: #313338;
+	--messages-black: #313338;
 }
 
 body {
@@ -133,25 +175,47 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
+.bold {
+	font-weight: 600;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.error {
+	color: red;
+}
+
 sub {
   font-size: 9pt;
   color: var(--sub-gray);
 }
 
+hr {
+	height: 1px;
+	border: none;
+	background: #2c2f33;
+}
+
+/* LINKS */
 a {
 	color: var(--text-link);
 	text-decoration: none;
+	font-weight: 500;
 }
 
+/* BUTTONS */
 button {
 	border: none;
 }
 
 button:hover {
-  background: #404248;
+	background: #404248;
   color: white;
 }
 
+/* ICONS */
 .small-icon {
 	height: 20px;
 	width: 20px;
@@ -185,12 +249,7 @@ button:hover {
 	border-radius: 50%;
 }
 
-hr {
-	height: 1px;
-	border: none;
-	background: #2c2f33;
-}
-
+/* ANIMATION */
 @keyframes fadein {
   0% {
       transform: scale(0.5);

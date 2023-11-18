@@ -1,10 +1,6 @@
 .user-servers-sidebar {
   background: #1E1F22;
-  position: fixed;
-  display: block;
-  left: 0px;
-  width: 72px;
-  height: 100%;
+  grid-area:server-list-bar;
   text-align: center;
   padding-top: 8px;
   padding-bottom: 8px;

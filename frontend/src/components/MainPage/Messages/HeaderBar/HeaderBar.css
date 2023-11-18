@@ -1,12 +1,9 @@
 .header-bar{
-  position:fixed;
-  height: var(--top-bar-height);
-  border-bottom: 1px solid var(--border-black);
+  background: var(--messages-black);
+  grid-area: header-2;
   display: flex;
   justify-content: space-between;
-  font-weight: 600;
   align-items: center;
-  display: flex;
-  width: 100%;
-  padding-left: 18px;
+  border-bottom: 1px solid var(--border-black);
+  font-weight: 600;
 }

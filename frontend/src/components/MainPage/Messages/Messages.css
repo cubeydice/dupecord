@@ -1,24 +1,10 @@
-.messages-body-container {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  background: #313338;
-  display: fixed;
-  left: 310px;
-  /* padding-left: 15px; */
-  overflow: auto;
-}
-
 .messages-body {
-  position: fixed;
-  top: 47px;
+  grid-area: messages;
   border-top: 1px solid var(--border-black);
-  width: 100vw;
-  height: 88vh;
   background: #313338;
-  display: fixed;
   padding-left: 15px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .messages-body::-webkit-scrollbar {

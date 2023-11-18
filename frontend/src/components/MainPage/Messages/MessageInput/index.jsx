@@ -6,46 +6,61 @@ import { createMessage } from "../../../../store/messages";
 const MessageInput = ({channel}) => {
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
-    const [isSubmitDisabled, setSubmitDisabled] = useState(false);
+    const [isSubmitDisabled, setSubmitDisabled] = useState(true);
+    const [blank, isBlank] = useState(true)
 
     useEffect(() => {
-        if (content === "") setSubmitDisabled(true);
-        else setSubmitDisabled(false);
-    }, [content])
+        if (!blank) setSubmitDisabled(false);
+    }, [blank])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const message = {
-            content,
-            messageable_type: 'Channel',
-            messageable_id: channel.id
+
+        //only send message if not blank
+        if (!blank) {
+            const message = {
+                content,
+                messageable_type: 'Channel',
+                messageable_id: channel.id
+            }
+
+            dispatch(createMessage(message)).then(() => {setContent('')})
         }
-        console.log(message)
-        dispatch(createMessage(message)).then(() => {setContent('')})
     }
 
     const handleChange = (e) => {
         e.preventDefault();
-
+        console.log(content)
+        if (!blank) {
+            if (content === " ") {
+                isBlank(true)
+                setSubmitDisabled(true)
+            }
+        } else {
+            if (content.slice(-1) !== " ") {
+                isBlank(false)
+            }
+        }
         setContent(e.currentTarget.value)
     }
 
     return (
-        <>
-        <form onSubmit={handleSubmit} className="message-input-container">
-            <input type="text"
-            placeholder={`Message #${channel.name}`}
-            onChange={handleChange}
-            value={content}
-            className='form-input'
-            id="message-input"/>
-            <button type="submit"
-            disabled={isSubmitDisabled}
-            id='message-input-submit'>
-                Submit
-            </button>
-        </form>
-        </>
+        <div className="message-input-container">
+            <form onSubmit={handleSubmit} className="message-input">
+                <input type="text"
+                placeholder={`Message #${channel.name}`}
+                onChange={handleChange}
+                value={content}
+                className='form-input'
+                id="message-input"/>
+
+                <button type="submit"
+                disabled={isSubmitDisabled}
+                id='message-input-submit'>
+                    Submit
+                </button>
+            </form>
+        </div>
     )
 }
 

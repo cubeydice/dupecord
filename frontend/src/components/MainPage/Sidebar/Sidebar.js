@@ -2,20 +2,21 @@ import './Sidebar.css'
 import ProfileBar from "./ProfileBar";
 import ServerButton from "./ServerButton";
 import ChannelsList from "./ChannelsList";
+import SearchBar from './ConvoSearchBar/ConvoSearchBar';
 
 const Sidebar = ({sessionUser, serverId, server}) => {
   return (
     <>
+    {(serverId !== "@me" && serverId !== null) ?
+      <ServerButton server={server}/> : <SearchBar/>}
       <div className="sidebar">
-        {(serverId !== "@me" && serverId !== null) ?
-          <ServerButton server={server}/> : ""}
 
         <div className="sidebar-nav">
           {server ? <ChannelsList server={server}/> : "" }
         </div>
 
-        <ProfileBar sessionUser={sessionUser}/>
       </div>
+      <ProfileBar sessionUser={sessionUser}/>
     </>
   )
 }

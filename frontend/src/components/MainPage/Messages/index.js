@@ -51,9 +51,8 @@ const Messages = ({channels, users}) => {
   };
 
   return (
-    <><div className="messages-body-container">
-        <HeaderBar serverId = {serverId} channel={channel}/>
-
+    <>
+      <HeaderBar serverId = {serverId} channel={channel}/>
         <div className="messages-body">
           <br/>
           <div className="message-intro">
@@ -70,9 +69,8 @@ const Messages = ({channels, users}) => {
           })}
           <div ref={messagesEndRef}></div>
 
-          {!isDirectMessage ? <MessageInput channel={channel} /> : null}
         </div>
-    </div>
+        {!isDirectMessage ? <MessageInput channel={channel} /> : null}
     </>
   )
 }

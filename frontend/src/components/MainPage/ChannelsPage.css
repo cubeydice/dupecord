@@ -1,3 +1,13 @@
-body {
+.channels-page {
   background-image: none;
+  display: grid;
+  height: 100vh;
+  overflow: hidden;
+  grid-template-columns: [first] 72px [sidebar] 238px [server-list-bar] minmax(300px, auto) [message-body] minmax(224px, 224px) [end];
+  grid-template-rows: 48px [line1] auto [line2] 15px 55px [last-line];
+  grid-template-areas:
+  "server-list-bar header header-2 header-2"
+  "server-list-bar sidebar messages friend-list"
+  "server-list-bar sidebar message-input friend-list"
+  "server-list-bar profile-button message-input friend-list"
 }

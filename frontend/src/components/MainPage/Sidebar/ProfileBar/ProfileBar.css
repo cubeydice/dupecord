@@ -1,12 +1,13 @@
 .profile-nav {
   display: flex;
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
   left: 72px;
-  height:39px;
+  height:39px; */
+  grid-area: profile-button;
   justify-content: space-between;
   background-color: #292B2F;
-  width: 216px;
+  /* width: 216px; */
   color: #FFFFFF;
   align-items: center;
   padding: 8px;

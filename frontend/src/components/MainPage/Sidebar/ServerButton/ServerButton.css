@@ -1,10 +1,11 @@
 .server-button {
-  display: flex;
   grid-area: header;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   background: #2B2D31;
   border-bottom: 1px solid #202124;
   font-weight: 600;
-  color: white;
+  color: var(--header-white);
+  padding: 12px 16px;
 }

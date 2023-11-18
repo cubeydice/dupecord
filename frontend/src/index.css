@@ -163,7 +163,12 @@ table {
 	--page-max-width-med: 1024px;
 	--top-bar-height: 48px;
 	--menu-background: #313338;
+	--header-white: #F2F3F5;
 	--messages-black: #313338;
+	--messages-white: #DBDEE1;
+	--member-bg: #2B2D31;
+	--member-bg-hover: #4E505899;
+	--member-color: #949BA4
 }
 
 body {

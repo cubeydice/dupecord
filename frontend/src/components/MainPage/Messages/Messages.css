@@ -39,6 +39,7 @@
   margin-left: 6px;
   margin-bottom: 12px;
   align-items: center
+  
 }
   .message-channel-edit:hover {
     backdrop-filter: brightness(120%)

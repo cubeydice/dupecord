@@ -12,7 +12,7 @@ const Sidebar = ({sessionUser, serverId, server}) => {
       <div className="sidebar">
 
         <div className="sidebar-nav">
-          {server ? <ChannelsList server={server}/> : "" }
+          {server ? <ChannelsList server={server} key={server.id}/> : "" }
         </div>
 
       </div>

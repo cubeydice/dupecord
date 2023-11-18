@@ -7,10 +7,15 @@ import MessageItem from "./MessageItem"
 import MessageInput from "./MessageInput";
 import './Messages.css'
 import consumer from '../../../consumer'
+import { ReactComponent as PencilSvg } from "./assets/Pencil.svg";
+import { getServer } from "../../../store/servers";
+import { openModal } from "../../../store/modals";
 
 const Messages = ({channels, users}) => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const { serverId, channelId } = useParams();
+  const server = useSelector(getServer(serverId));
   const channel = channels[channelId] || {}
   const isDirectMessage = (Object.keys(channel).length === 0)
   let messages = Object.values(useSelector(getMessages))
@@ -38,6 +43,11 @@ const Messages = ({channels, users}) => {
     return () => subscription?.unsubscribe();
   }, [dispatch, channelId])
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(openModal('update-channel-form'))
+  }
+
   const introMessage = () => {
       if (!isDirectMessage) {
         return (<>
@@ -54,11 +64,19 @@ const Messages = ({channels, users}) => {
     <>
       <HeaderBar serverId = {serverId} channel={channel}/>
         <div className="messages-body">
-          <br/>
+
           <div className="message-intro">
             {introMessage()}
-          </div> <br/>
-          <hr/>
+            { (serverId !== "@me" && channelId && server) ? (sessionUser.id === server.ownerId ?
+            <>
+            <div className="message-channel-edit" onClick={handleClick}>
+              <PencilSvg/>
+              Edit Channel
+            </div>
+            <hr id="message-hr"/>
+            </>
+            : <hr id="message-hr"/> ) : ""}
+          </div>
 
           {messages.map(message => {
             if (message.messageableId === Number(channelId)) {

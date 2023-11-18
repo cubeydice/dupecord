@@ -1,12 +1,14 @@
 .messages-body {
   grid-area: messages;
-  border-top: 1px solid var(--border-black);
   background: #313338;
   padding-left: 15px;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
+.message-intro img {
+  height: 16px;
+  
 .messages-body::-webkit-scrollbar {
   width: 10px;
 }
@@ -14,5 +16,38 @@
 .message-intro > h1{
   font-size: 30px;
   font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  color: var(--header-white);
+}
+
+.message-intro > p {
+  color: var(--messages-gray);
   margin-bottom: 10px;
 }
+
+#message-hr {
+  background: var(--member-bg-hover);
+  margin: 0px 20px 24px 4px;
+}
+
+.message-channel-edit {
+  color: var(--text-link);
+  fill: var(--text-link);
+  height: 32px;
+  width: 124px;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+  margin-left: 6px;
+  margin-bottom: 12px;
+  align-items: center
+  
+}
+  .message-channel-edit:hover {
+    backdrop-filter: brightness(120%)
+  }
+  .message-channel-edit > svg {
+    height: 12px;
+    margin: 0 8px 0 0;
+  }

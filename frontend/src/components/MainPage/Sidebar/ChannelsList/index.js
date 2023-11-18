@@ -4,12 +4,15 @@ import { NavLink, useParams } from 'react-router-dom/cjs/react-router-dom';
 import { openModal } from '../../../../store/modals';
 import { ReactComponent as Settings } from './assets/settings.svg'
 import { ReactComponent as ChannelTypeText } from './assets/Type=Text.svg';
+import { ReactComponent as Button } from './assets/button.svg';
+
 import './ChannelsList.css'
 import { getChannels } from '../../../../store/channels';
 
 const ChannelsList = ({server}) => {
   const dispatch = useDispatch();
-  const channels = Object.values(useSelector(getChannels));
+  const sessionUser = useSelector(state => state.session.user);
+  const channels = server.channels
   const { serverId } = useParams();
 
   let categories = [...new Set(channels.map(channel => channel.category))]
@@ -28,20 +31,31 @@ const ChannelsList = ({server}) => {
     <>
     <div className='channel-categories'>
       {categories.map(category => {return <>
-        {category}
+        {<div className='channel-category' key={category}>
+          <Button className="channel-category-button"/> <span>{category.toUpperCase()}</span>
+        </div>}
+
         <br/>
-        <div>
+
+        <div key={server.id + category}>
           {channels.map(channel => {
             if(channel.category === category) {
               return (
                 <NavLink to={`/channels/${serverId}/${channel.id}`}
                 key={channel.id}
                 className='channels'>
-                  <div className='channel-name'>
-                  <ChannelTypeText className='channel-icon'/>
-                  <p>{channel.name}</p>
+
+                  <div className='channel-name' key={channel.name}>
+                    <ChannelTypeText
+                    id='channel-icon'
+                    key={channel.id + "icon"}/>
+                    <p>{channel.name}</p>
                   </div>
-                  <Settings onClick={handleClick}/>
+
+                  {server.ownerId === sessionUser.id ? <Settings onClick={handleClick}
+                  id="channel-setting-icon"
+                  key={channel.id + "setting-icon"}/>:""}
+                  
                 </NavLink>
               )
             } else return "";

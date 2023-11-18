@@ -15,8 +15,11 @@
 
 .message-author {
   grid-area: author;
+  color: var(--header-white);
+  font-weight: 500;
 }
 
 .message-content {
   grid-area: content;
+  color: var(--messages-white)
 }

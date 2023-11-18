@@ -1,19 +1,26 @@
 .member-list-container {
   grid-area: friend-list;
   overflow-y: hidden;
-  background-color: #2F3136;
+  background-color: var(--member-bg);
   padding: 8px;
 }
 
 .member-container {
   display: grid;
   grid-template-columns: 32px auto;
-  grid-template-rows: 40px;
-  grid-template-areas:
-  "avatar name"
-  ;
+  grid-template-rows: 44px;
+  grid-template-areas: "avatar name";
   align-items: center;
   gap: 10px;
+  padding: 1px 8px;
+  font-weight: 500;
+  color: var(--member-color);
+  border-radius: 4px;
+}
+
+.member-container:hover {
+  color: var(--white);
+  background-color: var(--member-bg-hover);
 }
 
 .member-avatar {

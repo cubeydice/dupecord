@@ -1,16 +1,19 @@
 
 .message-input-container {
   grid-area: message-input;
-  padding: 6px;
   background-color: var(--messages-black);
-  display: flex;
-  width: 100dvw;
+  display: inline-block;
 }
 
 #message-input {
-  flex-wrap:wrap;
+  margin: 0 20px;
   background-color: #40444B;
-  width: 100%;
+  color: var(--messages-white);
+  overflow: hidden;
+  font-family: 'gg sans';
+  resize: none;
+  font-size: 16px;
+  outline: none;
 }
 
 #message-input-submit {

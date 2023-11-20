@@ -39,6 +39,7 @@ With dupecord, you can
 - create an account and log in securely
 - create, read, update, and destroy your own servers
 - create, read, update, and destroy channels within your servers
+- create, read messages in your channels
 
 ## Code Snippets
 ### Real-time Chat

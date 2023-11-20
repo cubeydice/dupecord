@@ -39,7 +39,8 @@ const MessageInput = ({channel}) => {
     return (
         <div className="message-input-container">
             <form onSubmit={handleSubmit} className="message-input">
-                <textarea
+                <input
+                type='text'
                 placeholder={`Message #${channel.name}`}
                 onChange={handleChange}
                 value={content}

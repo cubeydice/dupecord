@@ -115,14 +115,18 @@ const SplashPage = () => {
         <div id="footer">
           <div className='footer-links'>
             <h2>Let's Connect!</h2>
-            <a href='https://github.com/cubeydice/dupecord' className='nav-link' target="_blank" rel="noreferrer">
+            <li>
+              <a href='https://github.com/cubeydice/dupecord' className='nav-link' target="_blank" rel="noreferrer">
               <img src={require ('./assets/logos/github-mark-white.png')} alt='GitHub'/>
               &ensp;Github
-            </a>
-            <a href='https://www.linkedin.com/in/queen-belle-d-118b7859/'className='nav-link'  target="_blank" rel="noreferrer">
-              <img src={require ('./assets/logos/LI-mark.png')} alt='linkedIn'/>
-              &ensp;LinkedIn
-            </a>
+              </a>
+            </li>
+            <li>
+              <a href='https://www.linkedin.com/in/queen-belle-d-118b7859/'className='nav-link'  target="_blank" rel="noreferrer">
+                <img src={require ('./assets/logos/LI-mark.png')} alt='linkedIn'/>
+                &ensp;LinkedIn
+              </a>
+            </li>
           </div>
           <hr/>
           <div id="footer-bottom">

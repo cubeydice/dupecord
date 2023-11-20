@@ -108,3 +108,11 @@ const handleChange = (e) => {
     setContent(e.currentTarget.value)
 }
 ```
+
+## Future Plans
+* Update and delete features for messages
+* Implementing AWS for user profile pictures
+* WebSocket via Action Cable integration of server, channel, and user statuses to show which servers/channels have new messages and which users are online
+* A server invite system to allow users in servers to create invitation links
+* Search functionality
+* Utilizing the polymorphic nature of messages set up in the backend to create messages for direct messaging with friends

@@ -1,6 +1,5 @@
 # dupecord
-
-dupecord
+![Alt text](readme-assets/splash.png)
 
 ## Table of Contents
 
@@ -11,8 +10,8 @@ dupecord
 - [Code Snippets](#code-snippets)
 
 ## About
-
 dupecord is a clone of the popular communication platform, Discord. It provides a real-time chat application designed to replicate the functionality and user experience of Discord. Users can create servers/channels to discuss any topic they would like and chat with friends, just like they would on Discord.
+![Alt text](readme-assets/chat.png)
 
 ## Live Demo
 **Live Demo Link:** [dupecord](https://dupecord.onrender.com)
@@ -27,7 +26,7 @@ dupecord is a clone of the popular communication platform, Discord. It provides 
 
 ### Backend
 - Server-side runtime environment: Ruby on Rails
-- Real-time chat: Websockets via ActionCable, Redis
+- Real-time chat: WebSockets via ActionCable, Redis
 - Database system: PostgreSQL
 
 ### Other
@@ -42,10 +41,70 @@ With dupecord, you can
 - create, read, update, and destroy channels within your servers
 
 ## Code Snippets
+### Real-time Chat
+When a user logs in and accesses a server, a component is mounted on the frontend to create a WebSocket subscription for every channel. These subscriptions listen for any changes to the backend state of messages. Any change to the backend state is communicated to the frontend state for any logged-in users and the webpage is updated via a React useEffect listening to these changes.
 
 ```JavaScript
-# placeholder
-const placeholder = () => {
-    // placeholder
+//frontend
+useEffect(() => {
+    const subscription = consumer.subscriptions.create(
+    { channel: 'ChannelsChannel', id: channelId },
+    {
+        received: message => {
+        dispatch(receiveMessage(message))
+        }
+    }
+);
+
+//backend controller
+    def create
+        @message = Message.new(message_params)
+        @message.user_id = current_user.id
+
+        if @message.save
+          ChannelsChannel.broadcast_to(@message.messageable,
+          from_template("api/messages/show", message: @message))
+          render json: {hello: 'world'}, status: :ok
+        else
+          render json: {errors: @message.errors.full_messages}, status: 422
+        end
+    end
+```
+
+### Message Input
+Event handlers are utilized to handle changes message input and used in conjunction with useState to only submit if the content of the message is not empty.
+
+```JavaScript
+//Example of event handlers for message input
+const dispatch = useDispatch();
+const [content, setContent] = useState('');
+const [isSubmitDisabled, setSubmitDisabled] = useState(true);
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+    //only send message if not blank
+    if (!isSubmitDisabled) {
+        const message = {
+            content,
+            messageable_type: 'Channel',
+            messageable_id: channel.id
+        }
+        dispatch(createMessage(message)).then(() => {setContent('')})
+        setSubmitDisabled(true)
+    }
+}
+
+const handleChange = (e) => {
+    e.preventDefault();
+
+    if (content === " ") setSubmitDisabled(true)
+    else {
+        if (content.length > 1 && content.slice(-1) !== " ") {
+            setSubmitDisabled(false)
+        }
+    };
+
+    setContent(e.currentTarget.value)
 }
 ```

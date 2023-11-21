@@ -5,9 +5,7 @@ import { openModal } from '../../../../store/modals';
 import { ReactComponent as Settings } from './assets/settings.svg'
 import { ReactComponent as ChannelTypeText } from './assets/Type=Text.svg';
 import { ReactComponent as Button } from './assets/button.svg';
-
 import './ChannelsList.css'
-import { getChannels } from '../../../../store/channels';
 
 const ChannelsList = ({server}) => {
   const dispatch = useDispatch();
@@ -32,7 +30,8 @@ const ChannelsList = ({server}) => {
     <div className='channel-categories'>
       {categories.map(category => {return <>
         {<div className='channel-category' key={category}>
-          <Button className="channel-category-button"/> <span>{category.toUpperCase()}</span>
+          <Button className="channel-category-button"/>
+          <span>{category ? category.toUpperCase() : ""}</span>
         </div>}
 
         <br/>
@@ -55,7 +54,7 @@ const ChannelsList = ({server}) => {
                   {server.ownerId === sessionUser.id ? <Settings onClick={handleClick}
                   id="channel-setting-icon"
                   key={channel.id + "setting-icon"}/>:""}
-                  
+
                 </NavLink>
               )
             } else return "";

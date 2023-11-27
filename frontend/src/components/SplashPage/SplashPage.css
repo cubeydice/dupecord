@@ -16,15 +16,41 @@
   background-color: #404eed;
 }
 
+.banner {
+  z-index: 0;
+}
+  #banner1 {
+    position: absolute;
+    bottom: 0px;
+    right: -37.1%;
+    z-index: 0;
+  }
+  #banner2 {
+    position: absolute;
+    bottom: 0px;
+    right: 63%;
+    margin-right: 150px;
+    z-index: 0;
+  }
+  #banner3 {
+    position: absolute;
+    margin-left: 150px;
+    left: 65%;
+    bottom: 0px;
+    z-index: 0;
+  }
+
 .splash-nav {
   background-color: --brand-gradient;
   display: flex;
   justify-content: space-between;
-  padding: 0 40px 0 25px;
+  padding: 0 40px;
   align-items: center;
   height: 80px;
   max-width: 1180px;
   margin: auto;
+  position:relative;
+  z-index: 5;
 }
   .splash-nav > div {
     display: flex;
@@ -37,36 +63,19 @@
     background-color: white;
     color: #23272a;
     border-radius: 40px;
-    height: 38px;
-    width: 65px;
+    padding: 0px 16px;
+    display: inline-block;
+    font-family: 'gg sans';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 38px;
+    z-index: 5;
   }
   .nav-login-button:hover {
     box-shadow: 1px 5px 10px 0px #373f9c;
     color: #5865F2;
     background-color: white;
   }
-
-#banner1 {
-  position: absolute;
-  bottom: 0px;
-  right: -538px;
-  z-index: 1;
-}
-
-#banner2 {
-  position: absolute;
-  bottom: 0px;
-  right: 63.5%;
-  margin-right: 150px;
-  z-index: 2;
-}
-#banner3 {
-  position: absolute;
-  margin-left: 150px;
-  left: 64.5%;
-  bottom: 0px;
-  z-index: 2;
-}
 
 @media screen and (max-width: 768px) {
   #banner3 {
@@ -100,31 +109,33 @@
   }
 }
 
+/* SPLASH TOP */
 .splash-main {
   position: relative;
   display: flex;
   background-color: none;
-  padding: 119px 40px 147px 24px;
+  padding: 119px 40px 147px;
   flex-direction: column;
   text-align: center;
   align-items: center;
   line-height: 203%;
 }
-
-.splash-body p {
-  max-width: 790px;
-  font-size: 15pt;
-}
-
-.title {
-  font-family: 'ABC Ginto Nord';
-  letter-spacing: 0.4px;
-  font-weight: 800;
-  font-size: 55.4px;
-  margin-bottom: 37px;
-  line-height: 100%;
-  color: white;
-}
+  #splash-main {
+    z-index: 2;
+  }
+    .splash-body p {
+      max-width: 790px;
+      font-size: 15pt;
+    }
+    .title {
+      font-family: 'ABC Ginto Nord';
+      letter-spacing: 0.4px;
+      font-weight: 800;
+      font-size: 55.4px;
+      margin-bottom: 37px;
+      line-height: 100%;
+      color: white;
+    }
 
 /* MAIN BUTTONS */
 .splash-main-buttons {
@@ -175,7 +186,7 @@
 section {
   display: flex;
   color: var(--not-quite-black);
-  padding: 120px 5%;
+  padding: 120px 5.7%;
   justify-content: space-around;
   flex-direction: row;
   text-align: left;
@@ -303,12 +314,13 @@ footer {
 
   #footer hr {
     background: var(--brand);
-    margin: 40px 0 32px;
+    margin: 40px 0 40px;
   }
 
   #footer-bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
     #footer-bottom h1 {
       font-size: 24px;

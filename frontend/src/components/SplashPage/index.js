@@ -31,14 +31,14 @@ const SplashPage = () => {
       </nav>
 
       <main className='splash-main'>
-
-        <div>
+        <div id='splash-main'>
           <h1 className='title'>IMAGINE A PLACE...</h1>
           <p id="main-description">...where you can belong to a school club, a gaming group, or a worldwide art community.
           Where just you and a handful of friends can spend time together.
           A place that makes it easy to talk every day and hang out more often.
           </p>
         </div>
+
         <div className='splash-main-buttons'>
           <a href='https://github.com/cubeydice/dupecord' className='nav-link' target="_blank" rel="noreferrer">
             <button className='main-buttons'>
@@ -53,11 +53,12 @@ const SplashPage = () => {
             </button>
           </a>
         </div>
+
         <div className='banner'>
-        <CloudsSvg id='banner1'/>
-        <Hero1Svg id='banner2'/>
-        <Hero2Svg id='banner3'/>
-      </div>
+          <CloudsSvg id='banner1'/>
+          <Hero1Svg id='banner2'/>
+          <Hero2Svg id='banner3'/>
+        </div>
       </main>
 
 
@@ -139,7 +140,7 @@ const SplashPage = () => {
           </div>
           <hr/>
           <div id="footer-bottom">
-            <h1>dupecord</h1>
+            <Link to={'/'} className='dupecord'><h1>dupecord</h1></Link>
             <Link to={'/register'}><button className='footer-signup-button'>Sign up</button></Link>
           </div>
         </div>

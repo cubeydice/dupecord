@@ -79,7 +79,7 @@ const SplashPage = () => {
           Friends in your server can see you’re around and instantly pop in to talk without having to call.
           </p>
         </div>
-        <VoiceSvg/>
+        <img src={require("./assets/splash_voice.svg").default} alt='voice-img'/>
       </section>
 
       <section>

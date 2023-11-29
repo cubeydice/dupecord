@@ -208,7 +208,7 @@ section {
     margin-bottom: 24px;
   }
 
-  section svg {
+  section svg, section img {
     height: auto;
     max-width: 678px;
   }

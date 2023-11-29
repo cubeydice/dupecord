@@ -279,14 +279,16 @@ footer {
   flex-direction: column;
   list-style-type: none;
   padding: 80px 40px 64px;
-  margin: auto;
+  margin: 0 auto;
+  left: 50%;
 }
   footer h2 {
     color: var(--brand);
     margin: 0 0 20px;
   }
   #footer {
-    width: 1180px;
+    width: 100%;
+    max-width: 1180px;
     margin: 0 auto;
   }
 

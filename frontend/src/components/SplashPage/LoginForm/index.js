@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import * as sessionActions from '../../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Redirect, Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import * as sessionActions from '../../../store/session';
 import './LoginForm.css'
 
 function LoginForm() {
@@ -24,8 +24,20 @@ function LoginForm() {
         let data;
         try {
           data = await res.clone().json();
+
+          ReactGA.event({
+            category: 'User',
+            action: 'Logged In'
+          });
         } catch {
           data = await res.text();
+          
+          ReactGA.exception({
+            category: 'User',
+            action: 'Attempted to log in',
+            description: 'An error ocurred',
+            fatal: true
+          });
         }
 
         if (data?.errors) setErrors(data.errors)

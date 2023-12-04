@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import ReactGA from 'react-ga';
 import * as sessionActions from "../../../store/session";
 import './RegisterForm.css'
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function RegisterForm() {
   const dispatch = useDispatch();
@@ -24,9 +24,22 @@ function RegisterForm() {
         let data;
         try {
           data = await res.clone().json();
+
+          ReactGA.event({
+            category: 'User',
+            action: 'Created an Account'
+          });
         } catch {
           data = await res.text();
+
+          ReactGA.exception({
+            category: 'User',
+            action: 'Attempted to create an account',
+            description: 'An error ocurred',
+            fatal: true
+          });
         }
+
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);

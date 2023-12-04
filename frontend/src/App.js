@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import RouteChangeTracker from "./RouteChangeTracker";
 import LoginForm from './components/SplashPage/LoginForm';
 import RegisterForm from "./components/SplashPage/RegisterForm";
 import SplashPage from "./components/SplashPage";
@@ -13,6 +14,7 @@ export const imgError = 'https://i.imgur.com/ZUnA3o9.png'
 
 function App() {
   return (
+    <div>
     <Switch>
       <Route exact path="/"><SplashPage /></Route>
       <Route path="/login"><LoginForm /></Route>
@@ -22,6 +24,8 @@ function App() {
       <Route path="/channels/@me"><ChannelsPage /></Route>
       <Route path="/"><SplashPage /></Route>
     </Switch>
+    <RouteChangeTracker/>
+    </div>
   );
 }
 

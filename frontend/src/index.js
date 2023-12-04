@@ -1,21 +1,35 @@
+
+//IMPORTS - REACT
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import './index.css';
-import App from './App';
+import ReactGA from 'react-ga';
+
+//IMPORTS - STORE
 import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
+import './index.css';
 
+//IMPORTS - APP
+import App from './App';
+
+//Google Analytics
+const TRACKING_ID = "G-0WXTFCDJN0";
+ReactGA.initialize(TRACKING_ID);
+
+//STORE CONFIG
 const store = configureStore();
 
+//DEVELOPMENT
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
 }
 
+//ROOT
 function Root() {
   return (
       <Provider store={store}>
@@ -26,6 +40,7 @@ function Root() {
   );
 }
 
+//RENDER
 const renderApplication = () => {
   ReactDOM.render(
     <React.StrictMode>

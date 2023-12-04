@@ -1,8 +1,7 @@
 import './SplashPage.css'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 import { ReactComponent as GithubSvg } from './assets/logos/github-mark.svg';
 import { ReactComponent as ServerSvg } from './assets/splash_server.svg';
-import { ReactComponent as VoiceSvg } from './assets/splash_voice.svg';
 import { ReactComponent as ModerationSvg } from './assets/splash_moderation.svg';
 import { ReactComponent as CloudsSvg } from './assets/splash_bg_clouds.svg';
 import { ReactComponent as Hero1Svg } from './assets/splash_bg_1.svg';

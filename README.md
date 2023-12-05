@@ -32,6 +32,7 @@ dupecord is a clone of the popular communication platform, Discord. It provides 
 ### Other
 - Server deployment: Render
 - Source code management: Git, Github
+- Analytics: Google Analytics
 
 ## Key Features
 

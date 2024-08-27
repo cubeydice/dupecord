@@ -4,6 +4,7 @@
 ## Table of Contents
 
 - [About](#about)
+- [Wiki](#wiki)
 - [Live Demo](#live-demo)
 - [Technologies Used](#technologies-used)
 - [Key Features](#key-features)
@@ -16,6 +17,13 @@ dupecord is a clone of the popular communication platform, Discord. It provides 
 
 ## Live Demo
 **Live Demo Link:** [dupecord](https://dupecord.onrender.com)
+
+## Wiki
+See the [wiki](https://github.com/cubeydice/dupecord/wiki) for additional information on the following:
+1. Schema
+2. Sample State
+3. Frontend Routes
+4. Backend Routes
 
 ## Technologies Used
 

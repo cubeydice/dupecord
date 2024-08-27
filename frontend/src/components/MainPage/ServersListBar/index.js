@@ -26,12 +26,13 @@ const ServersSidebar = ({sessionUser}) => {
         </NavLink>
 
         <hr/>
+        <div className="server-list">
+          {servers.map(server => {
+            return <ServerItems server={server} key={server.id}/>
+          })}
 
-        {servers.map(server => {
-          return <ServerItems server={server} key={server.id}/>
-        })}
-
-        <CreateServerButton sessionUser={sessionUser}/>
+          <CreateServerButton sessionUser={sessionUser}/>
+        </div>
       </nav>
     </>
   )

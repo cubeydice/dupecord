@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.fe66aec5.css",
-    "main.js": "/static/js/main.a82eb230.js",
+    "main.css": "/static/css/main.9f343919.css",
+    "main.js": "/static/js/main.67c23d21.js",
     "static/media/login.png": "/static/media/login.46439f503e8486ef065f.png",
     "static/media/splash_voice.svg": "/static/media/splash_voice.e2236b93f8ca27e6307bfbcf11b4e749.svg",
     "static/media/splash_server.svg": "/static/media/splash_server.2b633b79ba966ad23a683742dfa60cf7.svg",
@@ -10,19 +10,36 @@
     "static/media/splash_bg_2.svg": "/static/media/splash_bg_2.4412ed0aecaa5e680e2825260ad02488.svg",
     "static/media/splash_moderation.svg": "/static/media/splash_moderation.0f86574cd97c55f5bfc0494c38ad5a38.svg",
     "static/media/ABCGintoNord-Black-Trial.woff": "/static/media/ABCGintoNord-Black-Trial.0d9119aaef7f5927ae41.woff",
+    "static/media/ABCGintoNord-Medium-Trial.woff": "/static/media/ABCGintoNord-Medium-Trial.fd39ed3ff63fb9dffa0c.woff",
     "static/media/ABCGintoNord-Bold-Trial.woff": "/static/media/ABCGintoNord-Bold-Trial.a77d57a3da4086795828.woff",
+    "static/media/ABCGintoNord-Thin-Trial.woff": "/static/media/ABCGintoNord-Thin-Trial.72a76646e6e523fbfd14.woff",
+    "static/media/ABCGintoNord-Light-Trial.woff": "/static/media/ABCGintoNord-Light-Trial.c1bb22d3fefc0f98bf27.woff",
     "static/media/ABCGintoNormal-Bold-Trial.woff": "/static/media/ABCGintoNormal-Bold-Trial.d4ad2e68547169453a78.woff",
     "static/media/ABCGintoNord-Regular-Trial.woff": "/static/media/ABCGintoNord-Regular-Trial.15727ed1eaca6bb83acd.woff",
     "static/media/ABCGintoNormal-Thin-Trial.woff": "/static/media/ABCGintoNormal-Thin-Trial.cb85e04c27f9307bccc6.woff",
     "static/media/ABCGintoNormal-Regular-Trial.woff": "/static/media/ABCGintoNormal-Regular-Trial.5a67ccdf119275fc98cc.woff",
+    "static/media/ggsans-normalitalic-webfont.woff": "/static/media/ggsans-normalitalic-webfont.5439e0266743ef29a8f2.woff",
+    "static/media/ggsans-semibold-webfont.woff": "/static/media/ggsans-semibold-webfont.e4059185b80cc0b40ed1.woff",
+    "static/media/ggsans-medium-webfont.woff": "/static/media/ggsans-medium-webfont.996b9b2f760ac6745b83.woff",
+    "static/media/ggsans-bold-webfont.woff": "/static/media/ggsans-bold-webfont.828e477bebda3407e2e7.woff",
     "static/media/ggsans-normal-webfont.woff": "/static/media/ggsans-normal-webfont.ac2fa2b9ea894b4dd89a.woff",
+    "static/media/ABCGintoNord-ThinIta-Trial.woff": "/static/media/ABCGintoNord-ThinIta-Trial.7c7b5dffcc71835926ab.woff",
     "static/media/splash_bg_clouds.svg": "/static/media/splash_bg_clouds.cee8c404dad14e615fd4d252741afd11.svg",
+    "static/media/splash_sparkles.svg": "/static/media/splash_sparkles.a3f3696d42e79a64b2fc679b6fef9bc4.svg",
+    "static/media/github-mark.svg": "/static/media/github-mark.8dca46b8ed0e309974eaddc131e5449b.svg",
+    "static/media/Type=Text.svg": "/static/media/Type=Text.90a408bf0c24a202fa655621c82e168e.svg",
+    "static/media/Pencil.svg": "/static/media/Pencil.62bc8211d8495a48a936927b4036987c.svg",
+    "static/media/settings.svg": "/static/media/settings.5cf6f1d9684c0919d69b3dbbda4a36d4.svg",
+    "static/media/Plus.svg": "/static/media/Plus.66af94d646df7a704aee9340a46ecb19.svg",
     "index.html": "/index.html",
-    "main.fe66aec5.css.map": "/static/css/main.fe66aec5.css.map",
-    "main.a82eb230.js.map": "/static/js/main.a82eb230.js.map"
+    "static/media/button.svg": "/static/media/button.93e05b30f0ccba56ed495bba5c768a07.svg",
+    "static/media/guildLeaveServer.svg": "/static/media/guildLeaveServer.16a5d8d2c77632d2f6e7b531eff7a4ba.svg",
+    "static/media/guildCreateChannel.svg": "/static/media/guildCreateChannel.39534e8679db753ed56d9d5300b23f86.svg",
+    "main.9f343919.css.map": "/static/css/main.9f343919.css.map",
+    "main.67c23d21.js.map": "/static/js/main.67c23d21.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe66aec5.css",
-    "static/js/main.a82eb230.js"
+    "static/css/main.9f343919.css",
+    "static/js/main.67c23d21.js"
   ]
 }

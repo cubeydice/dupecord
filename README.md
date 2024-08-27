@@ -9,6 +9,7 @@
 - [Technologies Used](#technologies-used)
 - [Key Features](#key-features)
 - [Code Snippets](#code-snippets)
+- [Future Plans](#future-plans)
 - [Development](#development)
 
 ## About
@@ -120,7 +121,7 @@ const handleChange = (e) => {
 }
 ```
 
-## Future Plans
+# Future Plans
 * Update and delete features for messages
 * Implementing AWS for user profile pictures
 * WebSocket via Action Cable integration of server, channel, and user statuses to show which servers/channels have new messages and which users are online
@@ -154,7 +155,7 @@ const handleChange = (e) => {
 ### Frontend Setup (React)
 1. Navigate to the `frontend` directory:
     ```bash
-    cd ../frontend
+    cd frontend
     ```
 
 2. Install the required packages:

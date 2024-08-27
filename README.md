@@ -8,6 +8,7 @@
 - [Technologies Used](#technologies-used)
 - [Key Features](#key-features)
 - [Code Snippets](#code-snippets)
+- [Development](#development)
 
 ## About
 dupecord is a clone of the popular communication platform, Discord. It provides a real-time chat application designed to replicate the functionality and user experience of Discord. Users can create servers/channels to discuss any topic they would like and chat with friends, just like they would on Discord.
@@ -118,3 +119,41 @@ const handleChange = (e) => {
 * A server invite system to allow users in servers to create invitation links
 * Search functionality
 * Utilizing the polymorphic nature of messages set up in the backend to create messages for direct messaging with friends
+
+# Development
+## Setup Instructions
+### Backend Setup (Rails API)
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/cubeydice/dupecord.git
+    ```
+
+2. Install the required gems:
+    ```bash
+    bundle install
+    ```
+3. Setup the database:
+    ```bash
+    rails db:create
+    rails db:migrate
+    rails db:seed
+    ```
+
+4. Start the Rails server:
+    ```bash
+    rails s
+    ```
+### Frontend Setup (React)
+1. Navigate to the `frontend` directory:
+    ```bash
+    cd ../frontend
+    ```
+
+2. Install the required packages:
+    ```bash
+    npm install
+    ```
+3. Start the React development server:
+    ```bash
+    npm start
+    ```

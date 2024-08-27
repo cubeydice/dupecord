@@ -1,8 +1,9 @@
+import DefaultAvatar from '../assets/Person.png'
 import './MessageItem.css'
 
 const MessageItem = ({message, users}) => {
-    const userAvatar = users[message.userId].avatarUrl
-    const userName = users[message.userId].username
+    const userAvatar = users[message.userId].avatarUrl ? users[message.userId].avatarUrl : DefaultAvatar;
+    const userName = users[message.userId].username;
     const timeCreated = new Date(message.createdAt).toLocaleString();
 
     return (
